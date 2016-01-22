@@ -1,0 +1,10 @@
+.vs
+**/bin
+**/bin/
+**/Debug
+**/Debug/
+**/Release
+**/Release/
+packages/
+**/packages
+**/packages/
