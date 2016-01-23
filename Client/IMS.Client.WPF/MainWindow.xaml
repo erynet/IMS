@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920" Left="0" Top="0">
     <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="100"/>
         <Rectangle Fill="#FFF4F4F5" Height="60" Stroke="Black" VerticalAlignment="Top"/>
         <Label x:Name="label" Content="ETI IMS" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="60"/>
     </Grid>
