@@ -71,14 +71,14 @@ namespace IMS.Server.Host
             {
                 try
                 {
-                    ISubComponent _subComponent = 
+                    ISubComponent subComponent = 
                         new DynamicInvoker(Assembly.LoadFrom(candidate.fullpath).GetType(candidate.ns + ".Entry")).
                             CreateInstance() as ISubComponent;
-                    if (_subComponent == null)
+                    if (subComponent == null)
                         return false;
-                    _subComponent.ConnectBus(_busHub);
-                    _subComponent.Log += SubComponentLogEvtConsumer;
-                    _subComponentList.Add(_subComponent);
+                    subComponent.ConnectBus(_busHub);
+                    subComponent.Log += SubComponentLogEvtConsumer;
+                    _subComponentList.Add(subComponent);
                     L($@"Subcomponent loaded `{candidate.filename}`", LogEvt.MessageType.Info);
                 }
                 catch (Exception e)

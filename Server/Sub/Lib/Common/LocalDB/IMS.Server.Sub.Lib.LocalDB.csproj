@@ -50,11 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LocalDB.cs" />
+    <Compile Include="Model\EventLog.cs" />
+    <Compile Include="Model\GeneralLog.cs" />
+    <Compile Include="Model\RawValues.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Settings.cs" />
+    <Compile Include="Model\__TargetList.cs" />
+    <Compile Include="Model\__TargetStatus.cs" />
+    <Compile Include="Model\__Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
