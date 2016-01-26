@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IMS.Client.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" Left="0" Top="0">
+        Title="MainWindow" Height="1080" Width="1920" Left="0" Top="0" WindowStyle="None" AllowsTransparency="True">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="80"/>
         <Rectangle Fill="#FFF4F4F5" Height="60" Stroke="Black" VerticalAlignment="Top"/>
