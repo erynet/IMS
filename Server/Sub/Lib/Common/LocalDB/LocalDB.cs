@@ -16,26 +16,15 @@ namespace IMS.Server.Sub.Lib.LocalDB
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Configurations.Add(new LaunchEntryConfiguration());
-            //modelBuilder.Configurations.Add(new SessionEntityConfiguration());
-            //modelBuilder.Configurations.Add(new ImageConfiguration());
-            //modelBuilder.Configurations.Add(new ImageSliceConfiguration());
-            //modelBuilder.Configurations.Add(new ReferenceConfiguration());
-            //modelBuilder.Configurations.Add(new MessageConfiguration());
-            //modelBuilder.Configurations.Add(new DefectConfiguration());
-            //modelBuilder.Configurations.Add(new LogConfiguration());
-            //modelBuilder.Configurations.Add(new ClientInfoDictionaryConfiguration());
-
+            modelBuilder.Configurations.Add(new SettingConfiguration());
+            modelBuilder.Configurations.Add(new SessionConfiguration());
+            modelBuilder.Configurations.Add(new EventLogConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
-        //public DbSet<LaunchEntry> LaunchEntry { get; set; }
-        //public DbSet<Session> Session { get; set; }
-        //public DbSet<MediaTypeNames.Image> Image { get; set; }
-        //public DbSet<ImageSlice> ImageSlice { get; set; }
-        //public DbSet<Reference> Reference { get; set; }
-        //public DbSet<Message> Message { get; set; }
-        //public DbSet<Defect> Defect { get; set; }
-        //public DbSet<Log> Log { get; set; }
-        //public DbSet<ClientInfoDictionary> ClientInfoDictionary { get; set; }
+        public DbSet<Setting> Setting { get; set; }
+        public DbSet<Session> Session { get; set; }
+        public DbSet<EventLog> EventLog { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }
