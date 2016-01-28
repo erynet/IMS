@@ -15,27 +15,12 @@ using System.Windows.Shapes;
 
 namespace IMS.Client.WPF {
     /// <summary>
-    /// Interaction logic for ListPage.xaml
+    /// Interaction logic for AddEquipmentPage.xaml
     /// </summary>
-    public partial class ListPage : Page {
-        public ListPage()
+    public partial class AddEquipmentPage : Page {
+        public AddEquipmentPage()
         {
             InitializeComponent();
-        }
-
-        private void button_ups_setting_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_add_instrument_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_panel_setting_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

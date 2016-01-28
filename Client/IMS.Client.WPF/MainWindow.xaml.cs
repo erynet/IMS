@@ -18,7 +18,7 @@ namespace IMS.Client.WPF {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        ListPage list = new ListPage();
+        EquipPage equip = new EquipPage();
         AlarmPage alarm = new AlarmPage();
         DataPage data = new DataPage();
         MapPage map = new MapPage();
@@ -30,9 +30,9 @@ namespace IMS.Client.WPF {
         }
 
         // Main menu
-        private void button_list_Click(object sender, RoutedEventArgs e)
+        private void button_equip_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(list);
+            MainFrame.Navigate(equip);
         }
 
         private void button_alarm_Click(object sender, RoutedEventArgs e)

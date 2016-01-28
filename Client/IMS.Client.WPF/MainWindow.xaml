@@ -10,11 +10,11 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="80"/>
         <Rectangle Fill="#FFF4F4F5" Height="60" Stroke="Black" VerticalAlignment="Top"/>
         <Label x:Name="label" Content="ETI IMS" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Height="60" FontSize="26.667"/>
-        <Button x:Name="button_list" Content="List" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_list_Click"/>
-        <Button x:Name="button_alarm" Content="Alarm" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_alarm_Click"/>
-        <Button x:Name="button_data" Content="Data" HorizontalAlignment="Left" Margin="0,220,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_data_Click"/>
-        <Button x:Name="button_map" Content="Map" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_map_Click"/>
-        <Button x:Name="button_setting" Content="Setting" HorizontalAlignment="Left" Margin="0,380,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_setting_Click"/>
+        <Button x:Name="button_list" Content="장비" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_equip_Click"/>
+        <Button x:Name="button_alarm" Content="알람" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_alarm_Click"/>
+        <Button x:Name="button_data" Content="데이터" HorizontalAlignment="Left" Margin="0,220,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_data_Click"/>
+        <Button x:Name="button_map" Content="지도" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_map_Click"/>
+        <Button x:Name="button_setting" Content="설정" HorizontalAlignment="Left" Margin="0,380,0,0" VerticalAlignment="Top" Width="80" Height="80" Click="button_setting_Click"/>
         <Frame x:Name="MainFrame" Content="" HorizontalAlignment="Left" Height="1020" Margin="80,60,0,0" VerticalAlignment="Top" Width="1840" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

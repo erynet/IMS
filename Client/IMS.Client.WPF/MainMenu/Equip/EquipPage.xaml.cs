@@ -15,29 +15,27 @@ using System.Windows.Shapes;
 
 namespace IMS.Client.WPF {
     /// <summary>
-    /// Interaction logic for SettingPage.xaml
+    /// Interaction logic for ListPage.xaml
     /// </summary>
-    public partial class SettingPage : Page {
-        private AddEquipmentPage addEquipment = new AddEquipmentPage();
-
-        public SettingPage()
+    public partial class EquipPage : Page {
+        public EquipPage()
         {
             InitializeComponent();
         }
 
-        private void button_error_popup_save_time_Click(object sender, RoutedEventArgs e)
+        private void button_ups_setting_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button_data_save_time_Click(object sender, RoutedEventArgs e)
+        private void button_add_instrument_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button_add_equipment_Click(object sender, RoutedEventArgs e)
+        private void button_panel_setting_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(addEquipment);
+
         }
     }
 }
