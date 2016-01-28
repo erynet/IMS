@@ -70,6 +70,12 @@
     <Compile Include="MainMenu\Setting\AddEquipmentPage.xaml.cs">
       <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Setting\DataSaveTimePage.xaml.cs">
+      <DependentUpon>DataSaveTimePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\Setting\ErrorPopupSavePage.xaml.cs">
+      <DependentUpon>ErrorPopupSavePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\Setting\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -94,6 +100,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu\Setting\AddEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Setting\DataSaveTimePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Setting\ErrorPopupSavePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
