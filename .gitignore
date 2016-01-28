@@ -9,3 +9,6 @@ packages/
 **/packages
 **/packages/
 __*.cs
+*.VC.opendb
+*.sdf
+*.opensdf
