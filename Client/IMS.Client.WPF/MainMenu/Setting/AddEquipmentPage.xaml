@@ -9,7 +9,7 @@
       Title="AddEquipmentPage">
 
     <Grid>
-        <Label x:Name="label" Content="장비추가" HorizontalAlignment="Left" Margin="60,32,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
+        <Label x:Name="label" Content="장비 추가" HorizontalAlignment="Left" Margin="60,32,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
         <Label x:Name="label_Copy" Content="1. 장비 이름" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
         <Label x:Name="label_Copy1" Content="2. IP ADDRESS" HorizontalAlignment="Left" Margin="60,179,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
         <Label x:Name="label_Copy2" Content="3. 설치일" HorizontalAlignment="Left" Margin="60,243,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>

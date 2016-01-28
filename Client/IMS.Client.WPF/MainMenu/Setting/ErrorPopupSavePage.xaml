@@ -9,6 +9,17 @@
       Title="ErrorPopupSavePage">
 
     <Grid>
-        
+        <Label x:Name="label" Content="고장 팝업 저장 시간 설정" HorizontalAlignment="Left" Margin="60,32,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
+        <Label x:Name="label_Copy" Content="시작 시간" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
+        <Label x:Name="label_Copy1" Content="종료 시간" HorizontalAlignment="Left" Margin="60,179,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
+        <TextBox x:Name="text_begin_hour" HorizontalAlignment="Left" Height="56" Margin="344,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="26.667"/>
+        <TextBox x:Name="text_device_name_Copy" HorizontalAlignment="Left" Height="56" Margin="692,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="26.667"/>
+        <TextBox x:Name="text_device_name_Copy1" HorizontalAlignment="Left" Height="56" Margin="344,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="26.667"/>
+        <TextBox x:Name="text_device_name_Copy2" HorizontalAlignment="Left" Height="56" Margin="692,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" FontSize="26.667"/>
+        <Button x:Name="button_save" Content="저장" HorizontalAlignment="Left" Margin="848,264,0,0" VerticalAlignment="Top" Width="132" Height="44"/>
+        <Label x:Name="label_Copy2" Content="시" HorizontalAlignment="Left" Margin="637,120,0,0" VerticalAlignment="Top" Height="64" Width="67" FontSize="26.667"/>
+        <Label x:Name="label_Copy3" Content="시" HorizontalAlignment="Left" Margin="637,184,0,0" VerticalAlignment="Top" Height="64" Width="67" FontSize="26.667"/>
+        <Label x:Name="label_Copy4" Content="분" HorizontalAlignment="Left" Margin="985,120,0,0" VerticalAlignment="Top" Height="64" Width="67" FontSize="26.667"/>
+        <Label x:Name="label_Copy5" Content="분" HorizontalAlignment="Left" Margin="985,184,0,0" VerticalAlignment="Top" Height="64" Width="67" FontSize="26.667"/>
     </Grid>
 </Page>

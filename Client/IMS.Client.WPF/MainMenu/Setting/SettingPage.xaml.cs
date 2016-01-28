@@ -18,6 +18,7 @@ namespace IMS.Client.WPF {
     /// Interaction logic for SettingPage.xaml
     /// </summary>
     public partial class SettingPage : Page {
+        private ErrorPopupSavePage errorSave = new ErrorPopupSavePage();
         private AddEquipmentPage addEquipment = new AddEquipmentPage();
 
         public SettingPage()
@@ -27,7 +28,7 @@ namespace IMS.Client.WPF {
 
         private void button_error_popup_save_time_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(errorSave);
         }
 
         private void button_data_save_time_Click(object sender, RoutedEventArgs e)
