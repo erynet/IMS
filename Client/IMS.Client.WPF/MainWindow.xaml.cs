@@ -18,9 +18,41 @@ namespace IMS.Client.WPF {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        ListPage list = new ListPage();
+        AlarmPage alarm = new AlarmPage();
+        DataPage data = new DataPage();
+        MapPage map = new MapPage();
+        SettingPage setting = new SettingPage();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        // Main menu
+        private void button_list_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(list);
+        }
+
+        private void button_alarm_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(alarm);
+        }
+
+        private void button_data_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(data);
+        }
+
+        private void button_map_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(map);
+        }
+
+        private void button_setting_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(setting);
         }
     }
 }
