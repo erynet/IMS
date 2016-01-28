@@ -15,30 +15,24 @@ using System.Windows.Shapes;
 
 namespace IMS.Client.WPF {
     /// <summary>
-    /// Interaction logic for DataPage.xaml
+    /// Interaction logic for AnalogViewPage.xaml
     /// </summary>
-    public partial class DataPage : Page {
-        private UPSViewPage upsView = new UPSViewPage();
-        private AnalogViewPage analogView = new AnalogViewPage();
+    public partial class AnalogViewPage : Page {
+        private DataPage parent;
 
-        public DataPage()
+        public AnalogViewPage()
         {
             InitializeComponent();
-
-            upsView.SetParent(this);
-            analogView.SetParent(this);
-
-            NavigateToUPS();
         }
 
-        public void NavigateToUPS()
+        public void SetParent(DataPage parent)
         {
-            MainFrame.Navigate(upsView);
+            this.parent = parent;
         }
 
-        public void NavigateToAnalog()
+        private void button_digital_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(analogView);
+            parent.NavigateToUPS();
         }
     }
 }

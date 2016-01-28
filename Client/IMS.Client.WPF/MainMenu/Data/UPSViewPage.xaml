@@ -1,0 +1,23 @@
+﻿<Page x:Class="IMS.Client.WPF.UPSViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS.Client.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1840"
+      Title="UPSViewPage">
+
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1780"/>
+        <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="60" Width="1780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40"/>
+        <Button x:Name="button_analog" Content="아날로그" HorizontalAlignment="Left" Margin="1679,20,0,0" VerticalAlignment="Top" Width="106" Height="40" FontSize="20" Click="button_analog_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="289" Margin="30,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="1390"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="289" Margin="1450,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="30,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="740,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="30,712,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="740,712,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="584" Margin="1450,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+    </Grid>
+</Page>

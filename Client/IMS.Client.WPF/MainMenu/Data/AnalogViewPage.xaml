@@ -1,0 +1,17 @@
+﻿<Page x:Class="IMS.Client.WPF.AnalogViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS.Client.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1840"
+      Title="AnalogViewPage">
+
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1780"/>
+        <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="60" Width="1780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40"/>
+        <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="1679,20,0,0" VerticalAlignment="Top" Width="106" Height="40" FontSize="20" Click="button_digital_Click"/>
+
+    </Grid>
+</Page>
