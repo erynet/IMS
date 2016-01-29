@@ -19,12 +19,14 @@ namespace IMS.Server.Sub.Lib.LocalDB
             modelBuilder.Configurations.Add(new SettingConfiguration());
             modelBuilder.Configurations.Add(new SessionConfiguration());
             modelBuilder.Configurations.Add(new EventLogConfiguration());
+            modelBuilder.Configurations.Add(new GeneralLogConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
         public DbSet<Setting> Setting { get; set; }
         public DbSet<Session> Session { get; set; }
         public DbSet<EventLog> EventLog { get; set; }
+        public DbSet<GeneralLog> GeneralLog { get; set; }
         public DbSet<User> User { get; set; }
     }
 }

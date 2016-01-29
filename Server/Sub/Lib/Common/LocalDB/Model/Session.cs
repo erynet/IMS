@@ -8,8 +8,9 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
     public class Session
     {
         public int Idx { get; set; }
-        public string Guid { get; set; }
+        public string Token { get; set; }
         public string MacAddress { get; set; }
+        public int UserIdx { get; set; }
         public int EventIdx { get; set; }
         public int WarningIdx { get; set; }
         public bool IsAdmin { get; set; }
@@ -22,16 +23,17 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
 
         }
 
-        public string Enter(string macAddress, bool isAdmin)
+        public string Enter(string token, string macAddress, int userIdx, bool isAdmin)
         {
-            Guid = System.Guid.NewGuid().ToString();
+            Token = token;
             MacAddress = macAddress;
+            UserIdx = userIdx;
             EventIdx = 0;
             WarningIdx = 0;
             IsAdmin = isAdmin;
             IsClosed = false;
             SignIn = DateTime.Now;
-            return Guid;
+            return Token;
         }
 
         public void Exit()
@@ -54,32 +56,41 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(e => e.Guid)
+            Property(e => e.Token)
                 .IsRequired()
-                .HasColumnAnnotation("Idx_Guid", new IndexAnnotation(new IndexAttribute()))
+                .HasMaxLength(512)
+                .IsUnicode(true)
+                .HasColumnAnnotation("Idx_Token", new IndexAnnotation(new IndexAttribute()))
                 .HasColumnOrder(1);
             Property(e => e.MacAddress)
                 .IsRequired()
+                .HasMaxLength(256)
+                .IsUnicode(true)
                 .HasColumnOrder(2);
-            Property(e => e.EventIdx)
+            Property(e => e.UserIdx)
                 .IsRequired()
                 .HasColumnOrder(3);
-            Property(e => e.WarningIdx)
+            Property(e => e.EventIdx)
                 .IsRequired()
                 .HasColumnOrder(4);
-            Property(e => e.IsAdmin)
+            Property(e => e.WarningIdx)
                 .IsRequired()
                 .HasColumnOrder(5);
+            Property(e => e.IsAdmin)
+                .IsRequired()
+                .HasColumnOrder(6);
             Property(e => e.IsClosed)
                 .IsRequired()
                 .IsConcurrencyToken()
-                .HasColumnOrder(6);
+                .HasColumnOrder(7);
             Property(e => e.SignIn)
                 .IsRequired()
-                .HasColumnOrder(7);
+                .HasColumnType("datetime2")
+                .HasColumnOrder(8);
             Property(e => e.SignOut)
                 .IsOptional()
-                .HasColumnOrder(7);
+                .HasColumnType("datetime2")
+                .HasColumnOrder(9);
         }
     }
 }

@@ -9,12 +9,13 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public int Idx { get; set; }
         public string Description { get; set; }
         public int Code { get; set; }
+        public string Data { get; set; }
         public DateTime TimeStamp { get; set; }
 
-        public EventLog(string Description, int Code)
+        public EventLog(string description, int code)
         {
-            this.Description = Description;
-            this.Code = Code;
+            this.Description = description;
+            this.Code = code;
             this.TimeStamp = DateTime.Now;
         }
     }
@@ -30,14 +31,22 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(e => e.Description)
-                .IsRequired()
+                .IsOptional()
+                .HasMaxLength(4096)
+                .IsUnicode(true)
                 .HasColumnOrder(1);
             Property(e => e.Code)
                 .IsRequired()
                 .HasColumnOrder(2);
+            Property(e => e.Data)
+                .IsOptional()
+                .HasMaxLength(4096)
+                .IsUnicode(true)
+                .HasColumnOrder(3);
             Property(e => e.TimeStamp)
                 .IsRequired()
-                .HasColumnOrder(3);
+                .HasColumnType("datetime2")
+                .HasColumnOrder(4);
         }
     }
 }

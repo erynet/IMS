@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Security.Policy;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using IMS.Server.Sub.WCFHost.Abstract;
 
 namespace IMS.Server.Sub.WCFHost
 {
@@ -17,7 +18,7 @@ namespace IMS.Server.Sub.WCFHost
             /*
             try
             {
-                _serviceHost = new ServiceHost(typeof(IMS));
+                _serviceHost = new ServiceHost(typeof(IIMS));
 
                 _serviceHost.Opening += ReportServiceState;
                 _serviceHost.Opened += ReportServiceState;
@@ -26,6 +27,7 @@ namespace IMS.Server.Sub.WCFHost
                 _serviceHost.Faulted += ReportServiceState;
             }
             */
+            
             
         }
 

@@ -12,7 +12,7 @@ namespace IMS.Server.Sub.WCFHost
         public event EventHandler Log;
         private BusHub _busHub;
         private int _initialCheckIntervalMs;
-        private readonly Stopwatch _stw;
+        //private readonly Stopwatch _stw;
         private bool _loopContinue;
 
         public Entry()
@@ -40,24 +40,7 @@ namespace IMS.Server.Sub.WCFHost
             if (Log == null) return false;
 
             _initialCheckIntervalMs = initialCheckIntervalMs;
-            try
-            {
-                Thread t = new Thread(Run);
-                t.Start();
-            }
-            catch (ThreadStateException)
-            {
-                // 로그 넘기는 파트 만들어야 한다.
-                // 로그 객체 형태를 어떻게 공유할지 고민좀.
-            }
-            catch (OutOfMemoryException)
-            {
 
-            }
-            catch (Exception)
-            {
-
-            }
             return true;
         }
 

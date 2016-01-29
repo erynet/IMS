@@ -98,19 +98,26 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(s => s.Key)
                 .IsRequired()
+                .HasMaxLength(2048)
+                .IsUnicode(true)
                 .HasColumnAnnotation("Idx_Key", new IndexAnnotation(new IndexAttribute()))
                 .HasColumnOrder(1);
             Property(s => s.Value)
                 .IsOptional()
+                .IsUnicode(true)
+                .HasColumnType("text")
                 .HasColumnOrder(2);
             Property(s => s.Code)
                 .IsRequired()
                 .HasColumnOrder(3);
             Property(s => s.Type)
                 .IsOptional()
+                .HasMaxLength(32)
+                .IsUnicode(true)
                 .HasColumnOrder(4);
             Property(s => s.UpdatedAt)
                 .IsRequired()
+                .HasColumnType("datetime2")
                 .HasColumnOrder(5);
         }
     }

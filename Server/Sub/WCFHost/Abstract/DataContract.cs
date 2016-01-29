@@ -4,7 +4,20 @@ using System.Runtime.Serialization;
 namespace IMS.Server.Sub.WCFHost.Abstract
 {
     [DataContract]
-    public class Event
+    public class IMSEvent
+    {
+        [DataMember]
+        public int Idx { get; set; }
+        [DataMember]
+        public string Description { get; set; }
+        [DataMember]
+        public int Code { get; set; }
+        [DataMember]
+        public string Data { get; set; }
+    }
+
+    [DataContract]
+    public class IMSWarning
     {
         [DataMember]
         public int Idx { get; set; }
@@ -17,20 +30,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
     }
 
     [DataContract]
-    public class Warning
-    {
-        [DataMember]
-        public int Idx { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
-        public int Code { get; set; }
-        [DataMember]
-        public object Data { get; set; }
-    }
-
-    [DataContract]
-    public class Setting
+    public class IMSSetting
     {
         [DataMember]
         public string Key { get; set; }
@@ -41,7 +41,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
     }
 
     [DataContract]
-    public class DeviceStatus
+    public class IMSDeviceStatus
     {
         [DataMember]
         public int Idx { get; set; }

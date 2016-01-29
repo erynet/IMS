@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ServiceModel;
 
 namespace IMS.Server.Sub.WCFHost.Abstract
@@ -10,28 +11,28 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         string Athenticate(string id, string passwd, string macAddress);
 
         [OperationContract]
-        string Leave(string guid);
+        bool Leave();
 
         [OperationContract]
-        Event[] GetEvents(string guid);
+        List<IMSEvent> GetEvents();
 
         [OperationContract]
-        Warning[] GetWarnings(string guid);
+        List<IMSWarning> GetWarnings();
 
         [OperationContract]
-        DeviceStatus GetDeviceStatus(int deviceId);
+        IMSDeviceStatus GetDeviceStatus(int deviceId);
 
         [OperationContract]
-        DeviceStatus[] GetAllDeviceStatus();
+        List<IMSDeviceStatus> GetAllDeviceStatus();
 
         [OperationContract]
-        Setting GetSetting(string key);
+        IMSSetting GetSetting(string key);
 
         [OperationContract]
-        Setting[] GetAllSettings();
+        List<IMSSetting> GetAllSettings();
 
         [OperationContract]
-        bool SetSetting(string guid, Setting value);
+        bool SetSetting(IMSSetting value);
 
         /*
         [OperationContract(IsInitiating = true, IsTerminating = false)]
