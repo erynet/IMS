@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 
 namespace IMS.Client.WPF {
     /// <summary>
-    /// Interaction logic for AnalogViewPage.xaml
+    /// Interaction logic for LogViewPage.xaml
     /// </summary>
-    public partial class AnalogViewPage : Page {
+    public partial class LogViewPage : Page {
         private DataPage parent;
 
-        public AnalogViewPage()
+        public LogViewPage()
         {
             InitializeComponent();
         }
@@ -33,21 +33,6 @@ namespace IMS.Client.WPF {
         private void button_digital_Click(object sender, RoutedEventArgs e)
         {
             parent.NavigateToUPS();
-        }
-
-        private void button_see_log_Click(object sender, RoutedEventArgs e)
-        {
-            parent.NavigateToLog();
-        }
-
-        private void button_close_Click(object sender, RoutedEventArgs e)
-        {
-            parent.NavigateToUPS();
-        }
-
-        private void button_error_list_Click(object sender, RoutedEventArgs e)
-        {
-            parent.NavigateToErrorUPS();
         }
     }
 }

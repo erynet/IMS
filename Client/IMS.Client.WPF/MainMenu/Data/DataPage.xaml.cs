@@ -20,6 +20,8 @@ namespace IMS.Client.WPF {
     public partial class DataPage : Page {
         private UPSViewPage upsView = new UPSViewPage();
         private AnalogViewPage analogView = new AnalogViewPage();
+        private LogViewPage logView = new LogViewPage();
+        private ErrorUPSViewPage errorUPSView = new ErrorUPSViewPage();
 
         public DataPage()
         {
@@ -27,6 +29,8 @@ namespace IMS.Client.WPF {
 
             upsView.SetParent(this);
             analogView.SetParent(this);
+            logView.SetParent(this);
+            errorUPSView.SetParent(this);
 
             NavigateToUPS();
         }
@@ -39,6 +43,16 @@ namespace IMS.Client.WPF {
         public void NavigateToAnalog()
         {
             MainFrame.Navigate(analogView);
+        }
+
+        public void NavigateToLog()
+        {
+            MainFrame.Navigate(logView);
+        }
+
+        public void NavigateToErrorUPS()
+        {
+            MainFrame.Navigate(errorUPSView);
         }
     }
 }

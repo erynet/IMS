@@ -34,5 +34,15 @@ namespace IMS.Client.WPF {
         {
             parent.NavigateToAnalog();
         }
+
+        private void button_see_log_Click(object sender, RoutedEventArgs e)
+        {
+            parent.NavigateToLog();
+        }
+
+        private void button_error_list_Click(object sender, RoutedEventArgs e)
+        {
+            parent.NavigateToErrorUPS();
+        }
     }
 }

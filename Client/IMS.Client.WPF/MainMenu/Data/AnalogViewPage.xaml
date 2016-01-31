@@ -12,6 +12,17 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1780"/>
         <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="60" Width="1780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40"/>
         <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="1679,20,0,0" VerticalAlignment="Top" Width="106" Height="40" FontSize="20" Click="button_digital_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="481" Margin="30,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="881"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="481" Margin="944,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="866"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="271" Margin="30,666,0,0" Stroke="Black" VerticalAlignment="Top" Width="278"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="271" Margin="944,666,0,0" Stroke="Black" VerticalAlignment="Top" Width="866"/>
+        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="1615,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_close_Click"/>
+        <Button x:Name="button_see_log" Content="로그 보기" HorizontalAlignment="Left" Margin="1398,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_see_log_Click"/>
+        <Button x:Name="button_error_list" Content="고장 목록" HorizontalAlignment="Left" Margin="1183,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_error_list_Click"/>
+        <Label x:Name="label1" Content="입력" HorizontalAlignment="Left" Margin="59,81,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy" Content="입력" HorizontalAlignment="Left" Margin="977,81,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy1" Content="배터리" HorizontalAlignment="Left" Margin="59,638,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy2" Content="출력" HorizontalAlignment="Left" Margin="977,638,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
 
     </Grid>
 </Page>

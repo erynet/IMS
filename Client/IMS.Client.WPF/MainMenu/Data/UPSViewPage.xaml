@@ -14,10 +14,18 @@
         <Button x:Name="button_analog" Content="아날로그" HorizontalAlignment="Left" Margin="1679,20,0,0" VerticalAlignment="Top" Width="106" Height="40" FontSize="20" Click="button_analog_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="289" Margin="30,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="1390"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="289" Margin="1450,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="30,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="740,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="30,712,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="278" Margin="740,712,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="584" Margin="1450,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="236" Margin="30,422,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="236" Margin="740,422,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="236" Margin="30,698,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="236" Margin="740,698,0,0" Stroke="Black" VerticalAlignment="Top" Width="680"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="512" Margin="1450,422,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="label1_Copy" Content="온도" HorizontalAlignment="Left" Margin="59,397,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy1" Content="출력" HorizontalAlignment="Left" Margin="757,397,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy2" Content="바이패스 아웃풋" HorizontalAlignment="Left" Margin="59,669,0,0" VerticalAlignment="Top" Height="70" Width="323" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy3" Content="메인 입력" HorizontalAlignment="Left" Margin="757,669,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Label x:Name="label1_Copy4" Content="배터리" HorizontalAlignment="Left" Margin="1471,397,0,0" VerticalAlignment="Top" Height="70" Width="197" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E" FontSize="40"/>
+        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="1615,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20"/>
+        <Button x:Name="button_see_log" Content="로그 보기" HorizontalAlignment="Left" Margin="1398,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_see_log_Click"/>
+        <Button x:Name="button_error_list" Content="고장 목록" HorizontalAlignment="Left" Margin="1183,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_error_list_Click"/>
     </Grid>
 </Page>
