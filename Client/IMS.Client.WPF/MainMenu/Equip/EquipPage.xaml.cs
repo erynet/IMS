@@ -18,6 +18,8 @@ namespace IMS.Client.WPF {
     /// Interaction logic for ListPage.xaml
     /// </summary>
     public partial class EquipPage : Page {
+        private UPSManagePage upsManage = new UPSManagePage();
+
         public EquipPage()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace IMS.Client.WPF {
 
         private void button_ups_setting_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(upsManage);
         }
 
         private void button_add_instrument_Click(object sender, RoutedEventArgs e)

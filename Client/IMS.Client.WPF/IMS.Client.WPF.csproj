@@ -76,6 +76,9 @@
     <Compile Include="MainMenu\Equip\EquipPage.xaml.cs">
       <DependentUpon>EquipPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Equip\UPSManagePage.xaml.cs">
+      <DependentUpon>UPSManagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\Equip\UPSPage.xaml.cs">
       <DependentUpon>UPSPage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu\Equip\EquipPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Equip\UPSManagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
