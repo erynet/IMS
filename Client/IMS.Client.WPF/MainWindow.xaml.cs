@@ -27,6 +27,9 @@ namespace IMS.Client.WPF {
         public MainWindow()
         {
             InitializeComponent();
+
+            var popup = new UPSInfoPopup();
+            popup.Show();
         }
 
         // Main menu

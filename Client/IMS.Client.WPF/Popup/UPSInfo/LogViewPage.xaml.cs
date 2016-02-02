@@ -18,21 +18,26 @@ namespace IMS.Client.WPF {
     /// Interaction logic for LogViewPage.xaml
     /// </summary>
     public partial class LogViewPage : Page {
-        private DataPage parent;
+        private UPSInfoPopup parent;
 
         public LogViewPage()
         {
             InitializeComponent();
         }
 
-        public void SetParent(DataPage parent)
+        public void SetParent(UPSInfoPopup parent)
         {
             this.parent = parent;
         }
 
-        private void button_digital_Click(object sender, RoutedEventArgs e)
+        private void button_close_Click(object sender, RoutedEventArgs e)
         {
-            parent.NavigateToUPS();
+            parent.Close();
+        }
+
+        private void button_excel_export_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

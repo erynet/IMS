@@ -18,41 +18,9 @@ namespace IMS.Client.WPF {
     /// Interaction logic for DataPage.xaml
     /// </summary>
     public partial class DataPage : Page {
-        private UPSViewPage upsView = new UPSViewPage();
-        private AnalogViewPage analogView = new AnalogViewPage();
-        private LogViewPage logView = new LogViewPage();
-        private ErrorUPSViewPage errorUPSView = new ErrorUPSViewPage();
-
         public DataPage()
         {
             InitializeComponent();
-
-            upsView.SetParent(this);
-            analogView.SetParent(this);
-            logView.SetParent(this);
-            errorUPSView.SetParent(this);
-
-            NavigateToUPS();
-        }
-
-        public void NavigateToUPS()
-        {
-            MainFrame.Navigate(upsView);
-        }
-
-        public void NavigateToAnalog()
-        {
-            MainFrame.Navigate(analogView);
-        }
-
-        public void NavigateToLog()
-        {
-            MainFrame.Navigate(logView);
-        }
-
-        public void NavigateToErrorUPS()
-        {
-            MainFrame.Navigate(errorUPSView);
         }
     }
 }

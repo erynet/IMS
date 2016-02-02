@@ -58,7 +58,7 @@
     <Compile Include="MainMenu\Alarm\AlarmPage.xaml.cs">
       <DependentUpon>AlarmPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Data\AnalogViewPage.xaml.cs">
+    <Compile Include="Popup\UPSInfo\AnalogViewPage.xaml.cs">
       <DependentUpon>AnalogViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\Data\DataPage.xaml.cs">
@@ -67,10 +67,13 @@
     <Compile Include="MainMenu\Data\ErrorUPSViewPage.xaml.cs">
       <DependentUpon>ErrorUPSViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Data\LogViewPage.xaml.cs">
+    <Compile Include="Popup\UPSInfo\LogViewPage.xaml.cs">
       <DependentUpon>LogViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Data\UPSViewPage.xaml.cs">
+    <Compile Include="Popup\UPSInfo\UPSInfoPopup.xaml.cs">
+      <DependentUpon>UPSInfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\UPSInfo\UPSViewPage.xaml.cs">
       <DependentUpon>UPSViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\Equip\EquipPage.xaml.cs">
@@ -98,7 +101,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Data\AnalogViewPage.xaml">
+    <Page Include="Popup\UPSInfo\AnalogViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,11 +113,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Data\LogViewPage.xaml">
+    <Page Include="Popup\UPSInfo\LogViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Data\UPSViewPage.xaml">
+    <Page Include="Popup\UPSInfo\UPSInfoPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\UPSInfo\UPSViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

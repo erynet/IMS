@@ -18,14 +18,14 @@ namespace IMS.Client.WPF {
     /// Interaction logic for UPSViewPage.xaml
     /// </summary>
     public partial class UPSViewPage : Page {
-        private DataPage parent;
+        private UPSInfoPopup parent;
 
         public UPSViewPage()
         {
             InitializeComponent();
         }
 
-        public void SetParent(DataPage parent)
+        public void SetParent(UPSInfoPopup parent)
         {
             this.parent = parent;
         }
@@ -43,6 +43,11 @@ namespace IMS.Client.WPF {
         private void button_error_list_Click(object sender, RoutedEventArgs e)
         {
             parent.NavigateToErrorUPS();
+        }
+
+        private void button_close_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Close();
         }
     }
 }
