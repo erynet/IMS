@@ -17,10 +17,10 @@ namespace IMS.Client.WPF {
     /// <summary>
     /// Interaction logic for UPSViewPage.xaml
     /// </summary>
-    public partial class UPSViewPage : Page {
+    public partial class DigitalViewPage : Page {
         private UPSInfoPopup parent;
 
-        public UPSViewPage()
+        public DigitalViewPage()
         {
             InitializeComponent();
         }

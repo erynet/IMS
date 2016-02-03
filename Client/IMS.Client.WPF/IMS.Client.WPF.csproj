@@ -76,8 +76,8 @@
     <Compile Include="Popup\UPSInfo\UPSInfoPopup.xaml.cs">
       <DependentUpon>UPSInfoPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Popup\UPSInfo\UPSViewPage.xaml.cs">
-      <DependentUpon>UPSViewPage.xaml</DependentUpon>
+    <Compile Include="Popup\UPSInfo\DigitalViewPage.xaml.cs">
+      <DependentUpon>DigitalViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\Equip\EquipPage.xaml.cs">
       <DependentUpon>EquipPage.xaml</DependentUpon>
@@ -125,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Popup\UPSInfo\UPSViewPage.xaml">
+    <Page Include="Popup\UPSInfo\DigitalViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

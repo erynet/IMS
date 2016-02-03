@@ -17,7 +17,7 @@ namespace IMS.Client.WPF {
     /// Interaction logic for UPSInfoPopup.xaml
     /// </summary>
     public partial class UPSInfoPopup : Window {
-        private UPSViewPage upsView = new UPSViewPage();
+        private DigitalViewPage digitalView = new DigitalViewPage();
         private AnalogViewPage analogView = new AnalogViewPage();
         private LogViewPage logView = new LogViewPage();
         private ErrorUPSViewPage errorUPSView = new ErrorUPSViewPage();
@@ -26,7 +26,7 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
-            upsView.SetParent(this);
+            digitalView.SetParent(this);
             analogView.SetParent(this);
             logView.SetParent(this);
             errorUPSView.SetParent(this);
@@ -36,7 +36,7 @@ namespace IMS.Client.WPF {
 
         public void NavigateToUPS()
         {
-            MainFrame.Navigate(upsView);
+            MainFrame.Navigate(digitalView);
         }
 
         public void NavigateToAnalog()
