@@ -30,6 +30,8 @@ namespace IMS.Client.WPF {
 
             var popup = new UPSInfoPopup();
             popup.Show();
+
+            MainFrame.Navigate(map);
         }
 
         // Main menu
