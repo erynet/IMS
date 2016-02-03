@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IMS.Client.WPF"
       mc:Ignorable="d" 
-    d:DesignHeight="1020" d:DesignWidth="1680"
+      d:DesignHeight="1020" d:DesignWidth="1680"
       Title="UPSManagePage">
 
     <Grid>

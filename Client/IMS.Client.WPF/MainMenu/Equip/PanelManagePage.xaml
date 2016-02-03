@@ -1,0 +1,24 @@
+﻿<Page x:Class="IMS.Client.WPF.PanelManagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS.Client.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1680"
+      Title="PanelManagePage">
+
+    <Grid>
+        <DataGrid x:Name="PanelList" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="사용" Binding="{Binding isUsing}"/>
+                <DataGridTextColumn Header="이름" Binding="{Binding panelName}"/>
+                <DataGridTextColumn Header="연결 UPS" Binding="{Binding upsList}"/>
+                <DataGridTextColumn Header="접점 개수" Binding="{Binding dotCount}"/>
+                <DataGridTextColumn Header="IP" Binding="{Binding ip}"/>
+                <DataGridTextColumn Header="설치일" Binding="{Binding installDate}"/>
+                <DataGridTextColumn Header="접점 이름" Binding="{Binding dotName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

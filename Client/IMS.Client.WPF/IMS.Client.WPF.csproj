@@ -58,6 +58,9 @@
     <Compile Include="MainMenu\Alarm\AlarmPage.xaml.cs">
       <DependentUpon>AlarmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Equip\PanelManagePage.xaml.cs">
+      <DependentUpon>PanelManagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Popup\UPSInfo\AnalogViewPage.xaml.cs">
       <DependentUpon>AnalogViewPage.xaml</DependentUpon>
     </Compile>
@@ -82,9 +85,6 @@
     <Compile Include="MainMenu\Equip\UPSManagePage.xaml.cs">
       <DependentUpon>UPSManagePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Equip\UPSPage.xaml.cs">
-      <DependentUpon>UPSPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainMenu\Setting\AddEquipmentPage.xaml.cs">
       <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +98,10 @@
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainMenu\Alarm\AlarmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Equip\PanelManagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,10 +134,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu\Equip\UPSManagePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainMenu\Equip\UPSPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

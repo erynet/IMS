@@ -19,6 +19,7 @@ namespace IMS.Client.WPF {
     /// </summary>
     public partial class EquipPage : Page {
         private UPSManagePage upsManage = new UPSManagePage();
+        private PanelManagePage panelManage = new PanelManagePage();
 
         public EquipPage()
         {
@@ -37,7 +38,7 @@ namespace IMS.Client.WPF {
 
         private void button_panel_setting_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(panelManage);
         }
     }
 }
