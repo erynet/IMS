@@ -5,21 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IMS.Client.WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="1020" d:DesignWidth="1840"
+      d:DesignHeight="760" d:DesignWidth="800"
       Title="LogViewPage">
 
     <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1780"/>
-        <Label x:Name="label" Content="로그" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="60" Width="1780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="30,131,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="810" Margin="1284,131,0,0" Stroke="Black" VerticalAlignment="Top" Width="526"/>
-        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="1615,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_close_Click"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="664,131,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="30,423,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="664,423,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="30,719,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="269" Margin="664,719,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
-        <Button x:Name="button_excel_export" Content="엑셀 출력" HorizontalAlignment="Left" Margin="1284,946,0,0" VerticalAlignment="Top" Width="195" Height="64" FontSize="20" Click="button_excel_export_Click"/>
-        <Label x:Name="label1" Content="온도" HorizontalAlignment="Left" Margin="1498,79,0,0" VerticalAlignment="Top" Height="41" Width="124" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="12,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>
+        <Label x:Name="label" Content="로그" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="44" Width="772" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"/>
+        <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="699,15,0,0" VerticalAlignment="Top" Width="75" Height="29" FontSize="20" Click="button_digital_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="12,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="596" Margin="556,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="228"/>
+        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="699,699,0,0" VerticalAlignment="Top" Width="85" Height="47" FontSize="20" Click="button_close_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="287,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="12,314,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="287,314,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="199" Margin="12,531,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="199" Margin="287,531,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
+        <Button x:Name="button_excel_export" Content="엑셀 출력" HorizontalAlignment="Left" Margin="556,699,0,0" VerticalAlignment="Top" Width="85" Height="47" FontSize="20" Click="button_excel_export_Click"/>
+        <Label x:Name="label1" Content="온도" HorizontalAlignment="Left" Margin="648,61,0,0" VerticalAlignment="Top" Height="30" Width="55" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Page>

@@ -39,5 +39,10 @@ namespace IMS.Client.WPF {
         {
 
         }
+
+        private void button_digital_Click(object sender, RoutedEventArgs e)
+        {
+            parent.NavigateToUPS();
+        }
     }
 }
