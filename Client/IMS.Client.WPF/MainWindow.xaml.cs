@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -31,7 +20,19 @@ namespace IMS.Client.WPF {
             var popup = new UPSInfoPopup();
             popup.Show();
 
+            Update(null, null);
+
+            var timer = new DispatcherTimer();
+            timer.Tick += Update;
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+
             MainFrame.Navigate(map);
+        }
+
+        private void Update(object sender, EventArgs e)
+        {
+            Title = "ETI IMS - version 0.1 - " + String.Format(@"{0:yyyy년 MM월 dd일 - HH시 mm분 ss초}", DateTime.Now);
         }
 
         // Main menu
