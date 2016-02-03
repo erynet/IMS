@@ -80,5 +80,10 @@ namespace IMS.Client.WPF {
         {
             MainFrame.Navigate(setting);
         }
+
+        private void button_help_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
