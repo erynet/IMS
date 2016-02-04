@@ -58,6 +58,9 @@
     <Compile Include="MainMenu\Alarm\AlarmPage.xaml.cs">
       <DependentUpon>AlarmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Equip\DotManage.xaml.cs">
+      <DependentUpon>DotManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\Equip\PanelManagePage.xaml.cs">
       <DependentUpon>PanelManagePage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainMenu\Alarm\AlarmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Equip\DotManage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
