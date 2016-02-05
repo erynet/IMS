@@ -55,6 +55,17 @@ namespace IMS.Client.WPF {
             return popup;
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            var result = MessageBox.Show("정말 종료하시겠습니까?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No) {
+                e.Cancel = true;
+            }
+            else {
+                base.OnClosing(e);
+            }
+        }
+
         // Main menu
         private void button_equip_Click(object sender, RoutedEventArgs e)
         {
