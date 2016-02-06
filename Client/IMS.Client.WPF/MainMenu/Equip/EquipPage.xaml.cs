@@ -21,6 +21,7 @@ namespace IMS.Client.WPF {
         private UPSManagePage upsManage = new UPSManagePage();
         private PanelManagePage panelManage = new PanelManagePage();
         private DotManage dotManage = new DotManage();
+        private AddEquipmentPage addEquipment = new AddEquipmentPage();
 
         public EquipPage()
         {
@@ -40,6 +41,11 @@ namespace IMS.Client.WPF {
         private void button_dot_setting_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(dotManage);
+        }
+
+        private void button_add_equipment_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(addEquipment);
         }
     }
 }

@@ -91,7 +91,7 @@
     <Compile Include="MainMenu\Equip\UPSManagePage.xaml.cs">
       <DependentUpon>UPSManagePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Setting\AddEquipmentPage.xaml.cs">
+    <Compile Include="MainMenu\Equip\AddEquipmentPage.xaml.cs">
       <DependentUpon>AddEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\Setting\DataSaveTimePage.xaml.cs">
@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Setting\AddEquipmentPage.xaml">
+    <Page Include="MainMenu\Equip\AddEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
