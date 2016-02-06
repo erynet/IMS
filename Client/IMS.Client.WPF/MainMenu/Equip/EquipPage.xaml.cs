@@ -26,6 +26,8 @@ namespace IMS.Client.WPF {
         public EquipPage()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(upsManage);
         }
 
         private void button_ups_setting_Click(object sender, RoutedEventArgs e)
