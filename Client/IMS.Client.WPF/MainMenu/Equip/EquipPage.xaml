@@ -9,11 +9,11 @@
       Title="ListPage">
 
     <Grid>
-        <Rectangle x:Name="SubMenu" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="160"/>
-        <Button x:Name="button_ups_setting" Content="UPS 관리" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="80" Click="button_ups_setting_Click"/>
-        <Button x:Name="button_panel_setting" Content="분전반 관리" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="160" Height="80" Click="button_panel_setting_Click"/>
-        <Button x:Name="button_dot_setting" Content="접점 관리" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="160" Height="80" Click="button_dot_setting_Click"/>
-        <Button x:Name="button_add_equipment" Content="장비 추가" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Width="160" Height="80" Click="button_add_equipment_Click"/>
-        <Frame x:Name="MainFrame" Content="" Margin="160,0,0,0"/>
+        <Rectangle x:Name="SubMenu" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="120"/>
+        <Button x:Name="button_ups_setting" Content="UPS 관리" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="80" Click="button_ups_setting_Click"/>
+        <Button x:Name="button_panel_setting" Content="분전반 관리" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="button_panel_setting_Click"/>
+        <Button x:Name="button_dot_setting" Content="접점 관리" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="button_dot_setting_Click"/>
+        <Button x:Name="button_add_equipment" Content="장비 추가" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="button_add_equipment_Click"/>
+        <Frame x:Name="MainFrame" Content="" Margin="120,0,0,0"/>
     </Grid>
 </Page>

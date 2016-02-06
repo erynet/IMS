@@ -9,9 +9,9 @@
       Title="SettingPage">
 
     <Grid>
-        <Rectangle x:Name="SubMenu" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="160"/>
-        <Button x:Name="button_error_popup_save_time" Content="고장 팝업 저장 시간" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="80" Click="button_error_popup_save_time_Click"/>
-        <Button x:Name="button_data_save_time" Content="데이터 저장 시간 설정" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="160" Height="80" Click="button_data_save_time_Click"/>
-        <Frame x:Name="MainFrame" Content="" Margin="160,0,0,0"/>
+        <Rectangle x:Name="SubMenu" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="120"/>
+        <Button x:Name="button_error_popup_save_time" Content="고장 팝업 저장 시간" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="80" Click="button_error_popup_save_time_Click"/>
+        <Button x:Name="button_data_save_time" Content="데이터 저장 시간 설정" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="button_data_save_time_Click"/>
+        <Frame x:Name="MainFrame" Content="" Margin="120,0,0,0"/>
     </Grid>
 </Page>
