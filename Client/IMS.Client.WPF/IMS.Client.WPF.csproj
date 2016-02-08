@@ -64,6 +64,9 @@
     <Compile Include="MainMenu\Equip\PanelManagePage.xaml.cs">
       <DependentUpon>PanelManagePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Special\SpecialEventPage.xaml.cs">
+      <DependentUpon>SpecialEventPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Popup\Error\ErrorPopup.xaml.cs">
       <DependentUpon>ErrorPopup.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu\Equip\PanelManagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu\Special\SpecialEventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,7 +14,7 @@
                 <ImageBrush ImageSource="Resource\icons\map_icon_1.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_alarm" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="button_alarm_Click">
+        <Button x:Name="button_alarm" HorizontalAlignment="Left" Margin="0,128,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="button_alarm_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Resource\icons\alarm_icon_1.png"/>
             </Button.Background>
@@ -24,21 +24,26 @@
                 <ImageBrush ImageSource="Resource\icons\data_icon_1.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_list" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" Click="button_equip_Click" Margin="0,128,0,0">
+        <Button x:Name="button_list" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" Click="button_equip_Click" Margin="0,64,0,0">
             <Button.Background>
                 <ImageBrush ImageSource="Resource\icons\equipment_icon_1.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_setting" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="button_setting_Click" RenderTransformOrigin="7.578,1.25">
+        <Button x:Name="button_setting" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="button_setting_Click" RenderTransformOrigin="7.578,1.25">
             <Button.Background>
                 <ImageBrush ImageSource="Resource\icons\setting_icon_1.gif"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_help" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="32" Height="32" RenderTransformOrigin="7.578,1.25" Click="button_help_Click">
+        <Button x:Name="button_help" HorizontalAlignment="Left" Margin="0,224,0,0" VerticalAlignment="Top" Width="32" Height="32" RenderTransformOrigin="7.578,1.25" Click="button_help_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Resource\icons\help_icon_1.png"/>
             </Button.Background>
         </Button>
         <Frame x:Name="MainFrame" HorizontalAlignment="Left" Height="1080" Margin="32,0,0,0" VerticalAlignment="Top" Width="1882" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="button_special_event" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="button_special_event_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resource/icons/special_event_icon_1.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
