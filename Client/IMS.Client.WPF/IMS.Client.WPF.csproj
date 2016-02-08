@@ -214,8 +214,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resource\" />
+    <Resource Include="Resource\airport_map_1.png" />
+    <Resource Include="Resource\icons\alarm_icon_1.png" />
+    <Resource Include="Resource\icons\data_icon_1.png" />
+    <Resource Include="Resource\icons\equipment_icon_1.png" />
+    <Resource Include="Resource\icons\eti_icon_1.png" />
+    <Resource Include="Resource\icons\help_icon_1.png" />
+    <Resource Include="Resource\icons\list_icon_1.png" />
+    <Resource Include="Resource\icons\map_icon_1.png" />
+    <Resource Include="Resource\icons\setting_icon_1.gif" />
+    <Resource Include="Resource\icons\special_event_icon_1.png" />
+    <Resource Include="Resource\icons\ups_icon_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

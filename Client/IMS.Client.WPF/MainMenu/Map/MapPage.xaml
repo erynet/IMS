@@ -9,6 +9,6 @@
       Title="MapPage">
 
     <Grid>
-        <Image x:Name="map" HorizontalAlignment="Left" Height="1020" VerticalAlignment="Top" Width="1840" Source="C:\Projects\IMS\Client\Resource\airport_map_1.png" Stretch="Fill"/>
+        <Image x:Name="map" HorizontalAlignment="Left" Height="1020" VerticalAlignment="Top" Width="1840" Source="..\..\Resource\airport_map_1.png" Stretch="Fill"/>
     </Grid>
 </Page>
