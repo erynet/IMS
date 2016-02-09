@@ -44,10 +44,10 @@ namespace IMS.Server.Sub.WCFHost
             _sessionLock = new object();
             _sessions = new Dictionary<string, Sessioninfo>();
 
-            using (var ctx = new LocalDB())
-            {
-                ctx.Database.Initialize(false);
-            }
+            //using (var ctx = new LocalDB())
+            //{
+            //    ctx.Database.Initialize(false);
+            //}
         }
 
         public string Athenticate(string id, string passwd, string macAddress)

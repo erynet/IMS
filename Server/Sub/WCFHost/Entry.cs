@@ -72,6 +72,9 @@ namespace IMS.Server.Sub.WCFHost
                 return false;
             }
 
+            Thread t = new Thread(Run);
+            t.Start();
+
             return true;
         }
 
