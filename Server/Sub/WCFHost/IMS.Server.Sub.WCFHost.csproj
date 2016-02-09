@@ -56,7 +56,6 @@
     <Compile Include="Abstract\IIMS.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="Host.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

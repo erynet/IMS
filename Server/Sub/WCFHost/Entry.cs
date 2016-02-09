@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.ServiceModel;
 using System.Threading;
 
 using IMS.Server.Common;
+using IMS.Server.Sub.WCFHost.Abstract;
 
 namespace IMS.Server.Sub.WCFHost
 {
@@ -14,6 +16,8 @@ namespace IMS.Server.Sub.WCFHost
         private int _initialCheckIntervalMs;
         //private readonly Stopwatch _stw;
         private bool _loopContinue;
+
+        private ServiceHost _serviceHost;
 
         public Entry()
         {
@@ -41,18 +45,134 @@ namespace IMS.Server.Sub.WCFHost
 
             _initialCheckIntervalMs = initialCheckIntervalMs;
 
+            try
+            {
+                _serviceHost = new ServiceHost(typeof(IIMS));
+
+                _serviceHost.Opening += ReportServiceState;
+                _serviceHost.Opened += ReportServiceState;
+                _serviceHost.Closing += ReportServiceState;
+                _serviceHost.Closed += ReportServiceState;
+                _serviceHost.Faulted += ReportServiceState;
+            }
+            catch (ArgumentNullException e)
+            {
+                L($@"Error occur while initializing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return false;
+            }
+            catch (InvalidOperationException e)
+            {
+                L($@"Error occur while initializing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
             return true;
         }
 
         private void Run()
         {
+            try
+            {
+                _serviceHost.Open();
+            }
+            catch (ObjectDisposedException e)
+            {
+                L($@"Error occur while opening WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return;
+            }
+            catch (InvalidOperationException e)
+            {
+                L($@"Error occur while opening WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return;
+            }
+            catch (CommunicationObjectFaultedException e)
+            {
+                L($@"Error occur while opening WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return;
+            }
+            catch (TimeoutException e)
+            {
+                L($@"Error occur while opening WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                return;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
+            L($@"Service : {NameSpace}, Successfully opened", LogEvt.MessageType.Info);
+            
             while (_loopContinue)
             {
+                Thread.Sleep(_initialCheckIntervalMs);
+            }
 
+            if (_serviceHost.State != CommunicationState.Closed)
+            {
+                try
+                {
+                    _serviceHost.Close();
+                }
+                catch (ObjectDisposedException e)
+                {
+                    L($@"Error occur while closing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                }
+                catch (InvalidOperationException e)
+                {
+                    L($@"Error occur while closing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                }
+                catch (CommunicationObjectFaultedException e)
+                {
+                    L($@"Error occur while closing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                }
+                catch (TimeoutException e)
+                {
+                    L($@"Error occur while closing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                }
+                catch (Exception e)
+                {
+                    L($@"Error occur while closing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                }
+                L($@"Service : {NameSpace}, Successfully closed", LogEvt.MessageType.Info);
+            }
+            else
+            {
+                L($@"Already closed (have problem?)");
             }
         }
 
-        public void L(string message, LogEvt.MessageType type)
+        protected void ReportServiceState(object sender, EventArgs e)
+        {
+            ServiceHost host = (ServiceHost)sender;
+            switch (host.State)
+            {
+                case CommunicationState.Opening:
+                    L($@"Opening ..");
+                    break;
+                case CommunicationState.Opened:
+                    L($@"Ready for connection");
+                    break;
+                case CommunicationState.Closing:
+                    L($@"Closing ..");
+                    break;
+                case CommunicationState.Closed:
+                    L($@"Successfully closed");
+                    break;
+                case CommunicationState.Faulted:
+                    // 이게 뭐인지 잘 모르겠다.
+                    L($@"Channel faulted", LogEvt.MessageType.Warning);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        public void L(string message, LogEvt.MessageType type = LogEvt.MessageType.Info)
         {
             Log?.Invoke(this, new LogEvt(message, type, new StackTrace(), NameSpace));
         }
