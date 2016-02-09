@@ -47,7 +47,7 @@ namespace IMS.Server.Sub.WCFHost
 
             try
             {
-                _serviceHost = new ServiceHost(typeof(IIMS));
+                _serviceHost = new ServiceHost(typeof(Contract));
 
                 _serviceHost.Opening += ReportServiceState;
                 _serviceHost.Opened += ReportServiceState;
@@ -67,7 +67,8 @@ namespace IMS.Server.Sub.WCFHost
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                L($@"Error occur while initializing WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                //Console.WriteLine(e.Message);
                 return false;
             }
 
@@ -102,7 +103,8 @@ namespace IMS.Server.Sub.WCFHost
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                L($@"Error occur while opening WCF Host. \n\n {e.ToString()}", LogEvt.MessageType.Error);
+                //Console.WriteLine(e.Message);
                 return;
             }
             L($@"Service : {NameSpace}, Successfully opened", LogEvt.MessageType.Info);

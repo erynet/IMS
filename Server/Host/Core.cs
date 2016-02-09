@@ -46,12 +46,12 @@ namespace IMS.Server.Host
             // 얻어온 파일들의 목록중 Data 에 해당하는 dll 파일명을 얻어오고 네임스페이스를 저장한다.
             if (libName == null)
             {
-                rx = new Regex(@"(IMS.Server.Sub.\w+).dll", 
+                rx = new Regex(@"(IMS.Server.Sub.\w+).dll$", 
                     RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase | RegexOptions.Compiled);
             }
             else
             {
-                rx = new Regex($@"(IMS.Server.Sub.{libName}.\w+).dll", 
+                rx = new Regex($@"(IMS.Server.Sub.{libName}.\w+).dll$", 
                     RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase | RegexOptions.Compiled);
             }
             var assemblyCandidates = (from file in fileNames
@@ -95,7 +95,7 @@ namespace IMS.Server.Host
 
         public void Run()
         {
-            if (_subComponentList.Any(subComponent => !subComponent.Initialize(0)))
+            if (_subComponentList.Any(subComponent => !subComponent.Initialize(250)))
             {
                 return;
             }
