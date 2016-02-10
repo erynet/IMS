@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UPSInfoPopup" Height="800" Width="800">
     <Grid>
-        <Frame x:Name="MainFrame"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
