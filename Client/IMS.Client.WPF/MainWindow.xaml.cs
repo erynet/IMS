@@ -13,12 +13,15 @@ namespace IMS.Client.WPF {
         DataPage data = new DataPage();
         MapPage map = new MapPage();
         SettingPage setting = new SettingPage();
+        SpecialEventPage special = new SpecialEventPage();
 
         private List<Window> popupList = new List<Window>();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            setting.Parent = this;
 
             var popup = CreatePopup<UPSInfoPopup>();
             popup.Show();
@@ -53,6 +56,11 @@ namespace IMS.Client.WPF {
             popupList.Add(popup);
 
             return popup;
+        }
+
+        public void NavigateToSpecialEvent()
+        {
+            MainFrame.Navigate(special);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -95,6 +103,11 @@ namespace IMS.Client.WPF {
         private void button_help_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void button_special_event_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(special);
         }
     }
 }

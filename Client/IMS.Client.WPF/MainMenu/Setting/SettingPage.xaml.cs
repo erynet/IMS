@@ -18,8 +18,9 @@ namespace IMS.Client.WPF {
     /// Interaction logic for SettingPage.xaml
     /// </summary>
     public partial class SettingPage : Page {
+        public MainWindow Parent { get; set; }
+
         private ErrorPopupSavePage errorSave = new ErrorPopupSavePage();
-        private AddEquipmentPage addEquipment = new AddEquipmentPage();
 
         public SettingPage()
         {
@@ -36,9 +37,9 @@ namespace IMS.Client.WPF {
 
         }
 
-        private void button_add_equipment_Click(object sender, RoutedEventArgs e)
+        private void button_special_event_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(addEquipment);
+            Parent.NavigateToSpecialEvent();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<Page x:Class="IMS.Client.WPF.MapPage"
+﻿<Page x:Class="IMS.Client.WPF.SpecialEventPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:IMS.Client.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="1020" d:DesignWidth="1840"
-      Title="MapPage">
+      Title="SpecialEventPage">
 
     <Grid>
-        <Image x:Name="map" HorizontalAlignment="Left" Height="1020" VerticalAlignment="Top" Width="1840" Source="..\..\Resource\airport_map_1.png" Stretch="Fill"/>
+        
     </Grid>
 </Page>
