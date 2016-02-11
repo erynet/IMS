@@ -23,6 +23,7 @@ namespace IMS.Server.Sub.WCFHost
         {
             Log = null;
             _busHub = null;
+            _loopContinue = true;
         }
 
         public bool ConnectBus(BusHub busHub)

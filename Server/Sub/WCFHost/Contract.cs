@@ -414,8 +414,8 @@ namespace IMS.Server.Sub.WCFHost
 
         public void Dispose()
         {
-            //GC.SuppressFinalize(this);
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
+            //throw new NotImplementedException();
         }
     }
 
