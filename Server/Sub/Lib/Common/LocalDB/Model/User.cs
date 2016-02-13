@@ -18,7 +18,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
 
         public User()
         {
-            
+            LastLoginAt = DateTime.Now;
         }
 
         public bool Authenticate(string id, string passwd)
@@ -47,6 +47,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
             Passwd = sb.ToString();
             Description = description;
             IsAdmin = isAdmin;
+            LastLoginAt = DateTime.Now;
         }
     }
 

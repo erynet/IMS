@@ -44,10 +44,10 @@ namespace IMS.Server.Sub.WCFHost
             _sessionLock = new object();
             _sessions = new Dictionary<string, Sessioninfo>();
 
-            //using (var ctx = new LocalDB())
-            //{
-            //    ctx.Database.Initialize(false);
-            //}
+            using (var ctx = new LocalDB())
+            {
+                ctx.Database.Initialize(true);
+            }
         }
 
         public string Athenticate(string id, string passwd, string macAddress)
@@ -65,7 +65,7 @@ namespace IMS.Server.Sub.WCFHost
                 string sessionId = _operationContext.SessionId;
 
                 Debug.Assert(sessionId != null, "Athenticate : SessionId is null");
-                Debug.Assert(_sessions[sessionId].Session != sessionId, "Athenticate : _sessions[sessionId].Session != sessionId");
+                Debug.Assert(_sessions[sessionId].Session == sessionId, "Athenticate : _sessions[sessionId].Session != sessionId");
 
                 return sessionId;
             }
@@ -194,8 +194,9 @@ namespace IMS.Server.Sub.WCFHost
                     return 2;   // Code 2: 유저가 존재하지 않는다.
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
                 return 0;    // Code 0: 에러가 발생하여 세션을 생성하지 못했다.
             }
         }

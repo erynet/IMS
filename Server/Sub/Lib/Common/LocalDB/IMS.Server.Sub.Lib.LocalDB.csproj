@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LocalDB.cs" />
+    <Compile Include="Model\Devices.cs" />
     <Compile Include="Model\EventLog.cs" />
     <Compile Include="Model\GeneralLog.cs" />
+    <Compile Include="Model\Group.cs" />
     <Compile Include="Model\RawValues.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Setting.cs" />
