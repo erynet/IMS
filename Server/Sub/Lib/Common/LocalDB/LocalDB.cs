@@ -21,6 +21,8 @@ namespace IMS.Server.Sub.Lib.LocalDB
             modelBuilder.Configurations.Add(new EventLogConfiguration());
             modelBuilder.Configurations.Add(new GeneralLogConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new GroupConfiguration());
+            modelBuilder.Configurations.Add(new DevicesConfiguration());
         }
 
         public DbSet<Setting> Setting { get; set; }
@@ -28,5 +30,7 @@ namespace IMS.Server.Sub.Lib.LocalDB
         public DbSet<EventLog> EventLog { get; set; }
         public DbSet<GeneralLog> GeneralLog { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Group> Group { get; set; }
+        public DbSet<Devices> Devices { get; set; }
     }
 }
