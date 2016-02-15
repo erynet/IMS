@@ -21,6 +21,7 @@ namespace IMS.Client.WPF {
         public MainWindow parent { get; set; }
 
         private ErrorPopupSavePage errorSave = new ErrorPopupSavePage();
+        private DataSaveTimePage dataSave = new DataSaveTimePage();
 
         public SettingPage()
         {
@@ -34,7 +35,7 @@ namespace IMS.Client.WPF {
 
         private void button_data_save_time_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(dataSave);
         }
 
         private void button_special_event_Click(object sender, RoutedEventArgs e)

@@ -9,6 +9,11 @@
       Title="DataSaveTimePage">
 
     <Grid>
-        
+        <Label x:Name="label" Content="저장 간격" HorizontalAlignment="Left" Margin="65,68,0,0" VerticalAlignment="Top" Height="62" Width="194" FontSize="40"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="62" Margin="303,68,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="164" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
+        <Label x:Name="label_Copy" Content="분" HorizontalAlignment="Left" Margin="472,67,0,0" VerticalAlignment="Top" Height="62" Width="57" FontSize="40"/>
+        <Button x:Name="button" Content="취소" HorizontalAlignment="Left" Margin="403,157,0,0" VerticalAlignment="Top" Width="126" Height="54" FontSize="40"/>
+        <Button x:Name="button_Copy" Content="저장" HorizontalAlignment="Left" Margin="244,157,0,0" VerticalAlignment="Top" Width="126" Height="54" FontSize="40"/>
+
     </Grid>
 </Page>
