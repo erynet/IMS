@@ -418,6 +418,16 @@ namespace IMS.Server.Sub.WCFHost
             GC.SuppressFinalize(this);
             //throw new NotImplementedException();
         }
+
+        public List<IMSGroup> GetGroups()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSDevice> GetDevicesOfSomeGroup(int groupIdx)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     class Sessioninfo

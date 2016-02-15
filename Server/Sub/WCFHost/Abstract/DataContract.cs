@@ -50,4 +50,16 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         [DataMember]
         public object Value { get; set; }
     }
+
+    [DataContract]
+    public class IMSGroup
+    {
+        
+    }
+
+    [DataContract]
+    public class IMSDevice
+    {
+        
+    }
 }

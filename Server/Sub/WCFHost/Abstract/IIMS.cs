@@ -17,15 +17,22 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         [OperationContract]
         bool Leave();
 
+        // 클라이언트가 주기적으로 호출하여, 자신이 확인한것 이후로 새로운 이벤트가 존재하는지 확인한다.
+        // 없으면 빈 이벤트가 갈 것이고, 아니면 이벤트의 목록이 가게 되어 해당 이벤트에 맞는 동작을 실행하게 된다.
         [OperationContract]
         List<IMSEvent> GetEvents();
 
+        // 클라이언트가 주기적, 혹은 필요에 의해 호출하여 경고메시지를 긁어간다.
+        // 없으면 빈 경고가 갈 것이다.
         [OperationContract]
         List<IMSWarning> GetWarnings();
 
+        // 그룹 번호들과 해당 그룹의 상태를 리턴한다.
+        // 그룹 전체의 목록을 받아갈떄 필요하다.
         [OperationContract]
         List<IMSGroup> GetGroups();
 
+        // 특정 그룹 아래에 속한 모든 장치들의 정보를 받아갈때 사용한다.
         [OperationContract]
         List<IMSDevice> GetDevicesOfSomeGroup(int groupIdx);
 

@@ -57,8 +57,6 @@
     <Compile Include="Model\RawValues.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Setting.cs" />
-    <Compile Include="Model\__TargetList.cs" />
-    <Compile Include="Model\__TargetStatus.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
