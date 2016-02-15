@@ -16,7 +16,7 @@ namespace IMS.Server.Sub.WCFHost
 {
     /*
     //Usage Scenario
-    string guid = Proxy.Athenticate("root", "p@aSW0rd", "12-34-56-78-90-qw-er-ty");
+    string guid = Proxy.Athenticate("12-34-56-78-90-qw-er-ty");
     if (guid == "")
         ExitProgram("Athentication Failed");
     while(ContinueLoop)

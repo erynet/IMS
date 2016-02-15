@@ -10,14 +10,18 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public int Idx { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime CreateAt { get; set; }
+        public bool Display { get; set; }
+
+
 
         public virtual ICollection<Devices> Devices { get; set; }
+        public virtual ICollection<Mate> Mates { get; set; }
 
         public Group()
         {
             Devices = new List<Devices>();
-            CreateAt = DateTime.Now;
+            Mates = new List<Mate>();
+
         }
     }
 
@@ -43,12 +47,6 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .IsUnicode(true)
                 .HasColumnType("text")
                 .HasColumnOrder(2);
-            Property(g => g.CreateAt)
-                .IsOptional()
-                .HasColumnType("datetime2")
-                .HasColumnOrder(5);
-
-
         }
     }
 
