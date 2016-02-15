@@ -1,4 +1,4 @@
-﻿<Page x:Class="IMS.Client.WPF.UPSManagePage"
+﻿<Page x:Class="IMS.Client.WPF.GroupManagePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,23 +6,19 @@
       xmlns:local="clr-namespace:IMS.Client.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="1020" d:DesignWidth="1680"
-      Title="UPSManagePage">
+      Title="GroupManagePage">
 
     <Grid>
         <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>
+                <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
-                <DataGridTextColumn Header="장비 번호" Binding="{Binding upsID}"/>
-                <DataGridTextColumn Header="짝 번호" Binding="{Binding partnerIDs}"/>
-                <DataGridTextColumn Header="장비 명칭" Binding="{Binding upsName}"/>
-                <DataGridTextColumn Header="용량" Binding="{Binding batteryCapacity}"/>
-                <DataGridTextColumn Header="배터리 사양" Binding="{Binding batteryDescription}"/>
-                <DataGridTextColumn Header="IP 주소" Binding="{Binding ip}"/>
-                <DataGridTextColumn Header="설치일" Binding="{Binding installDate}"/>
+                <DataGridCheckBoxColumn Header="그룹 개별 장비 사용" Binding="{Binding isSeparatesyUseable}"/>
                 <DataGridTextColumn Header="좌표" Binding="{Binding coordinate}"/>
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Page>

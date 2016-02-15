@@ -12,8 +12,8 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="21,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="756"/>
         <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Height="44" Width="756" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"/>
         <Button x:Name="button_analog" Content="아날로그" HorizontalAlignment="Left" Margin="677,17,0,0" VerticalAlignment="Top" Width="89" Height="29" FontSize="20" Click="button_analog_Click"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="214" Margin="21,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="590"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="214" Margin="624,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="153"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="183" Margin="21,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="590"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="183" Margin="624,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="153"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="174" Margin="21,315,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="174" Margin="323,315,0,0" Stroke="Black" VerticalAlignment="Top" Width="288"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="175" Margin="21,519,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
@@ -27,5 +27,7 @@
         <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="694,702,0,0" VerticalAlignment="Top" Width="83" Height="48" FontSize="20" Click="button_close_Click"/>
         <Button x:Name="button_see_log" Content="로그 보기" HorizontalAlignment="Left" Margin="601,702,0,0" VerticalAlignment="Top" Width="84" Height="48" FontSize="20" Click="button_see_log_Click"/>
         <Button x:Name="button_error_list" Content="고장 목록" HorizontalAlignment="Left" Margin="511,702,0,0" VerticalAlignment="Top" Width="82" Height="48" FontSize="20" Click="button_error_list_Click"/>
+        <Label x:Name="label2" Content="장비 번호&#xA; :" HorizontalAlignment="Left" Margin="12,65,0,0" VerticalAlignment="Top" Width="72" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="equipment_number" HorizontalAlignment="Left" Height="26" Margin="89,65,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Page>

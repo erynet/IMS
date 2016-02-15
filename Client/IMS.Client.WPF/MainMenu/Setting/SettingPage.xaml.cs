@@ -18,7 +18,7 @@ namespace IMS.Client.WPF {
     /// Interaction logic for SettingPage.xaml
     /// </summary>
     public partial class SettingPage : Page {
-        public MainWindow Parent { get; set; }
+        public MainWindow parent { get; set; }
 
         private ErrorPopupSavePage errorSave = new ErrorPopupSavePage();
 
@@ -39,7 +39,7 @@ namespace IMS.Client.WPF {
 
         private void button_special_event_Click(object sender, RoutedEventArgs e)
         {
-            Parent.NavigateToSpecialEvent();
+            parent.NavigateToSpecialEvent();
         }
     }
 }

@@ -14,7 +14,7 @@
         <Label x:Name="label_Copy1" Content="2. IP ADDRESS" HorizontalAlignment="Left" Margin="60,179,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
         <Label x:Name="label_Copy2" Content="3. 설치일" HorizontalAlignment="Left" Margin="60,243,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
         <Label x:Name="label_Copy3" Content="4. 배터리 사양" HorizontalAlignment="Left" Margin="60,307,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
-        <Label x:Name="label_Copy4" Content="5. 비고" HorizontalAlignment="Left" Margin="60,371,0,0" VerticalAlignment="Top" Height="64" Width="508" FontSize="26.667"/>
+        <Label x:Name="label_Copy4" Content="5. 배터리 용량" HorizontalAlignment="Left" Margin="60,371,0,0" VerticalAlignment="Top" Height="64" Width="198" FontSize="26.667"/>
         <TextBox x:Name="text_device_name" HorizontalAlignment="Left" Height="56" Margin="344,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" FontSize="26.667"/>
         <TextBox x:Name="text_ip1" HorizontalAlignment="Left" Height="56" Margin="344,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_ip2" HorizontalAlignment="Left" Height="56" Margin="518,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -22,7 +22,7 @@
         <TextBox x:Name="text_ip4" HorizontalAlignment="Left" Height="56" Margin="866,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="text_install_date" HorizontalAlignment="Left" Height="56" Margin="344,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" FontSize="26.667"/>
         <TextBox x:Name="text_battery_info" HorizontalAlignment="Left" Height="56" Margin="344,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" FontSize="26.667"/>
-        <TextBox x:Name="text_etc_info" HorizontalAlignment="Left" Height="56" Margin="344,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" FontSize="26.667"/>
+        <TextBox x:Name="text_battery_amount" HorizontalAlignment="Left" Height="56" Margin="344,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" FontSize="26.667"/>
         <Button x:Name="button_save" Content="저장" HorizontalAlignment="Left" Margin="888,474,0,0" VerticalAlignment="Top" Width="132" Height="44"/>
     </Grid>
 </Page>

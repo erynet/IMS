@@ -21,7 +21,7 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
-            setting.Parent = this;
+            setting.parent = this;
 
             var popup = CreatePopup<UPSInfoPopup>();
             popup.Show();

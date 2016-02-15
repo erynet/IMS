@@ -19,6 +19,7 @@ namespace IMS.Client.WPF {
     /// </summary>
     public partial class EquipPage : Page {
         private UPSManagePage upsManage = new UPSManagePage();
+        private GroupManagePage groupManage = new GroupManagePage();
         private PanelManagePage panelManage = new PanelManagePage();
         private DotManage dotManage = new DotManage();
         private AddEquipmentPage addEquipment = new AddEquipmentPage();
@@ -33,6 +34,11 @@ namespace IMS.Client.WPF {
         private void button_ups_setting_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(upsManage);
+        }
+
+        private void button_group_setting_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(groupManage);
         }
 
         private void button_panel_setting_Click(object sender, RoutedEventArgs e)
