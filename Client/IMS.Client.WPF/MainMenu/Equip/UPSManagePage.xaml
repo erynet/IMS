@@ -14,14 +14,22 @@
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding upsID}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>
-                <DataGridTextColumn Header="장비 명칭" Binding="{Binding upsName}"/>
+                <DataGridTextColumn Header="장비 이름" Binding="{Binding upsName}"/>
                 <DataGridTextColumn Header="짝" Binding="{Binding partnerIDs}"/>
                 <DataGridTextColumn Header="분전반" Binding="{Binding panelID}"/>
                 <DataGridTextColumn Header="사양" Binding="{Binding batteryDescription}"/>
                 <DataGridTextColumn Header="용량" Binding="{Binding batteryCapacity}"/>
                 <DataGridTextColumn Header="IP 주소" Binding="{Binding ip}"/>
                 <DataGridTextColumn Header="설치일" Binding="{Binding installDate}"/>
-                <DataGridTextColumn Header="좌표" Binding="{Binding coordinate}"/>
+
+                <DataGridTemplateColumn Header="추가 정보">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="AdditionalInformation_Click">상세보기</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

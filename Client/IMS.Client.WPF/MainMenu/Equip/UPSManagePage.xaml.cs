@@ -25,5 +25,17 @@ namespace IMS.Client.WPF {
             var upsList = Core.Client.inst.GetUpsData();
             UPSList.ItemsSource = upsList;
         }
+
+        private void AdditionalInformation_Click(object sender, RoutedEventArgs e)
+        {
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
+                if (vis is DataGridRow) {
+                    var row = vis as DataGridRow;
+                    var info = row.DataContext as Core.Ups.Info;
+
+                    break;
+                }
+            }
+        }
     }
 }

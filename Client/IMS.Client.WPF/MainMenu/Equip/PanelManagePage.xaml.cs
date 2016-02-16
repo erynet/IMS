@@ -38,7 +38,7 @@ namespace IMS.Client.WPF {
             }
         }
 
-        private void AdditionInformation_Click(object sender, RoutedEventArgs e)
+        private void AdditionalInformation_Click(object sender, RoutedEventArgs e)
         {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {

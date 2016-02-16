@@ -29,7 +29,7 @@
                 <DataGridTemplateColumn Header="추가 정보">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="AdditionInformation_Click">상세보기</Button>
+                            <Button Click="AdditionalInformation_Click">상세보기</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
