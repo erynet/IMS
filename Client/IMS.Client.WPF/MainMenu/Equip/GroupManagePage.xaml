@@ -19,7 +19,7 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="사용" Binding="{Binding isUsing}"/>
+                <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>
                 <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
