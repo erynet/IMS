@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -246,6 +247,10 @@
     <Resource Include="Resource\icons\setting_icon_1.gif" />
     <Resource Include="Resource\icons\special_event_icon_1.png" />
     <Resource Include="Resource\icons\ups_icon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\icons\group_icon_alarm_1.png" />
+    <Resource Include="Resource\icons\group_icon_normal_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

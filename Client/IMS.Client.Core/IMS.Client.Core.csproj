@@ -43,6 +43,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Panel.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ups.cs" />
   </ItemGroup>

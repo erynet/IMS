@@ -13,7 +13,6 @@
             public string batteryDescription { get; set; }
             public string ip { get; set; }
             public string installDate { get; set; }
-            public string coordinate { get; set; }
         }
 
         public Info Data = new Info();

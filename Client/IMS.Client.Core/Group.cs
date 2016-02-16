@@ -8,7 +8,7 @@ namespace IMS.Client.Core {
             public bool isGroupVisible { get; set; }
             public string groupName { get; set; }
             public bool isSeperatelyUsing { get; set; }
-            public string coordinate { get; set; }
+            public Point coordinate { get; set; }
         }
 
         public Info Data = new Info();

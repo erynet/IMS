@@ -32,7 +32,6 @@ namespace IMS.Client.Core {
                 batteryDescription = "듀라셀",
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
-                coordinate = "200, 300"
             };
 
             ups2.Data = new Ups.Info {
@@ -48,7 +47,6 @@ namespace IMS.Client.Core {
                 batteryDescription = "듀라셀",
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
-                coordinate = "200, 300"
             };
 
             upsList.Add(ups1.Data.upsID, ups1);
@@ -75,7 +73,7 @@ namespace IMS.Client.Core {
                 isGroupVisible = true,
                 groupName = "방1",
                 isSeperatelyUsing = false,
-                coordinate = "300,400"
+                coordinate = new Point(300, 400)
             };
 
             var group2 = new Group();
@@ -85,7 +83,7 @@ namespace IMS.Client.Core {
                 isGroupVisible = true,
                 groupName = "방2",
                 isSeperatelyUsing = false,
-                coordinate = "300,400"
+                coordinate = new Point(400, 500)
             };
 
             groupList.Add(group1.Data.groupNumber, group1);
