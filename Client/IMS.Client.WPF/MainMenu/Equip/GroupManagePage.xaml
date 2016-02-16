@@ -10,6 +10,14 @@
 
     <Grid>
         <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="add_group" Header="추가" Click="add_group_Click" />
+                    <MenuItem x:Name="edit_group" Header="수정" Click="edit_group_Click" />
+                    <Separator />
+                    <MenuItem x:Name="delete_group" Header="삭제" Click="delete_group_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>

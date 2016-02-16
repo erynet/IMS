@@ -32,6 +32,7 @@ namespace IMS.Client.WPF {
 
             panelManage.parent = this;
             upsManage.parent = this;
+            groupManage.parent = this;
 
             MainFrame.Navigate(upsManage);
         }
@@ -72,6 +73,25 @@ namespace IMS.Client.WPF {
             var popup = parent.CreatePopup<UPSInfoPopup>();
             popup.Refresh(upsID);
             popup.Show();
+        }
+
+        public void GroupPopupCreate()
+        {
+            var popup = parent.CreatePopup<GroupManipulatePopup>();
+            popup.CreateMode(this);
+            popup.Show();
+        }
+
+        public void GroupPopupEdit(int groupID)
+        {
+            var popup = parent.CreatePopup<GroupManipulatePopup>();
+            popup.EditMode(this, groupID);
+            popup.Show();
+        }
+
+        public void GroupRefresh()
+        {
+            groupManage.Refresh();
         }
     }
 }

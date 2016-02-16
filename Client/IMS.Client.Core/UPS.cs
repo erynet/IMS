@@ -15,6 +15,14 @@
             public string installDate { get; set; }
         }
 
+        static private int uid = 0;
+
         public Info Data = new Info();
+        public int ID { get; private set; }
+
+        public Ups()
+        {
+            ID = uid++;
+        }
     }
 }

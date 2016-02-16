@@ -25,7 +25,7 @@ namespace IMS.Client.Core {
                 isGroupVisible = true,
                 groupName = "화장실",
                 isSeparatelyUseable = true,
-                upsID = 1,
+                upsID = ups1.ID,
                 partnerIDs = "2",
                 upsName = "화장실-1",
                 batteryCapacity = "1kW",
@@ -40,7 +40,7 @@ namespace IMS.Client.Core {
                 isGroupVisible = true,
                 groupName = "화장실",
                 isSeparatelyUseable = true,
-                upsID = 2,
+                upsID = ups2.ID,
                 partnerIDs = "1",
                 upsName = "화장실-2",
                 batteryCapacity = "1kW",
@@ -69,7 +69,7 @@ namespace IMS.Client.Core {
             var group1 = new Group();
             group1.Data = new Group.Info {
                 isUsing = true,
-                groupNumber = 1,
+                groupNumber = group1.ID,
                 isGroupVisible = true,
                 groupName = "방1",
                 isSeperatelyUsing = false,
@@ -79,12 +79,15 @@ namespace IMS.Client.Core {
             var group2 = new Group();
             group2.Data = new Group.Info {
                 isUsing = true,
-                groupNumber = 2,
+                groupNumber = group2.ID,
                 isGroupVisible = true,
                 groupName = "방2",
                 isSeperatelyUsing = false,
                 coordinate = new Point(400, 500)
             };
+
+            group2.Data.UpsList.Add(0);
+            group2.Data.UpsList.Add(1);
 
             groupList.Add(group1.Data.groupNumber, group1);
             groupList.Add(group2.Data.groupNumber, group2);
@@ -119,6 +122,89 @@ namespace IMS.Client.Core {
             foreach (var pair in groupList) {
                 ret.Add(pair.Value.Data);
             }
+
+            return ret;
+        }
+
+        public void AddGroup(string groupName, string upsList, string coord)
+        {
+            var group = new Group();
+            group.Data = new Group.Info {
+                isUsing = true,
+                groupNumber = group.ID,
+                isGroupVisible = true,
+                groupName = groupName,
+                isSeperatelyUsing = false,
+                coordinate = Point.Parse(coord)
+            };
+
+            var ups = upsList.Split(',');
+            foreach (var id in ups) {
+                group.Data.UpsList.Add(int.Parse(id));
+            }
+        }
+
+        public void EditGroup(int groupID, string groupName, string upsList, string coord)
+        {
+            var group = GetGroup(groupID);
+            if (group == null) {
+                return;
+            }
+
+            group.Data.groupName = groupName;
+            group.Data.coordinate = Point.Parse(coord);
+
+            var oldUps = new List<int>(group.Data.UpsList);
+
+            group.Data.UpsList.Clear();
+            var newUps = upsList.Split(',');
+            foreach (var strID in newUps) {
+                int id;
+                if(int.TryParse(strID, out id) == false) {
+                    continue;
+                }
+
+                group.Data.UpsList.Add(id);
+            }
+
+            foreach (var id in oldUps) {
+                var ups = GetUps(id);
+                if (ups == null) {
+                    continue;
+                }
+
+                ups.Data.groupNumber = -1;
+                ups.Data.groupName = "";
+            }
+
+            foreach (var strID in newUps) {
+                int id;
+                if (int.TryParse(strID, out id) == false) {
+                    continue;
+                }
+
+                var ups = GetUps(id);
+                if (ups == null) {
+                    continue;
+                }
+
+                ups.Data.groupNumber = groupID;
+                ups.Data.groupName = group.Data.groupName;
+            }
+        }
+
+        public Ups GetUps(int id)
+        {
+            Ups ret = null;
+            upsList.TryGetValue(id, out ret);
+
+            return ret;
+        }
+
+        public Group GetGroup(int id)
+        {
+            Group ret = null;
+            groupList.TryGetValue(id, out ret);
 
             return ret;
         }

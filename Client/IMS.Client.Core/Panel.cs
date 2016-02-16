@@ -10,5 +10,13 @@
         }
 
         public Info Data = new Info();
+
+        static private int uid = 0;
+        public int ID { get; private set; }
+
+        public Panel()
+        {
+            ID = uid++;
+        }
     }
 }
