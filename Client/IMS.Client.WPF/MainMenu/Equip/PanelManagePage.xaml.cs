@@ -20,12 +20,11 @@ namespace IMS.Client.WPF {
     public partial class PanelManagePage : Page {
         public class PanelInfo {
             public bool isUsing { get; set; }
+            public int panelID { get; set; }
             public string panelName { get; set; }
-            public string upsList { get; set; }
-            public int dotCount { get; set; }
+            public bool isExtended { get; set; }
             public string ip { get; set; }
             public string installDate { get; set; }
-            public string dotName { get; set; }
         }
 
         private List<PanelInfo> panelList = new List<PanelInfo>();
@@ -36,15 +35,38 @@ namespace IMS.Client.WPF {
 
             panelList.Add(new PanelInfo {
                 isUsing = true,
+                panelID = 3,
                 panelName = "방",
-                upsList = "1, 2, 3",
-                dotCount = 3,
+                isExtended = false,
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
-                dotName = "방"
             });
 
             PanelList.ItemsSource = panelList;
+        }
+
+        private void ManageDot_Click(object sender, RoutedEventArgs e)
+        {
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
+                if (vis is DataGridRow) {
+                    var row = vis as DataGridRow;
+                    var info = row.DataContext as PanelInfo;
+
+                    break;
+                }
+            }
+        }
+
+        private void AdditionInformation_Click(object sender, RoutedEventArgs e)
+        {
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
+                if (vis is DataGridRow) {
+                    var row = vis as DataGridRow;
+                    var info = row.DataContext as PanelInfo;
+
+                    break;
+                }
+            }
         }
     }
 }
