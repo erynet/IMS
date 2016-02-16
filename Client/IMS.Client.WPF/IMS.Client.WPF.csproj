@@ -228,7 +228,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\IMS.Client.Core\IMS.Client.Core.csproj">
+      <Project>{0bc630b9-7999-46d0-ac8f-d5291a84e9f1}</Project>
+      <Name>IMS.Client.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\airport_map_1.png" />
     <Resource Include="Resource\icons\alarm_icon_1.png" />
