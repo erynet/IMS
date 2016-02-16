@@ -31,10 +31,6 @@ namespace IMS.Client.WPF {
             setting = new SettingPage();
             special = new SpecialEventPage();
 
-            // Etc
-            var popup = CreatePopup<UPSInfoPopup>();
-            popup.Show();
-
             Update(null, null);
 
             var timer = new DispatcherTimer();
