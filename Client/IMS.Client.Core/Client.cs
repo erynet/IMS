@@ -160,7 +160,7 @@ namespace IMS.Client.Core {
             var newUps = upsList.Split(',');
             foreach (var strID in newUps) {
                 int id;
-                if(int.TryParse(strID, out id) == false) {
+                if (int.TryParse(strID, out id) == false) {
                     continue;
                 }
 
@@ -207,6 +207,26 @@ namespace IMS.Client.Core {
             groupList.TryGetValue(id, out ret);
 
             return ret;
+        }
+
+        public void DeleteGroup(int id)
+        {
+            var group = GetGroup(id);
+            if (group == null) {
+                return;
+            }
+
+            foreach (var upsId in group.Data.UpsList) {
+                var ups = GetUps(upsId);
+                if (ups == null) {
+                    continue;
+                }
+
+                ups.Data.groupNumber = -1;
+                ups.Data.groupName = "";
+            }
+
+            groupList.Remove(id);
         }
     }
 }

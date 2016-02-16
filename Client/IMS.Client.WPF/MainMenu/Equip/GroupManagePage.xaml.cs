@@ -43,14 +43,10 @@ namespace IMS.Client.WPF {
 
         private void delete_group_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
-                if (vis is DataGridRow) {
-                    var row = vis as DataGridRow;
-                    var info = row.DataContext as Core.Group.Info;
+            var info = GroupList.SelectedItem as Core.Group.Info;
 
-                    break;
-                }
-            }
+            Core.Client.inst.DeleteGroup(info.groupNumber);
+            Refresh();
         }
     }
 }
