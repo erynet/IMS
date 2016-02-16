@@ -28,6 +28,8 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
+            panelManage.parent = this;
+
             MainFrame.Navigate(upsManage);
         }
 
@@ -54,6 +56,12 @@ namespace IMS.Client.WPF {
         private void button_add_equipment_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(addEquipment);
+        }
+
+        public void NavigateToDotManage(int panelID)
+        {
+            dotManage.Refresh(panelID);
+            MainFrame.Navigate(dotManage);
         }
     }
 }

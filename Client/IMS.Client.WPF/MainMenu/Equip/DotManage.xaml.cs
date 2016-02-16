@@ -22,5 +22,10 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
         }
+
+        public void Refresh(int panelID)
+        {
+
+        }
     }
 }

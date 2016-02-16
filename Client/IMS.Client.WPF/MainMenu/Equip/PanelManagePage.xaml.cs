@@ -18,6 +18,8 @@ namespace IMS.Client.WPF {
     /// Interaction logic for PannelManagePage.xaml
     /// </summary>
     public partial class PanelManagePage : Page {
+        public EquipPage parent;
+
         public PanelManagePage()
         {
             InitializeComponent();
@@ -32,6 +34,8 @@ namespace IMS.Client.WPF {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Core.Panel.Info;
+
+                    parent.NavigateToDotManage(info.panelID);
 
                     break;
                 }
