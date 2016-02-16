@@ -18,30 +18,11 @@ namespace IMS.Client.WPF {
     /// Interaction logic for PannelManagePage.xaml
     /// </summary>
     public partial class PanelManagePage : Page {
-        public class PanelInfo {
-            public bool isUsing { get; set; }
-            public int panelID { get; set; }
-            public string panelName { get; set; }
-            public bool isExtended { get; set; }
-            public string ip { get; set; }
-            public string installDate { get; set; }
-        }
-
-        private List<PanelInfo> panelList = new List<PanelInfo>();
-
         public PanelManagePage()
         {
             InitializeComponent();
 
-            panelList.Add(new PanelInfo {
-                isUsing = true,
-                panelID = 3,
-                panelName = "방",
-                isExtended = false,
-                ip = "192.168.0.1",
-                installDate = "2016.01.01",
-            });
-
+            var panelList = Core.Client.inst.GetPanelData();
             PanelList.ItemsSource = panelList;
         }
 
@@ -50,7 +31,7 @@ namespace IMS.Client.WPF {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
-                    var info = row.DataContext as PanelInfo;
+                    var info = row.DataContext as Core.Panel.Info;
 
                     break;
                 }
@@ -62,7 +43,7 @@ namespace IMS.Client.WPF {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
-                    var info = row.DataContext as PanelInfo;
+                    var info = row.DataContext as Core.Panel.Info;
 
                     break;
                 }

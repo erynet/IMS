@@ -8,12 +8,12 @@ namespace IMS.Client.WPF {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        EquipPage equip = new EquipPage();
-        AlarmPage alarm = new AlarmPage();
-        DataPage data = new DataPage();
-        MapPage map = new MapPage();
-        SettingPage setting = new SettingPage();
-        SpecialEventPage special = new SpecialEventPage();
+        private EquipPage equip;
+        private AlarmPage alarm;
+        private DataPage data;
+        private MapPage map;
+        private SettingPage setting;
+        private SpecialEventPage special;
 
         private List<Window> popupList = new List<Window>();
 
@@ -21,7 +21,7 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
-            setting.parent = this;
+            Core.Client.inst.Init();
 
             var popup = CreatePopup<UPSInfoPopup>();
             popup.Show();
@@ -36,6 +36,16 @@ namespace IMS.Client.WPF {
             MainFrame.Navigate(map);
 
             Closing += OnClose;
+
+            // Child pages
+            equip = new EquipPage();
+            alarm = new AlarmPage();
+            data = new DataPage();
+            map = new MapPage();
+            setting = new SettingPage();
+            special = new SpecialEventPage();
+
+            setting.parent = this;
         }
 
         private void Update(object sender, EventArgs e)
