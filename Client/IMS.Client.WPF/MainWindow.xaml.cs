@@ -23,6 +23,15 @@ namespace IMS.Client.WPF {
 
             Core.Client.inst.Init();
 
+            // Child pages
+            equip = new EquipPage();
+            alarm = new AlarmPage();
+            data = new DataPage();
+            map = new MapPage();
+            setting = new SettingPage();
+            special = new SpecialEventPage();
+
+            // Etc
             var popup = CreatePopup<UPSInfoPopup>();
             popup.Show();
 
@@ -33,19 +42,11 @@ namespace IMS.Client.WPF {
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Start();
 
-            MainFrame.Navigate(map);
-
             Closing += OnClose;
 
-            // Child pages
-            equip = new EquipPage();
-            alarm = new AlarmPage();
-            data = new DataPage();
-            map = new MapPage();
-            setting = new SettingPage();
-            special = new SpecialEventPage();
-
             setting.parent = this;
+
+            MainFrame.Navigate(map);
         }
 
         private void Update(object sender, EventArgs e)
