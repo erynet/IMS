@@ -24,11 +24,14 @@ namespace IMS.Client.WPF {
         private DotManage dotManage = new DotManage();
         private AddEquipmentPage addEquipment = new AddEquipmentPage();
 
+        public MainWindow parent;
+
         public EquipPage()
         {
             InitializeComponent();
 
             panelManage.parent = this;
+            upsManage.parent = this;
 
             MainFrame.Navigate(upsManage);
         }
@@ -62,6 +65,13 @@ namespace IMS.Client.WPF {
         {
             dotManage.Refresh(panelID);
             MainFrame.Navigate(dotManage);
+        }
+
+        public void UpsInfoPopup(int upsID)
+        {
+            var popup = parent.CreatePopup<UPSInfoPopup>();
+            popup.Refresh(upsID);
+            popup.Show();
         }
     }
 }

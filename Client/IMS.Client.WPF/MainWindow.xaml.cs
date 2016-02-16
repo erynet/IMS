@@ -41,6 +41,7 @@ namespace IMS.Client.WPF {
             Closing += OnClose;
 
             setting.parent = this;
+            equip.parent = this;
 
             MainFrame.Navigate(map);
         }
@@ -57,7 +58,7 @@ namespace IMS.Client.WPF {
             }
         }
 
-        public Window CreatePopup<T>() where T : Window, new()
+        public T CreatePopup<T>() where T : Window, new()
         {
             var popup = new T();
             popupList.Add(popup);

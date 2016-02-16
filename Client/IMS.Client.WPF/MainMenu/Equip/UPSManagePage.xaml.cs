@@ -18,6 +18,8 @@ namespace IMS.Client.WPF {
     /// Interaction logic for UPSManagePage.xaml
     /// </summary>
     public partial class UPSManagePage : Page {
+        public EquipPage parent;
+
         public UPSManagePage()
         {
             InitializeComponent();
@@ -32,6 +34,8 @@ namespace IMS.Client.WPF {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Core.Ups.Info;
+
+                    parent.UpsInfoPopup(info.upsID);
 
                     break;
                 }

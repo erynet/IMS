@@ -34,6 +34,13 @@ namespace IMS.Client.WPF {
             NavigateToUPS();
         }
 
+        public void Refresh(int upsID)
+        {
+            digitalView.SetID(upsID);
+            analogView.SetID(upsID);
+            logView.SetID(upsID);
+        }
+
         public void NavigateToUPS()
         {
             MainFrame.Navigate(digitalView);

@@ -30,6 +30,11 @@ namespace IMS.Client.WPF {
             this.parent = parent;
         }
 
+        public void SetID(int upsID)
+        {
+            equipment_number.Text = upsID.ToString();
+        }
+
         private void button_digital_Click(object sender, RoutedEventArgs e)
         {
             parent.NavigateToUPS();
