@@ -42,6 +42,7 @@ namespace IMS.Client.WPF {
 
             setting.parent = this;
             equip.parent = this;
+            map.parent = this;
 
             MainFrame.Navigate(map);
         }
@@ -69,6 +70,11 @@ namespace IMS.Client.WPF {
         public void NavigateToSpecialEvent()
         {
             MainFrame.Navigate(special);
+        }
+
+        public void MapRefresh()
+        {
+            map.Refresh();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

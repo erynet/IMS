@@ -11,14 +11,26 @@ namespace IMS.Client.WPF {
     /// Interaction logic for MapPage.xaml
     /// </summary>
     public partial class MapPage : Page {
-        private List<System.Windows.Controls.Image> groupImageList = new List<System.Windows.Controls.Image>();
+        public MainWindow parent;
 
-        public static string NormalIcon = "group_icon_normal_1.png";
-        public static string AlarmIcon = "group_icon_alarm_1.png";
+        private List<System.Windows.Controls.Image> groupImageList = new List<System.Windows.Controls.Image>();
 
         public MapPage()
         {
             InitializeComponent();
+
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            var grid = Content as Grid;
+
+            foreach (var image in groupImageList) {
+                grid.Children.Remove(image);
+            }
+
+            groupImageList.Clear();
 
             var groupList = Core.Client.inst.GetGroupData();
             foreach (var data in groupList) {
@@ -30,12 +42,12 @@ namespace IMS.Client.WPF {
                 image.Width = 64;
                 image.Height = 64;
 
-                var grid = Content as Grid;
                 grid.Children.Add(image);
+                groupImageList.Add(image);
             }
         }
 
-        BitmapImage BitmapToImageSource(Bitmap bitmap)
+        private BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (var memory = new MemoryStream()) {
                 bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);

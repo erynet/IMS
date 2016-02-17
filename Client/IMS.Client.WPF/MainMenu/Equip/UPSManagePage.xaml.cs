@@ -24,6 +24,11 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
+            Refresh();
+        }
+
+        public void Refresh()
+        {
             var upsList = Core.Client.inst.GetUpsData();
             UPSList.ItemsSource = upsList;
         }

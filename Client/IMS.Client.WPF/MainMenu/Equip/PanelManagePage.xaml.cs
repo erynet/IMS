@@ -24,6 +24,11 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
+            Refresh();
+        }
+
+        public void Refresh()
+        {
             var panelList = Core.Client.inst.GetPanelData();
             PanelList.ItemsSource = panelList;
         }
