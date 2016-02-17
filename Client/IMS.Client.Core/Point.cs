@@ -26,16 +26,43 @@ namespace IMS.Client.Core {
             this.y = int.Parse(y);
         }
 
+        public Point(Point rhs)
+        {
+            x = rhs.x;
+            y = rhs.y;
+        }
+
+        public Point(string tdxt)
+        {
+            ParseStr(tdxt);
+        }
+
         public override string ToString()
         {
             return x + "," + y;
+        }
+
+        public void ParseStr(string text)
+        {
+            var coords = text.Split(',');
+            if (coords.Length != 2) {
+                return;
+            }
+
+            x = int.Parse(coords[0]);
+            y = int.Parse(coords[1]);
         }
 
         static public Point Parse(string text)
         {
             var coords = text.Split(',');
 
-            return new Point(coords[0], coords[1]);
+            if (coords.Length != 2) {
+                return new Point();
+            }
+            else {
+                return new Point(coords[0], coords[1]);
+            }
         }
     }
 }

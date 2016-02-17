@@ -91,5 +91,12 @@ namespace IMS.Client.WPF {
             groupManage.Refresh();
             parent.MapRefresh();
         }
+
+        public void GroupRefreshExceptGroup()
+        {
+            upsManage.Refresh();
+            panelManage.Refresh();
+            parent.MapRefresh();
+        }
     }
 }

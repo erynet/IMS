@@ -13,6 +13,23 @@ namespace IMS.Client.Core {
             public Point coordinate { get; set; }
 
             public List<int> UpsList => upsList;
+
+            public Info()
+            {
+                coordinate = new Point();
+            }
+
+            public void Copy(Info rhs)
+            {
+                upsList = new List<int>(rhs.upsList);
+
+                isUsing = rhs.isUsing;
+                groupNumber = rhs.groupNumber;
+                isGroupVisible = rhs.isGroupVisible;
+                groupName = rhs.groupName;
+                isSeperatelyUsing = rhs.isSeperatelyUsing;
+                coordinate = new Point(rhs.coordinate);
+            }
         }
 
         static private int uid = 0;

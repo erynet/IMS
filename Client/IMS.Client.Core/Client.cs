@@ -120,10 +120,25 @@ namespace IMS.Client.Core {
             var ret = new List<Group.Info>();
 
             foreach (var pair in groupList) {
-                ret.Add(pair.Value.Data);
+                var copyData = new Group.Info();
+                copyData.Copy(pair.Value.Data);
+
+                ret.Add(copyData);
             }
 
             return ret;
+        }
+
+        public void AddGroup(Group.Info newInfo)
+        {
+            var group = GetGroup(newInfo.groupNumber);
+            if (group == null) {
+                group = new Group();
+                group.Data = newInfo;
+                newInfo.groupNumber = group.ID;
+
+                groupList.Add(group.ID, group);
+            }
         }
 
         public void AddGroup(string groupName, string upsList, string coord)
@@ -142,6 +157,12 @@ namespace IMS.Client.Core {
             foreach (var id in ups) {
                 group.Data.UpsList.Add(int.Parse(id));
             }
+        }
+
+        public void EditGroup(Group.Info newInfo)
+        {
+            var group = GetGroup(newInfo.groupNumber);
+            group?.Data.Copy(newInfo);
         }
 
         public void EditGroup(int groupID, string groupName, string upsList, string coord)
