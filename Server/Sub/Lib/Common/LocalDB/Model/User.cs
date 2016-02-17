@@ -56,7 +56,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public UserConfiguration()
         {
             ToTable("User");
-            HasKey(u => u.Id);
+            HasKey(u => u.Idx);
             Property(u => u.Idx)
                 .IsRequired()
                 .HasColumnOrder(0)

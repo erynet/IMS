@@ -98,6 +98,7 @@ namespace IMS.Server.Sub.WCFHost
 
         private Sessioninfo GetExistSession()
         {
+            /*
             // 사용자가 같은 세션으로 이미 등록되어 있을수도 있으므로, 그것을 얻기 위한 함수를 구현한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -146,10 +147,13 @@ namespace IMS.Server.Sub.WCFHost
             {
                 return null;    // 예외가 발생해도 null 을 리턴한다.
             }
+            */
+            throw new NotImplementedException();
         }
 
         private int OpenSession(string id, string passwd, string macAddress)
         {
+            /*
             // 새로운 세션을 연다. 이 함수는 Athenticate 에서만 사용되어야 한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -199,10 +203,13 @@ namespace IMS.Server.Sub.WCFHost
                 Console.WriteLine(e.ToString());
                 return 0;    // Code 0: 에러가 발생하여 세션을 생성하지 못했다.
             }
+            */
+            throw new NotImplementedException();
         }
 
         private bool CloseSession()
         {
+            /*
             // 세션을 닫는다. 이 함수는 Leave 에서만 사용되어야 한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -240,6 +247,8 @@ namespace IMS.Server.Sub.WCFHost
                     return false;
                 }
             }
+            */
+            throw new NotImplementedException();
         }
         
         public bool Leave()
