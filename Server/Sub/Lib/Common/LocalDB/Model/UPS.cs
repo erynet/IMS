@@ -45,7 +45,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(u => u.GroupIdx)
-                .IsRequired()
+                .IsOptional()
                 .HasColumnOrder(1);
             Property(u => u.No)
                 .IsRequired()

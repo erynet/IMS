@@ -24,7 +24,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
     {
         public CduSocketConfiguration()
         {
-            ToTable("CduEvent");
+            ToTable("CduSocket");
             HasKey(c => c.Idx);
             Property(c => c.Idx)
                 .IsRequired()

@@ -41,6 +41,6 @@ namespace IMS.Server.Sub.Lib.LocalDB
         public DbSet<CDU> Cdu { get; set; }
         public DbSet<UpsEvent> UpsEvent { get; set; }
         public DbSet<CduEvent> CduEvent { get; set; }
-        public DbSet<CduSocket> CduContract { get; set; }
+        public DbSet<CduSocket> CduSocket { get; set; }
     }
 }
