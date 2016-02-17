@@ -9,7 +9,7 @@
       Title="GroupManagePage">
 
     <Grid>
-        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="add_group" Header="추가" Click="add_group_Click" />

@@ -48,5 +48,10 @@ namespace IMS.Client.WPF {
             Core.Client.inst.DeleteGroup(info.groupNumber);
             Refresh();
         }
+
+        private void GroupList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
     }
 }
