@@ -70,20 +70,6 @@ namespace IMS.Client.WPF {
             popup.Show();
         }
 
-        public void GroupPopupCreate()
-        {
-            var popup = parent.CreatePopup<GroupManipulatePopup>();
-            popup.CreateMode(this);
-            popup.Show();
-        }
-
-        public void GroupPopupEdit(int groupID)
-        {
-            var popup = parent.CreatePopup<GroupManipulatePopup>();
-            popup.EditMode(this, groupID);
-            popup.Show();
-        }
-
         public void GroupRefresh()
         {
             upsManage.Refresh();

@@ -74,9 +74,6 @@
     <Compile Include="Popup\Error\ErrorPopup.xaml.cs">
       <DependentUpon>ErrorPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Popup\GroupManipulate\GroupManipulatePopup.xaml.cs">
-      <DependentUpon>GroupManipulatePopup.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Popup\UPSInfo\AnalogViewPage.xaml.cs">
       <DependentUpon>AnalogViewPage.xaml</DependentUpon>
     </Compile>
@@ -134,10 +131,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Popup\Error\ErrorPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Popup\GroupManipulate\GroupManipulatePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
