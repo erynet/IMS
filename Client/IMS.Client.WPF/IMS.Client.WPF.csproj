@@ -59,9 +59,6 @@
     <Compile Include="MainMenu\Alarm\AlarmPage.xaml.cs">
       <DependentUpon>AlarmPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Equip\DotManage.xaml.cs">
-      <DependentUpon>DotManage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainMenu\Equip\GroupManagePage.xaml.cs">
       <DependentUpon>GroupManagePage.xaml</DependentUpon>
     </Compile>
@@ -70,6 +67,9 @@
     </Compile>
     <Compile Include="MainMenu\Special\SpecialEventPage.xaml.cs">
       <DependentUpon>SpecialEventPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DotManage\DotManagePopup.xaml.cs">
+      <DependentUpon>DotManagePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popup\Error\ErrorPopup.xaml.cs">
       <DependentUpon>ErrorPopup.xaml</DependentUpon>
@@ -117,10 +117,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Equip\DotManage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainMenu\Equip\GroupManagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainMenu\Special\SpecialEventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DotManage\DotManagePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

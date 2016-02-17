@@ -35,7 +35,7 @@ namespace IMS.Client.WPF {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Core.Panel.Info;
 
-                    parent.NavigateToDotManage(info.panelID);
+                    parent.DotManagePopup(info.panelID);
 
                     break;
                 }

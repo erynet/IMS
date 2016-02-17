@@ -21,7 +21,6 @@ namespace IMS.Client.WPF {
         private UPSManagePage upsManage = new UPSManagePage();
         private GroupManagePage groupManage = new GroupManagePage();
         private PanelManagePage panelManage = new PanelManagePage();
-        private DotManage dotManage = new DotManage();
         private AddEquipmentPage addEquipment = new AddEquipmentPage();
 
         public MainWindow parent;
@@ -52,20 +51,16 @@ namespace IMS.Client.WPF {
             MainFrame.Navigate(panelManage);
         }
 
-        private void button_dot_setting_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(dotManage);
-        }
-
         private void button_add_equipment_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(addEquipment);
         }
 
-        public void NavigateToDotManage(int panelID)
+        public void DotManagePopup(int panelID)
         {
-            dotManage.Refresh(panelID);
-            MainFrame.Navigate(dotManage);
+            var popup = parent.CreatePopup<DotManagePopup>();
+            popup.Refresh(panelID);
+            popup.Show();
         }
 
         public void UpsInfoPopup(int upsID)
