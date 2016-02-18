@@ -3,7 +3,7 @@
         public class Info {
             public bool isUsing { get; set; }
             public int upsID { get; set; }
-            public int groupNumber { get; set; }
+            public int groupID { get; set; }
             public string upsName { get; set; }
             public PartnerList partnerList { get; set; }
             public int panelID { get; set; }
@@ -21,7 +21,7 @@
             {
                 isUsing = rhs.isUsing;
                 upsID = rhs.upsID;
-                groupNumber = rhs.groupNumber;
+                groupID = rhs.groupID;
                 upsName = rhs.upsName;
                 partnerList = new PartnerList(rhs.partnerList);
                 panelID = rhs.panelID;

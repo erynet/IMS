@@ -22,7 +22,7 @@ namespace IMS.Client.Core {
             ups1.Data = new Ups.Info {
                 isUsing = false,
                 upsID = ups1.ID,
-                groupNumber = 1,
+                groupID = 1,
                 upsName = "화장실-1",
                 partnerList = PartnerList.Parse("2"),
                 panelID = 1,
@@ -35,7 +35,7 @@ namespace IMS.Client.Core {
             ups2.Data = new Ups.Info {
                 isUsing = false,
                 upsID = ups2.ID,
-                groupNumber = 1,
+                groupID = 1,
                 upsName = "화장실-2",
                 partnerList = PartnerList.Parse("1"),
                 panelID = 1,
@@ -230,7 +230,7 @@ namespace IMS.Client.Core {
                     continue;
                 }
 
-                ups.Data.groupNumber = -1;
+                ups.Data.groupID = -1;
             }
 
             foreach (var strID in newUps) {
@@ -244,7 +244,7 @@ namespace IMS.Client.Core {
                     continue;
                 }
 
-                ups.Data.groupNumber = groupID;
+                ups.Data.groupID = groupID;
             }
         }
 
@@ -289,7 +289,7 @@ namespace IMS.Client.Core {
                 partnerUps?.Data.partnerList.Remove(id);
             }
 
-            var group = GetGroup(ups.Data.groupNumber);
+            var group = GetGroup(ups.Data.groupID);
             group?.Data.UpsList.Remove(id);
 
             upsList.Remove(id);
@@ -333,7 +333,7 @@ namespace IMS.Client.Core {
                     continue;
                 }
 
-                ups.Data.groupNumber = -1;
+                ups.Data.groupID = -1;
             }
 
             groupList.Remove(id);
