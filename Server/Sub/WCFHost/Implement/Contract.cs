@@ -11,19 +11,41 @@ using System.Transactions;
 using IMS.Server.Sub.Lib.LocalDB;
 using IMS.Server.Sub.Lib.LocalDB.Model;
 using IMS.Server.Sub.WCFHost.Abstract;
+using IMS.Server.Sub.WCFHost.Abstract.DataContract;
 
-namespace IMS.Server.Sub.WCFHost
+namespace IMS.Server.Sub.WCFHost.Implement
 {
     /*
     //Usage Scenario
-    string guid = Proxy.Athenticate("12-34-56-78-90-qw-er-ty");
-    if (guid == "")
-        ExitProgram("Athentication Failed");
+    string sessionId = Proxy.Athenticate("12-34-56-78-90-qw-er-ty");
     while(ContinueLoop)
     {
-        Proxy.GetEvents(guid);
-        Proxy.GetWarnings(guid);
-        Proxy.GetAllDeviceStatus();
+        List<IMSEvent> Events = Proxy.GetEvents();
+        var grouped = from e in Events group e by e.Code select e;
+        foreach (IMSEvent ie in grouped)
+        {
+            switch()
+            {
+                case 0:
+                    // do nothing
+                    break;
+                case 10:
+                    // have warning
+                    var warn = Proxy.GetWarnings();
+                    ...
+                    break;
+                case 100:
+                    // ups status modificated
+                    var uos = Proxy.GetAllUpsStatus();
+                    ...
+                    break;
+                case 1000:
+                    // global setting modified
+                    var settings = Proxy.GetAllSettings();
+                    ...
+                    break;
+            }
+        }
     }
     Proxy.Leave(guid);
     */
@@ -38,9 +60,6 @@ namespace IMS.Server.Sub.WCFHost
 
         public Contract()
         {
-            //_operationContext = OperationContext.Current;
-            //_instanceContext = _operationContext.InstanceContext;
-
             _sessionLock = new object();
             _sessions = new Dictionary<string, Sessioninfo>();
 
@@ -50,6 +69,182 @@ namespace IMS.Server.Sub.WCFHost
             }
         }
 
+        #region IDisposable Support
+        private bool disposedValue = false; // 중복 호출을 검색하려면
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: 관리되는 상태(관리되는 개체)를 삭제합니다.
+                }
+
+                // TODO: 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
+                // TODO: 큰 필드를 null로 설정합니다.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
+        // ~Contract() {
+        //   // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
+        //   Dispose(false);
+        // }
+
+        // 삭제 가능한 패턴을 올바르게 구현하기 위해 추가된 코드입니다.
+        public void Dispose()
+        {
+            // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
+            Dispose(true);
+            // TODO: 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
+            // GC.SuppressFinalize(this);
+        }
+
+        public string Athenticate(string macAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Leave()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSWarning> GetWarnings()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSGroups GetGroups()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSGroup GetGroup(int groupIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetGroup(IMSGroup group)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddGroup(IMSGroup group)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DelGroup(int groupIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSUps> GetAllUps(int groupIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSUps GetUps(int upsIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetUps(IMSUps ups)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddUps(IMSUps ups)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DelUps(int upsIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSUpsStatus GetUpsStatus(int upsIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSUpsEvent> GetUpsEvents(int upsIdx, int maxCount = 100, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSCdu> GetAllCdu(int groupIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSCdu GetCdu(int cduIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetCdu(IMSCdu cdu)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddCdu(IMSCdu cdu)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DelCdu(int cduIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSCduStatus GetCduStatus(int cduIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSCduEvent> GetCduEvents(int cduIdx, int maxCount = 100, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSCduSocket> GetCduSocket(int cduIdx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetCduSocket(IMSCduSocket cduSocket)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMSSetting GetSetting(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSSetting> GetAllSettings()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetSetting(IMSSetting value)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        /*
         public string Athenticate(string id, string passwd, string macAddress)
         {
             Sessioninfo existSession = GetExistSession();
@@ -98,7 +293,7 @@ namespace IMS.Server.Sub.WCFHost
 
         private Sessioninfo GetExistSession()
         {
-            /*
+            
             // 사용자가 같은 세션으로 이미 등록되어 있을수도 있으므로, 그것을 얻기 위한 함수를 구현한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -147,13 +342,13 @@ namespace IMS.Server.Sub.WCFHost
             {
                 return null;    // 예외가 발생해도 null 을 리턴한다.
             }
-            */
+            
             throw new NotImplementedException();
         }
 
         private int OpenSession(string id, string passwd, string macAddress)
         {
-            /*
+            
             // 새로운 세션을 연다. 이 함수는 Athenticate 에서만 사용되어야 한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -203,13 +398,13 @@ namespace IMS.Server.Sub.WCFHost
                 Console.WriteLine(e.ToString());
                 return 0;    // Code 0: 에러가 발생하여 세션을 생성하지 못했다.
             }
-            */
+            
             throw new NotImplementedException();
         }
 
         private bool CloseSession()
         {
-            /*
+            
             // 세션을 닫는다. 이 함수는 Leave 에서만 사용되어야 한다.
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
@@ -247,7 +442,7 @@ namespace IMS.Server.Sub.WCFHost
                     return false;
                 }
             }
-            */
+            
             throw new NotImplementedException();
         }
         
@@ -323,7 +518,7 @@ namespace IMS.Server.Sub.WCFHost
 
         public List<IMSWarning> GetWarnings()
         {
-            /*
+            
             Sessioninfo sessioninfo = GetExistSession();
             if (sessioninfo == null)
                 return null;
@@ -388,55 +583,12 @@ namespace IMS.Server.Sub.WCFHost
                     return null;
                 }
             }
-            */
+            
             throw new NotImplementedException();
         }
+        */
 
-        public IMSDeviceStatus GetDeviceStatus(int deviceId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<IMSDeviceStatus> GetAllDeviceStatus()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSSetting GetSetting(string key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Abstract.IMSSetting GetSetting()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Abstract.IMSSetting> GetAllSettings()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetSetting(Abstract.IMSSetting value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-            //throw new NotImplementedException();
-        }
-
-        public List<IMSGroup> GetGroups()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSDevice> GetDevicesOfSomeGroup(int groupIdx)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     class Sessioninfo

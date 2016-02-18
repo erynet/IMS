@@ -59,7 +59,7 @@
     <Compile Include="Abstract\DataContract\Ups.cs" />
     <Compile Include="Abstract\DataContract\Warning.cs" />
     <Compile Include="Abstract\IIMS.cs" />
-    <Compile Include="Contract.cs" />
+    <Compile Include="Implement\Contract.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

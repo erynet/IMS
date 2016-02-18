@@ -70,7 +70,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         // 그룹 번호들과 해당 그룹의 상태를 리턴한다.
         // 그룹 전체의 목록을 받아갈떄 필요하다.
         [OperationContract]
-        List<IMSGroup> GetGroups();
+        IMSGroups GetGroups();
 
         [OperationContract]
         IMSGroup GetGroup(int groupIdx);
@@ -139,7 +139,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         List<IMSCduSocket> GetCduSocket(int cduIdx);
 
         [OperationContract]
-        List<IMSCduSocket> SetCduSocket(IMSCduSocket cduSocket);
+        bool SetCduSocket(IMSCduSocket cduSocket);
 
         #endregion
 

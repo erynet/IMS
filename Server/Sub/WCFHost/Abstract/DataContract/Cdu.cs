@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace IMS.Server.Sub.WCFHost.Abstract.DataContract
@@ -15,7 +16,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract.DataContract
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public string UpsList { get; set; }
+        public List<IMSUps> UpsList { get; set; }
         [DataMember]
         public bool Extendable { get; set; }
         [DataMember]

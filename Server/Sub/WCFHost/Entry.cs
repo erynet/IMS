@@ -5,6 +5,7 @@ using System.Threading;
 
 using IMS.Server.Common;
 using IMS.Server.Sub.WCFHost.Abstract;
+using IMS.Server.Sub.WCFHost.Implement;
 
 namespace IMS.Server.Sub.WCFHost
 {
