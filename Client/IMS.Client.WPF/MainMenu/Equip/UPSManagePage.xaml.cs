@@ -38,11 +38,11 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Ups.Info>(Core.Client.inst.GetUpsData());
+            copyList = new List<Core.Ups.Info>(Core.DataManager.inst.GetUpsData());
             UPSList.ItemsSource = copyList;
 
             groupCopyList.Clear();
-            var groupInfoList = Core.Client.inst.GetGroupData();
+            var groupInfoList = Core.DataManager.inst.GetGroupData();
             foreach (var groupInfo in groupInfoList) {
                 groupCopyList.Add(groupInfo.groupID);
             }
@@ -109,11 +109,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.Client.inst.AddUps(info);
+                Core.DataManager.inst.AddUps(info);
             }
 
             foreach (var info in changedList) {
-                Core.Client.inst.EditUps(info);
+                Core.DataManager.inst.EditUps(info);
             }
 
             parent.UpsRefresh();
@@ -141,7 +141,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.Client.inst.DeleteUps(info.upsID);
+                            Core.DataManager.inst.DeleteUps(info.upsID);
                             parent.UpsRefreshExceptUps();
 
                             copyList.Remove(info);

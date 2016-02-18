@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
 namespace IMS.Client.Core {
-    public class Client {
-        private static Client client = new Client();
-        public static Client inst => client;
+    public class DataManager {
+        private static DataManager client = new DataManager();
+        public static DataManager inst => client;
 
         private Dictionary<int, Ups> upsList = new Dictionary<int, Ups>();
         private Dictionary<int, Panel> panelList = new Dictionary<int, Panel>();

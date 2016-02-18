@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Client.cs" />
+    <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\Panel.cs" />
     <Compile Include="Data\PartnerList.cs" />

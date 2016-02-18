@@ -36,7 +36,7 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Panel.Info>(Core.Client.inst.GetPanelData());
+            copyList = new List<Core.Panel.Info>(Core.DataManager.inst.GetPanelData());
             PanelList.ItemsSource = copyList;
 
             ResetView();
@@ -104,11 +104,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.Client.inst.AddPanel(info);
+                Core.DataManager.inst.AddPanel(info);
             }
 
             foreach (var info in changedList) {
-                Core.Client.inst.EditPanel(info);
+                Core.DataManager.inst.EditPanel(info);
             }
 
             parent.PanelRefresh();
@@ -136,7 +136,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.Client.inst.DeletePanel(info.panelID);
+                            Core.DataManager.inst.DeletePanel(info.panelID);
                             parent.PanelRefreshExceptPanel();
 
                             copyList.Remove(info);

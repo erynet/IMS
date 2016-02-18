@@ -32,7 +32,7 @@ namespace IMS.Client.WPF {
 
             groupImageList.Clear();
 
-            var groupList = Core.Client.inst.GetGroupData();
+            var groupList = Core.DataManager.inst.GetGroupData();
             foreach (var data in groupList) {
                 var image = new System.Windows.Controls.Image();
                 image.Source = BitmapToImageSource(Properties.Resources.group_icon_normal_1);
