@@ -13,7 +13,7 @@
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding upsID}"/>
-                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>
+                <DataGridComboBoxColumn x:Name="GroupID"  Header="그룹 번호" TextBinding="{Binding groupNumber}"/>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding upsName}"/>
                 <DataGridTextColumn Header="짝" Binding="{Binding partnerList}"/>
                 <DataGridTextColumn Header="분전반" Binding="{Binding panelID}"/>

@@ -24,6 +24,8 @@ namespace IMS.Client.WPF {
         private List<Core.Ups.Info> addedList = new List<Core.Ups.Info>();
         private List<Core.Ups.Info> changedList = new List<Core.Ups.Info>();
 
+        private List<int> groupCopyList = new List<int>();
+
         public UPSManagePage()
         {
             InitializeComponent();
@@ -38,6 +40,14 @@ namespace IMS.Client.WPF {
 
             copyList = new List<Core.Ups.Info>(Core.Client.inst.GetUpsData());
             UPSList.ItemsSource = copyList;
+
+            groupCopyList.Clear();
+            var groupInfoList = Core.Client.inst.GetGroupData();
+            foreach (var groupInfo in groupInfoList) {
+                groupCopyList.Add(groupInfo.groupID);
+            }
+
+            GroupID.ItemsSource = groupCopyList;
 
             ResetView();
         }
