@@ -12,3 +12,7 @@ __*.cs
 *.VC.opendb
 *.sdf
 *.opensdf
+
+# Auto generated files
+Client/IMS.Client.Core/WCF/GenCli.config
+Client/IMS.Client.Core/WCF/GenCli.cs
