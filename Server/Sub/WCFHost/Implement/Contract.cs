@@ -68,7 +68,12 @@ namespace IMS.Server.Sub.WCFHost.Implement
                 ctx.Database.Initialize(true);
             }
         }
-        
+
+        public string Ping()
+        {
+            return "PONG";
+        }
+
         public string Athenticate(string macAddress)
         {
             throw new NotImplementedException();

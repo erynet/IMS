@@ -45,6 +45,9 @@ namespace IMS.Server.Sub.WCFHost.Abstract
     [ServiceContract(Namespace = "http://aspt.com/IMS/", SessionMode = SessionMode.Required)]
     public interface IIMS
     {
+        [OperationContract]
+        string Ping();
+
         // 최초 프로그램을 킬때, 사용자의 로그인을 받는다.
         // MacAddress 를 기록하는게 필요가 있나 고민중.
         [OperationContract]
