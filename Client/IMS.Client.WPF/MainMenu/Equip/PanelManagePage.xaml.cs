@@ -20,6 +20,10 @@ namespace IMS.Client.WPF {
     public partial class PanelManagePage : Page {
         public EquipPage parent;
 
+        private List<Core.Panel.Info> copyList;
+        private List<Core.Panel.Info> addedList = new List<Core.Panel.Info>();
+        private List<Core.Panel.Info> changedList = new List<Core.Panel.Info>();
+
         public PanelManagePage()
         {
             InitializeComponent();
@@ -29,8 +33,37 @@ namespace IMS.Client.WPF {
 
         public void Refresh()
         {
-            var panelList = Core.Client.inst.GetPanelData();
-            PanelList.ItemsSource = panelList;
+            addedList.Clear();
+            changedList.Clear();
+
+            copyList = new List<Core.Panel.Info>(Core.Client.inst.GetPanelData());
+            PanelList.ItemsSource = copyList;
+
+            ResetView();
+        }
+
+        private void ResetView()
+        {
+            var view = CollectionViewSource.GetDefaultView(PanelList.ItemsSource) as ListCollectionView;
+            if (view == null) {
+                return;
+            }
+
+            if (view.IsAddingNew == true) {
+                view.CommitNew();
+            }
+            if (view.IsEditingItem == true) {
+                view.CommitEdit();
+            }
+
+            if (view != null && view.SortDescriptions != null) {
+                view.SortDescriptions.Clear();
+                foreach (var column in PanelList.Columns) {
+                    column.SortDirection = null;
+                }
+            }
+
+            PanelList.Items.Refresh();
         }
 
         private void ManageDot_Click(object sender, RoutedEventArgs e)
@@ -56,6 +89,77 @@ namespace IMS.Client.WPF {
 
                     break;
                 }
+            }
+        }
+
+        private void PanelList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            var info = PanelList.SelectedItem as Core.Panel.Info;
+
+            if (addedList.Contains(info) == false && changedList.Contains(info) == false) {
+                changedList.Add(info);
+            }
+        }
+
+        private void button_apply_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var info in addedList) {
+                Core.Client.inst.AddPanel(info);
+            }
+
+            foreach (var info in changedList) {
+                Core.Client.inst.EditPanel(info);
+            }
+
+            parent.PanelRefresh();
+        }
+
+        private void button_add_Click(object sender, RoutedEventArgs e)
+        {
+            var newInfo = new Core.Panel.Info();
+            addedList.Add(newInfo);
+            copyList.Add(newInfo);
+
+            ResetView();
+        }
+
+        private void button_delete_Click(object sender, RoutedEventArgs e)
+        {
+            var info = PanelList.SelectedItem as Core.Panel.Info;
+            if (addedList.Contains(info) == true) {
+                addedList.Remove(info);
+                copyList.Remove(info);
+
+                ResetView();
+            }
+            else {
+                var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
+                switch (result) {
+                    case MessageBoxResult.Yes: {
+                            Core.Client.inst.DeletePanel(info.panelID);
+                            parent.PanelRefreshExceptPanel();
+
+                            copyList.Remove(info);
+                            ResetView();
+                        }
+                        break;
+                }
+            }
+        }
+
+        private void button_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void PanelList_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            var view = CollectionViewSource.GetDefaultView(PanelList.ItemsSource) as ListCollectionView;
+            if (view.IsAddingNew == true || view.IsEditingItem == true) {
+                PanelList.CanUserSortColumns = false;
+            }
+            else {
+                PanelList.CanUserSortColumns = true;
             }
         }
     }

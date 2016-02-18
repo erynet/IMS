@@ -141,6 +141,18 @@ namespace IMS.Client.Core {
             }
         }
 
+        public void AddPanel(Panel.Info newInfo)
+        {
+            var panel = GetPanel(newInfo.panelID);
+            if (panel == null) {
+                panel = new Panel();
+                panel.Data = newInfo;
+                newInfo.panelID = panel.ID;
+
+                panelList.Add(panel.ID, panel);
+            }
+        }
+
         public void AddGroup(Group.Info newInfo)
         {
             var group = GetGroup(newInfo.groupID);
@@ -175,6 +187,12 @@ namespace IMS.Client.Core {
         {
             var ups = GetUps(info.upsID);
             ups?.Data.Copy(info);
+        }
+
+        public void EditPanel(Panel.Info info)
+        {
+            var panel = GetPanel(info.panelID);
+            panel?.Data.Copy(info);
         }
 
         public void EditGroup(Group.Info newInfo)
@@ -275,6 +293,31 @@ namespace IMS.Client.Core {
             group?.Data.UpsList.Remove(id);
 
             upsList.Remove(id);
+        }
+
+        public void DeletePanel(int id)
+        {
+            var panel = GetPanel(id);
+            if (panel == null) {
+                return;
+            }
+
+            // Remove child ups
+            var removeUpsList = new List<int>();
+
+            foreach (var pair in UpsList) {
+                var ups = pair.Value;
+                if (ups.Data.panelID == id) {
+                    removeUpsList.Add(ups.ID);
+                }
+            }
+
+            foreach (var upsID in removeUpsList) {
+                upsList.Remove(upsID);
+            }
+
+            // Remove
+            panelList.Remove(id);
         }
 
         public void DeleteGroup(int id)

@@ -85,6 +85,17 @@ namespace IMS.Client.WPF {
             parent.MapRefresh();
         }
 
+        public void PanelRefresh()
+        {
+            upsManage.Refresh();
+            panelManage.Refresh();
+        }
+
+        public void PanelRefreshExceptPanel()
+        {
+            upsManage.Refresh();
+        }
+
         public void GroupRefresh()
         {
             upsManage.Refresh();
