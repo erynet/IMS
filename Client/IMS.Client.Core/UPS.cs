@@ -2,17 +2,34 @@
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
-            public int groupNumber { get; set; }
-            public bool isGroupVisible { get; set; }
-            public string groupName { get; set; }
-            public bool isSeparatelyUseable { get; set; }
             public int upsID { get; set; }
-            public string partnerIDs { get; set; }
+            public int groupNumber { get; set; }
             public string upsName { get; set; }
-            public string batteryCapacity { get; set; }
+            public PartnerList partnerList { get; set; }
+            public int panelID { get; set; }
             public string batteryDescription { get; set; }
+            public string batteryCapacity { get; set; }
             public string ip { get; set; }
             public string installDate { get; set; }
+
+            public Info()
+            {
+                partnerList = new PartnerList();
+            }
+
+            public void Copy(Info rhs)
+            {
+                isUsing = rhs.isUsing;
+                upsID = rhs.upsID;
+                groupNumber = rhs.groupNumber;
+                upsName = rhs.upsName;
+                partnerList = new PartnerList(rhs.partnerList);
+                panelID = rhs.panelID;
+                batteryDescription = rhs.batteryDescription;
+                batteryCapacity = rhs.batteryCapacity;
+                ip = rhs.ip;
+                installDate = rhs.installDate;
+            }
         }
 
         static private int uid = 0;

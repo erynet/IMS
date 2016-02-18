@@ -21,30 +21,26 @@ namespace IMS.Client.Core {
 
             ups1.Data = new Ups.Info {
                 isUsing = false,
-                groupNumber = 1,
-                isGroupVisible = true,
-                groupName = "화장실",
-                isSeparatelyUseable = true,
                 upsID = ups1.ID,
-                partnerIDs = "2",
+                groupNumber = 1,
                 upsName = "화장실-1",
-                batteryCapacity = "1kW",
+                partnerList = PartnerList.Parse("2"),
+                panelID = 1,
                 batteryDescription = "듀라셀",
+                batteryCapacity = "1kW",
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
 
             ups2.Data = new Ups.Info {
                 isUsing = false,
-                groupNumber = 1,
-                isGroupVisible = true,
-                groupName = "화장실",
-                isSeparatelyUseable = true,
                 upsID = ups2.ID,
-                partnerIDs = "1",
+                groupNumber = 1,
                 upsName = "화장실-2",
-                batteryCapacity = "1kW",
+                partnerList = PartnerList.Parse("1"),
+                panelID = 1,
                 batteryDescription = "듀라셀",
+                batteryCapacity = "1kW",
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
@@ -98,7 +94,9 @@ namespace IMS.Client.Core {
             var ret = new List<Ups.Info>();
 
             foreach (var pair in upsList) {
-                ret.Add(pair.Value.Data);
+                var copyData = new Ups.Info();
+                copyData.Copy(pair.Value.Data);
+                ret.Add(copyData);
             }
 
             return ret;
@@ -109,7 +107,9 @@ namespace IMS.Client.Core {
             var ret = new List<Panel.Info>();
 
             foreach (var pair in panelList) {
-                ret.Add(pair.Value.Data);
+                var copyData = new Panel.Info();
+                copyData.Copy(pair.Value.Data);
+                ret.Add(copyData);
             }
 
             return ret;
@@ -127,6 +127,18 @@ namespace IMS.Client.Core {
             }
 
             return ret;
+        }
+
+        public void AddUps(Ups.Info newInfo)
+        {
+            var ups = GetUps(newInfo.upsID);
+            if (ups == null) {
+                ups = new Ups();
+                ups.Data = newInfo;
+                newInfo.upsID = ups.ID;
+
+                upsList.Add(ups.ID, ups);
+            }
         }
 
         public void AddGroup(Group.Info newInfo)
@@ -157,6 +169,12 @@ namespace IMS.Client.Core {
             foreach (var id in ups) {
                 group.Data.UpsList.Add(int.Parse(id));
             }
+        }
+
+        public void EditUps(Ups.Info info)
+        {
+            var ups = GetUps(info.upsID);
+            ups?.Data.Copy(info);
         }
 
         public void EditGroup(Group.Info newInfo)
@@ -195,7 +213,6 @@ namespace IMS.Client.Core {
                 }
 
                 ups.Data.groupNumber = -1;
-                ups.Data.groupName = "";
             }
 
             foreach (var strID in newUps) {
@@ -210,7 +227,6 @@ namespace IMS.Client.Core {
                 }
 
                 ups.Data.groupNumber = groupID;
-                ups.Data.groupName = group.Data.groupName;
             }
         }
 
@@ -222,12 +238,43 @@ namespace IMS.Client.Core {
             return ret;
         }
 
+        public Panel GetPanel(int id)
+        {
+            Panel ret = null;
+            panelList.TryGetValue(id, out ret);
+
+            return ret;
+        }
+
         public Group GetGroup(int id)
         {
             Group ret = null;
             groupList.TryGetValue(id, out ret);
 
             return ret;
+        }
+
+        public void DeleteUps(int id)
+        {
+            var ups = GetUps(id);
+            if (ups == null) {
+                return;
+            }
+
+            var partnerList = ups.Data.partnerList;
+            foreach (var partnerID in partnerList.IDList) {
+                if (partnerID == id) {
+                    continue;
+                }
+
+                var partnerUps = GetUps(partnerID);
+                partnerUps?.Data.partnerList.Remove(id);
+            }
+
+            var group = GetGroup(ups.Data.groupNumber);
+            group?.Data.UpsList.Remove(id);
+
+            upsList.Remove(id);
         }
 
         public void DeleteGroup(int id)
@@ -244,7 +291,6 @@ namespace IMS.Client.Core {
                 }
 
                 ups.Data.groupNumber = -1;
-                ups.Data.groupName = "";
             }
 
             groupList.Remove(id);

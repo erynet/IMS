@@ -7,6 +7,16 @@
             public bool isExtended { get; set; }
             public string ip { get; set; }
             public string installDate { get; set; }
+
+            public void Copy(Info rhs)
+            {
+                isUsing = rhs.isUsing;
+                panelID = rhs.panelID;
+                panelName = rhs.panelName;
+                isExtended = rhs.isExtended;
+                ip = rhs.ip;
+                installDate = rhs.installDate;
+            }
         }
 
         public Info Data = new Info();

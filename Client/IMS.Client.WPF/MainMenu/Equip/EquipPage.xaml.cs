@@ -70,6 +70,21 @@ namespace IMS.Client.WPF {
             popup.Show();
         }
 
+        public void UpsRefresh()
+        {
+            upsManage.Refresh();
+            panelManage.Refresh();
+            groupManage.Refresh();
+            parent.MapRefresh();
+        }
+
+        public void UpsRefreshExceptUps()
+        {
+            panelManage.Refresh();
+            groupManage.Refresh();
+            parent.MapRefresh();
+        }
+
         public void GroupRefresh()
         {
             upsManage.Refresh();
