@@ -52,7 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\DataContract.cs" />
+    <Compile Include="Abstract\DataContract\Cdu.cs" />
+    <Compile Include="Abstract\DataContract\Event.cs" />
+    <Compile Include="Abstract\DataContract\Group.cs" />
+    <Compile Include="Abstract\DataContract\Setting.cs" />
+    <Compile Include="Abstract\DataContract\Ups.cs" />
+    <Compile Include="Abstract\DataContract\Warning.cs" />
     <Compile Include="Abstract\IIMS.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Entry.cs" />
