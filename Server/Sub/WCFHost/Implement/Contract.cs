@@ -50,7 +50,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
     Proxy.Leave(guid);
     */
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
-    public class Contract : IIMS, IDisposable
+    public partial class Contract : IIMS, IDisposable
     {
         private OperationContext _operationContext;
         private InstanceContext _instanceContext;
@@ -67,6 +67,26 @@ namespace IMS.Server.Sub.WCFHost.Implement
             {
                 ctx.Database.Initialize(true);
             }
+        }
+        
+        public string Athenticate(string macAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Leave()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IMSWarning> GetWarnings()
+        {
+            throw new NotImplementedException();
         }
 
         #region IDisposable Support
@@ -103,146 +123,8 @@ namespace IMS.Server.Sub.WCFHost.Implement
             // GC.SuppressFinalize(this);
         }
 
-        public string Athenticate(string macAddress)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Leave()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSWarning> GetWarnings()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSGroups GetGroups()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSGroup GetGroup(int groupIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetGroup(IMSGroup group)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int AddGroup(IMSGroup group)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DelGroup(int groupIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSUps> GetAllUps(int groupIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSUps GetUps(int upsIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetUps(IMSUps ups)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int AddUps(IMSUps ups)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DelUps(int upsIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSUpsStatus GetUpsStatus(int upsIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSUpsEvent> GetUpsEvents(int upsIdx, int maxCount = 100, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSCdu> GetAllCdu(int groupIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSCdu GetCdu(int cduIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetCdu(IMSCdu cdu)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int AddCdu(IMSCdu cdu)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DelCdu(int cduIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSCduStatus GetCduStatus(int cduIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSCduEvent> GetCduEvents(int cduIdx, int maxCount = 100, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSCduSocket> GetCduSocket(int cduIdx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetCduSocket(IMSCduSocket cduSocket)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IMSSetting GetSetting(string key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IMSSetting> GetAllSettings()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetSetting(IMSSetting value)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
+
 
         /*
         public string Athenticate(string id, string passwd, string macAddress)

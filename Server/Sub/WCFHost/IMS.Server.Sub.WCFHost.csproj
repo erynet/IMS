@@ -59,8 +59,12 @@
     <Compile Include="Abstract\DataContract\Ups.cs" />
     <Compile Include="Abstract\DataContract\Warning.cs" />
     <Compile Include="Abstract\IIMS.cs" />
+    <Compile Include="Implement\Cdu.cs" />
     <Compile Include="Implement\Contract.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Implement\Group.cs" />
+    <Compile Include="Implement\Setting.cs" />
+    <Compile Include="Implement\Ups.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
