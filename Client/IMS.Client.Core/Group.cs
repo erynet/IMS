@@ -6,7 +6,7 @@ namespace IMS.Client.Core {
             private List<int> upsList = new List<int>();
 
             public bool isUsing { get; set; }
-            public int groupNumber { get; set; }
+            public int groupID { get; set; }
             public bool isGroupVisible { get; set; }
             public string groupName { get; set; }
             public bool isSeperatelyUsing { get; set; }
@@ -24,7 +24,7 @@ namespace IMS.Client.Core {
                 upsList = new List<int>(rhs.upsList);
 
                 isUsing = rhs.isUsing;
-                groupNumber = rhs.groupNumber;
+                groupID = rhs.groupID;
                 isGroupVisible = rhs.isGroupVisible;
                 groupName = rhs.groupName;
                 isSeperatelyUsing = rhs.isSeperatelyUsing;

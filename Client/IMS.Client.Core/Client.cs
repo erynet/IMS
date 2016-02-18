@@ -65,7 +65,7 @@ namespace IMS.Client.Core {
             var group1 = new Group();
             group1.Data = new Group.Info {
                 isUsing = true,
-                groupNumber = group1.ID,
+                groupID = group1.ID,
                 isGroupVisible = true,
                 groupName = "방1",
                 isSeperatelyUsing = false,
@@ -75,7 +75,7 @@ namespace IMS.Client.Core {
             var group2 = new Group();
             group2.Data = new Group.Info {
                 isUsing = true,
-                groupNumber = group2.ID,
+                groupID = group2.ID,
                 isGroupVisible = true,
                 groupName = "방2",
                 isSeperatelyUsing = false,
@@ -85,8 +85,8 @@ namespace IMS.Client.Core {
             group2.Data.UpsList.Add(0);
             group2.Data.UpsList.Add(1);
 
-            groupList.Add(group1.Data.groupNumber, group1);
-            groupList.Add(group2.Data.groupNumber, group2);
+            groupList.Add(group1.Data.groupID, group1);
+            groupList.Add(group2.Data.groupID, group2);
         }
 
         public List<Ups.Info> GetUpsData()
@@ -143,11 +143,11 @@ namespace IMS.Client.Core {
 
         public void AddGroup(Group.Info newInfo)
         {
-            var group = GetGroup(newInfo.groupNumber);
+            var group = GetGroup(newInfo.groupID);
             if (group == null) {
                 group = new Group();
                 group.Data = newInfo;
-                newInfo.groupNumber = group.ID;
+                newInfo.groupID = group.ID;
 
                 groupList.Add(group.ID, group);
             }
@@ -158,7 +158,7 @@ namespace IMS.Client.Core {
             var group = new Group();
             group.Data = new Group.Info {
                 isUsing = true,
-                groupNumber = group.ID,
+                groupID = group.ID,
                 isGroupVisible = true,
                 groupName = groupName,
                 isSeperatelyUsing = false,
@@ -179,7 +179,7 @@ namespace IMS.Client.Core {
 
         public void EditGroup(Group.Info newInfo)
         {
-            var group = GetGroup(newInfo.groupNumber);
+            var group = GetGroup(newInfo.groupID);
             group?.Data.Copy(newInfo);
         }
 
