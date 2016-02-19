@@ -111,7 +111,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
             _operationContext = OperationContext.Current;
             string sessionId = _operationContext.SessionId;
 
-            Debug.Assert(sessionId != null, "GetExistSession : SessionId is null");
+            Debug.Assert(sessionId != null, "GetSession : SessionId is null");
 
             try
             {

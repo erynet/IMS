@@ -13,7 +13,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
     while(ContinueLoop)
     {
         List<IMSEvent> Events = Proxy.GetEvents();
-        var grouped = from e in Events group e by e.Code select e;
+        var grouped = from e in Events g e by e.Code select e;
         foreach (IMSEvent ie in grouped)
         {
             switch()
@@ -79,7 +79,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         IMSGroup GetGroup(int groupIdx);
 
         [OperationContract]
-        bool SetGroup(IMSGroup group);
+        bool SetGroup(IMSGroup g);
 
         [OperationContract]
         int AddGroup(IMSGroup group);

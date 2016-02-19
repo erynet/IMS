@@ -16,7 +16,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract.DataContract
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public List<IMSUps> MateList { get; set; }
+        public string MateList { get; set; }
         [DataMember]
         public int? CduNo { get; set; }
         [DataMember]

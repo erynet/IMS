@@ -16,7 +16,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract.DataContract
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public List<IMSUps> UpsList { get; set; }
+        public string UpsList { get; set; }
         [DataMember]
         public bool Extendable { get; set; }
         [DataMember]
