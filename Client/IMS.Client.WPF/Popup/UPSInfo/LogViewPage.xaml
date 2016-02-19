@@ -10,17 +10,17 @@
 
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="12,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>
-        <Label x:Name="label" Content="로그" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="44" Width="772" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="699,15,0,0" VerticalAlignment="Top" Width="75" Height="29" FontSize="20" Click="button_digital_Click"/>
+        <Label x:Name="label" Content="로그" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="44" Width="772" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="699,15,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="button_digital_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="12,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="596" Margin="556,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="228"/>
-        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="699,699,0,0" VerticalAlignment="Top" Width="85" Height="47" FontSize="20" Click="button_close_Click"/>
+        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="699,699,0,0" VerticalAlignment="Top" Width="85" Height="47" Click="button_close_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="287,99,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="12,314,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="198" Margin="287,314,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="199" Margin="12,531,0,0" Stroke="Black" VerticalAlignment="Top" Width="252"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="199" Margin="287,531,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
-        <Button x:Name="button_excel_export" Content="엑셀 출력" HorizontalAlignment="Left" Margin="556,699,0,0" VerticalAlignment="Top" Width="85" Height="47" FontSize="20" Click="button_excel_export_Click"/>
+        <Button x:Name="button_excel_export" Content="엑셀 출력" HorizontalAlignment="Left" Margin="556,699,0,0" VerticalAlignment="Top" Width="85" Height="47" Click="button_excel_export_Click"/>
         <Label x:Name="label1" Content="온도" HorizontalAlignment="Left" Margin="648,61,0,0" VerticalAlignment="Top" Height="30" Width="55" FontSize="26.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="label2" Content="장비 번호&#xD;&#xA; :" HorizontalAlignment="Left" Margin="12,65,0,0" VerticalAlignment="Top" Width="72" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="equipment_number" HorizontalAlignment="Left" Height="26" Margin="89,65,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
