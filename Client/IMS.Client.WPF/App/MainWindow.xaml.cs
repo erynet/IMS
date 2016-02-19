@@ -21,7 +21,7 @@ namespace IMS.Client.WPF {
         {
             InitializeComponent();
 
-            Core.Client.inst.Init();
+            Core.DataManager.inst.Init();
 
             // Child pages
             equip = new EquipPage();

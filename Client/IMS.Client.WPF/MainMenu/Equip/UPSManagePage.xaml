@@ -9,13 +9,13 @@
       Title="UPSManagePage">
 
     <Grid>
-        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,50" CellEditEnding="UPSList_CellEditEnding" Sorting="UPSList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding upsID}"/>
-                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNumber}"/>
+                <DataGridComboBoxColumn x:Name="GroupID"  Header="그룹 번호" TextBinding="{Binding groupNumber}"/>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding upsName}"/>
-                <DataGridTextColumn Header="짝" Binding="{Binding partnerIDs}"/>
+                <DataGridTextColumn Header="짝" Binding="{Binding partnerList}"/>
                 <DataGridTextColumn Header="분전반" Binding="{Binding panelID}"/>
                 <DataGridTextColumn Header="사양" Binding="{Binding batteryDescription}"/>
                 <DataGridTextColumn Header="용량" Binding="{Binding batteryCapacity}"/>
@@ -32,5 +32,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="1348,975,0,0" VerticalAlignment="Top" Width="104" Height="35" FontSize="20" Click="button_add_Click"/>
+        <Button x:Name="button_delete" Content="삭제" HorizontalAlignment="Left" Margin="1457,975,0,0" VerticalAlignment="Top" Width="104" Height="35" FontSize="20" Click="button_delete_Click"/>
+        <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="1566,975,0,0" VerticalAlignment="Top" Width="104" Height="35" FontSize="20" Click="button_cancel_Click"/>
+        <Button x:Name="button_apply" Content="적용" HorizontalAlignment="Left" Margin="1239,975,0,0" VerticalAlignment="Top" Width="104" Height="35" FontSize="20" Click="button_apply_Click"/>
     </Grid>
 </Page>

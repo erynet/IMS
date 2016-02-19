@@ -27,7 +27,7 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Group.Info>(Core.Client.inst.GetGroupData());
+            copyList = new List<Core.Group.Info>(Core.DataManager.inst.GetGroupData());
             GroupList.ItemsSource = copyList;
 
             ResetView();
@@ -76,11 +76,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.Client.inst.AddGroup(info);
+                Core.DataManager.inst.AddGroup(info);
             }
 
             foreach (var info in changedList) {
-                Core.Client.inst.EditGroup(info);
+                Core.DataManager.inst.EditGroup(info);
             }
 
             parent.GroupRefresh();
@@ -108,7 +108,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.Client.inst.DeleteGroup(info.groupNumber);
+                            Core.DataManager.inst.DeleteGroup(info.groupID);
                             parent.GroupRefreshExceptGroup();
 
                             copyList.Remove(info);
