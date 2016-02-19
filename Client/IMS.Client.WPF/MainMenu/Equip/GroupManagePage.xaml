@@ -12,7 +12,7 @@
         <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,0,0,50" Sorting="GroupList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
-                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupID}"/>
+                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupID}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
                 <DataGridCheckBoxColumn Header="그룹 개별 장비 사용" Binding="{Binding isSeperatelyUsing}"/>

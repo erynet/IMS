@@ -155,14 +155,11 @@ namespace IMS.Client.Core {
 
         public void AddGroup(Group.Info newInfo)
         {
-            var group = GetGroup(newInfo.groupID);
-            if (group == null) {
-                group = new Group();
-                group.Data = newInfo;
-                newInfo.groupID = group.ID;
+            var group = new Group();
+            group.Data = newInfo;
+            newInfo.groupID = group.ID;
 
-                groupList.Add(group.ID, group);
-            }
+            groupList.Add(group.ID, group);
         }
 
         public void AddGroup(string groupName, string upsList, string coord)
