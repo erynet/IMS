@@ -162,24 +162,6 @@ namespace IMS.Client.Core {
             groupList.Add(group.ID, group);
         }
 
-        public void AddGroup(string groupName, string upsList, string coord)
-        {
-            var group = new Group();
-            group.Data = new Group.Info {
-                isUsing = true,
-                groupID = group.ID,
-                isGroupVisible = true,
-                groupName = groupName,
-                isSeperatelyUsing = false,
-                coordinate = Point.Parse(coord)
-            };
-
-            var ups = upsList.Split(',');
-            foreach (var id in ups) {
-                group.Data.UpsList.Add(int.Parse(id));
-            }
-        }
-
         public void EditUps(Ups.Info info)
         {
             var ups = GetUps(info.upsID);
@@ -197,54 +179,7 @@ namespace IMS.Client.Core {
             var group = GetGroup(newInfo.groupID);
             group?.Data.Copy(newInfo);
         }
-
-        public void EditGroup(int groupID, string groupName, string upsList, string coord)
-        {
-            var group = GetGroup(groupID);
-            if (group == null) {
-                return;
-            }
-
-            group.Data.groupName = groupName;
-            group.Data.coordinate = Point.Parse(coord);
-
-            var oldUps = new List<int>(group.Data.UpsList);
-
-            group.Data.UpsList.Clear();
-            var newUps = upsList.Split(',');
-            foreach (var strID in newUps) {
-                int id;
-                if (int.TryParse(strID, out id) == false) {
-                    continue;
-                }
-
-                group.Data.UpsList.Add(id);
-            }
-
-            foreach (var id in oldUps) {
-                var ups = GetUps(id);
-                if (ups == null) {
-                    continue;
-                }
-
-                ups.Data.groupID = -1;
-            }
-
-            foreach (var strID in newUps) {
-                int id;
-                if (int.TryParse(strID, out id) == false) {
-                    continue;
-                }
-
-                var ups = GetUps(id);
-                if (ups == null) {
-                    continue;
-                }
-
-                ups.Data.groupID = groupID;
-            }
-        }
-
+        
         public Ups GetUps(int id)
         {
             Ups ret = null;
