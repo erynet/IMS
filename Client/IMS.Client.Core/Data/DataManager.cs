@@ -209,6 +209,7 @@ namespace IMS.Client.Core {
                 return;
             }
 
+            // Partner
             var partnerList = ups.Data.partnerList;
             foreach (var partnerID in partnerList) {
                 if (partnerID == id) {
@@ -219,6 +220,11 @@ namespace IMS.Client.Core {
                 partnerUps?.Data.partnerList.Remove(id);
             }
 
+            // Panel
+            var panel = GetPanel(ups.Data.panelID);
+            panel?.Data.upsList.Remove(id);
+
+            // Group
             var group = GetGroup(ups.Data.groupID);
             group?.Data.upsList.Remove(id);
 
@@ -235,7 +241,7 @@ namespace IMS.Client.Core {
             // Remove child ups
             var removeUpsList = new List<int>();
 
-            foreach (var pair in UpsList) {
+            foreach (var pair in upsList) {
                 var ups = pair.Value;
                 if (ups.Data.panelID == id) {
                     removeUpsList.Add(ups.ID);
