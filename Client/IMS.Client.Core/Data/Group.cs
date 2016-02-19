@@ -7,13 +7,13 @@ namespace IMS.Client.Core {
             public int groupID { get; set; }
             public bool isGroupVisible { get; set; }
             public string groupName { get; set; }
-            public bool isSeperatelyUsing { get; set; }
             public Point coordinate { get; set; }
             public IntList upsList { get; set; }
 
             public Info()
             {
                 coordinate = new Point();
+                upsList = new IntList();
             }
 
             public void Copy(Info rhs)
@@ -22,9 +22,8 @@ namespace IMS.Client.Core {
                 groupID = rhs.groupID;
                 isGroupVisible = rhs.isGroupVisible;
                 groupName = rhs.groupName;
-                isSeperatelyUsing = rhs.isSeperatelyUsing;
                 coordinate = new Point(rhs.coordinate);
-                upsList = new IntList();
+                upsList = new IntList(rhs.upsList);
             }
         }
 

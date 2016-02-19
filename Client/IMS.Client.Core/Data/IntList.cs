@@ -46,7 +46,12 @@ namespace IMS.Client.Core {
 
         public IntList(IntList rhs)
         {
-            list.AddRange(rhs.list);
+            list = new List<int>(rhs.list);
+        }
+
+        public IntList(IEnumerable<int> collection)
+        {
+            list.AddRange(collection);
         }
 
         public override string ToString()

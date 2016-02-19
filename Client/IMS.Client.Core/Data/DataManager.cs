@@ -68,8 +68,8 @@ namespace IMS.Client.Core {
                 groupID = group1.ID,
                 isGroupVisible = true,
                 groupName = "방1",
-                isSeperatelyUsing = false,
-                coordinate = new Point(300, 400)
+                coordinate = new Point(300, 400),
+                upsList = new IntList()
             };
 
             var group2 = new Group();
@@ -78,13 +78,10 @@ namespace IMS.Client.Core {
                 groupID = group2.ID,
                 isGroupVisible = true,
                 groupName = "방2",
-                isSeperatelyUsing = false,
-                coordinate = new Point(400, 500)
+                coordinate = new Point(400, 500),
+                upsList = new IntList { 0, 1 }
             };
-
-            group2.Data.upsList.Add(0);
-            group2.Data.upsList.Add(1);
-
+            
             groupList.Add(group1.Data.groupID, group1);
             groupList.Add(group2.Data.groupID, group2);
         }
@@ -179,7 +176,7 @@ namespace IMS.Client.Core {
             var group = GetGroup(newInfo.groupID);
             group?.Data.Copy(newInfo);
         }
-        
+
         public Ups GetUps(int id)
         {
             Ups ret = null;
