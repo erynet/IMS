@@ -101,13 +101,6 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         public IMSGroup GetGroup(int groupIdx)
         {
-            //_operationContext = OperationContext.Current;
-            //string sessionId = _operationContext.SessionId;
-
-            //Debug.Assert(sessionId != null, "GetGroup : SessionId is null");
-
-            //IMSSession s = _sessions[sessionId];
-
             try
             {
                 using (var ctx = new LocalDB())
