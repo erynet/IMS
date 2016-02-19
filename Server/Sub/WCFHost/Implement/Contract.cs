@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
@@ -49,6 +50,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
     }
     Proxy.Leave(guid);
     */
+
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public partial class Contract : IIMS, IDisposable
     {
@@ -56,12 +58,12 @@ namespace IMS.Server.Sub.WCFHost.Implement
         private InstanceContext _instanceContext;
 
         private readonly object _sessionLock;
-        private readonly Dictionary<string, Sessioninfo> _sessions;
+        private readonly ConcurrentDictionary<string, IMSSession> _sessions;
 
         public Contract()
         {
             _sessionLock = new object();
-            _sessions = new Dictionary<string, Sessioninfo>();
+            _sessions = new ConcurrentDictionary<string, IMSSession>();
 
             using (var ctx = new LocalDB())
             {
@@ -84,7 +86,8 @@ namespace IMS.Server.Sub.WCFHost.Implement
             throw new NotImplementedException();
         }
 
-        public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?), DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
+        public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?),
+            DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
         {
             throw new NotImplementedException();
         }
@@ -94,7 +97,74 @@ namespace IMS.Server.Sub.WCFHost.Implement
             throw new NotImplementedException();
         }
 
+        #region Support Function
+
+        private IMSSession GetSession(string macAddress)
+        {
+
+            // 사용자가 같은 세션으로 이미 등록되어 있을수도 있으므로, 그것을 얻기 위한 함수를 구현한다.
+            string sessionId = OperationContext.Current.SessionId;
+
+            Debug.Assert(sessionId != null, "GetExistSession : SessionId is null");
+
+            try
+            {
+                if (!_sessions.ContainsKey(sessionId))
+                {
+                    // 접근한 클라이언트의 IP 를 추출하기 위한 루틴
+                    MessageProperties prop = _operationContext.IncomingMessageProperties;
+                    RemoteEndpointMessageProperty endpoint =
+                        prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+                    var remoteIpAddress = endpoint != null ? endpoint.Address : "0.0.0.0";
+
+                    using (var ctx = new LocalDB()) // DB 에서 세션을 꺼내기 위해 Scope 를 개방한다.
+                    {
+                        var q = from s in ctx.Session where s.MacAddress == sessionId select s;
+
+                        if (q.Any()) // DB 에서 해당 세션을 찾았다면.
+                        {
+                            Session existSession = q.First(); // 위의 조건에 부합하는것중 최신의 것을 하나 꺼낸다.
+
+                            // DB 에 존재하는 세션정보를 기반으로 SessionInfo 객체를 하나 만들어서 목록에 추가한다.
+                            IMSSession restoredSession = new IMSSession(sessionId, remoteIpAddress, macAddress);
+                            restoredSession.EventIdx = existSession.EventIdx;
+                            restoredSession.WarningIdx = existSession.WarningIdx;
+                            
+                            _sessions.TryAdd(sessionId, restoredSession);
+                            return restoredSession;
+                        }
+                        else
+                        {
+                            int eventId = (from el in ctx.EventLog orderby el.Idx descending select el.Idx).
+                                DefaultIfEmpty(0).First();
+                            int warningId = (from wl in ctx.WarningLog orderby wl.Idx descending select wl.Idx).
+                                DefaultIfEmpty(0).First();
+
+                            // 이 지점.
+
+                            IMSSession restoredSession = new IMSSession(sessionId, remoteIpAddress, macAddress);
+                            restoredSession.EventIdx = eventId;
+                            restoredSession.WarningIdx = warningId;
+
+                            _sessions.TryAdd(sessionId, restoredSession);
+
+                        }
+                    }
+                }
+                return _sessions[sessionId]; // 세면 목록에서 해당 세션을 찾아서 리턴한다.
+            }
+
+            catch (Exception)
+            {
+                return null; // 예외가 발생해도 null 을 리턴한다.
+            }
+        }
+
+        #endregion
+
+
         #region IDisposable Support
+
         private bool disposedValue = false; // 중복 호출을 검색하려면
 
         protected virtual void Dispose(bool disposing)
@@ -130,11 +200,30 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         #endregion
 
+    }
+    class IMSSession
+    {
+        public string SessionId { get; }
+        public string MacAddress { get; }
+        public string IpAddress { get; }
+        public int EventIdx { get; set; }
+        public int WarningIdx { get; set; }
 
-        /*
+        public IMSSession(string sessionId, string ipAddress, string macAddress)
+        {
+            SessionId = sessionId;
+            IpAddress = ipAddress;
+            MacAddress = macAddress;
+            EventIdx = 0;
+            WarningIdx = 0;
+        }
+    }
+
+
+    /*
         public string Athenticate(string id, string passwd, string macAddress)
         {
-            Sessioninfo existSession = GetExistSession();
+            IMSSession existSession = GetExistSession();
             if (existSession != null)
                 return existSession.Session;
 
@@ -178,7 +267,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
             return OperationContext.Current.SessionId;
         }
 
-        private Sessioninfo GetExistSession()
+        private IMSSession GetExistSession()
         {
             
             // 사용자가 같은 세션으로 이미 등록되어 있을수도 있으므로, 그것을 얻기 위한 함수를 구현한다.
@@ -211,7 +300,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
                                 var remoteAddress = endpoint != null ? endpoint.Address : "0.0.0.0";
                                 
                                 // DB 에 존재하는 세션정보를 기반으로 SessionInfo 객체를 하나 만들어서 목록에 추가한다.
-                                Sessioninfo restoredSessionInfo = new Sessioninfo(session: sessionId,
+                                IMSSession restoredSessionInfo = new IMSSession(session: sessionId,
                                     isAdmin: existSession.IsAdmin, sessionIdx: existSession.Idx,
                                     userIdx: existSession.UserIdx, userIp: remoteAddress,
                                     userMac: existSession.MacAddress);
@@ -261,7 +350,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
                             prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
                         var remoteAddress = endpoint != null ? endpoint.Address : "0.0.0.0";
                         // DB 에 존재하는 세션정보를 기반으로 SessionInfo 객체를 하나 만들어서 목록에 추가한다.
-                        Sessioninfo newSessionInfo = new Sessioninfo(session: sessionId,
+                        IMSSession newSessionInfo = new IMSSession(session: sessionId,
                             isAdmin: newSession.IsAdmin, sessionIdx: newSession.Idx,
                             userIdx: newSession.UserIdx, userIp: remoteAddress,
                             userMac: newSession.MacAddress);
@@ -340,7 +429,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         public List<IMSEvent> GetEvents()
         {
-            Sessioninfo sessioninfo = GetExistSession();
+            IMSSession sessioninfo = GetExistSession();
             if (sessioninfo == null)
                 return null;
 
@@ -406,7 +495,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
         public List<IMSWarning> GetWarnings()
         {
             
-            Sessioninfo sessioninfo = GetExistSession();
+            IMSSession sessioninfo = GetExistSession();
             if (sessioninfo == null)
                 return null;
 
@@ -476,29 +565,4 @@ namespace IMS.Server.Sub.WCFHost.Implement
         */
 
 
-    }
-
-    class Sessioninfo
-    {
-        public string Session { get; }
-        public int EventIdx { get; set; }
-        public int WarningIdx { get; set; }
-        public bool IsAdmin { get; }
-        public int SessionIdx { get; }
-        public int UserIdx { get; }
-        public string UserIp { get; }
-        public string UserMac { get; }
-
-        public Sessioninfo(string session, bool isAdmin, int sessionIdx, int userIdx, string userIp, string userMac)
-        {
-            this.Session = session;
-            EventIdx = 0;
-            WarningIdx = 0;
-            IsAdmin = isAdmin;
-            SessionIdx = sessionIdx;
-            UserIdx = userIdx;
-            UserIp = userIp;
-            UserMac = userMac;
-        }
-    }
 }

@@ -21,6 +21,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public string Description { get; set; }
 
         public virtual Group Group { get; set; }
+        public virtual ICollection<WarningLog> WarningLogs { get; set; }
         public virtual ICollection<CduEvent> CduEvents { get; set; }
         public virtual ICollection<CduSocket> CduSockets { get; set; }
 
@@ -31,6 +32,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
             Status = 0; // normal state
             Enabled = true;
 
+            WarningLogs = new List<WarningLog>();
             CduEvents = new List<CduEvent>();
             CduSockets = new List<CduSocket>();
         }

@@ -61,6 +61,7 @@
     <Compile Include="Model\Setting.cs" />
     <Compile Include="Model\UPS.cs" />
     <Compile Include="Model\UpsEvent.cs" />
+    <Compile Include="Model\WarningLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

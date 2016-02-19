@@ -23,6 +23,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public string Description { get; set; }
 
         public virtual Group Group { get; set; }
+        public virtual ICollection<WarningLog> WarningLogs { get; set; }
         public virtual ICollection<UpsEvent> UpsEvents { get; set; }
 
         public UPS()
@@ -30,6 +31,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
             Status = 0; // normal state
             Enabled = true;
 
+            WarningLogs = new List<WarningLog>();
             UpsEvents = new List<UpsEvent>();
         }
     }

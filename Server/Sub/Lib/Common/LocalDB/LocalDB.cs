@@ -19,6 +19,7 @@ namespace IMS.Server.Sub.Lib.LocalDB
             modelBuilder.Configurations.Add(new SettingConfiguration());
             modelBuilder.Configurations.Add(new SessionConfiguration());
             modelBuilder.Configurations.Add(new EventLogConfiguration());
+            modelBuilder.Configurations.Add(new WarningLogConfiguration());
             modelBuilder.Configurations.Add(new GeneralLogConfiguration());
             modelBuilder.Configurations.Add(new GroupConfiguration());
             modelBuilder.Configurations.Add(new UpsConfiguration());
@@ -31,6 +32,7 @@ namespace IMS.Server.Sub.Lib.LocalDB
         public DbSet<Setting> Setting { get; set; }
         public DbSet<Session> Session { get; set; }
         public DbSet<EventLog> EventLog { get; set; }
+        public DbSet<WarningLog> WarningLog { get; set; }
         public DbSet<GeneralLog> GeneralLog { get; set; }
         public DbSet<Group> Group { get; set; }
         public DbSet<UPS> Ups { get; set; }
