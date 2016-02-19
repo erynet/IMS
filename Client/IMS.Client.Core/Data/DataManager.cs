@@ -55,6 +55,7 @@ namespace IMS.Client.Core {
                 panelID = panel1.ID,
                 panelName = "방",
                 isExtended = false,
+                upsList = new IntList { 0, 1 },
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
@@ -81,7 +82,7 @@ namespace IMS.Client.Core {
                 coordinate = new Point(400, 500),
                 upsList = new IntList { 0, 1 }
             };
-            
+
             groupList.Add(group1.Data.groupID, group1);
             groupList.Add(group2.Data.groupID, group2);
         }

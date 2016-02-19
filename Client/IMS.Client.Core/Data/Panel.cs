@@ -5,8 +5,14 @@
             public int panelID { get; set; }
             public string panelName { get; set; }
             public bool isExtended { get; set; }
+            public IntList upsList { get; set; }
             public string installDate { get; set; }
             public string ip { get; set; }
+
+            public Info()
+            {
+                upsList = new IntList();
+            }
 
             public void Copy(Info rhs)
             {
@@ -14,6 +20,7 @@
                 panelID = rhs.panelID;
                 panelName = rhs.panelName;
                 isExtended = rhs.isExtended;
+                upsList = new IntList(rhs.upsList);
                 installDate = rhs.installDate;
                 ip = rhs.ip;
             }
