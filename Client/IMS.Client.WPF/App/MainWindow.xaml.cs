@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
+using IMS.Client.Core;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -17,11 +18,13 @@ namespace IMS.Client.WPF {
 
         private List<Window> popupList = new List<Window>();
 
+        private NetworkManager network;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Core.DataManager.inst.Init();
+            DataManager.inst.Init();
 
             // Child pages
             equip = new EquipPage();
@@ -45,6 +48,11 @@ namespace IMS.Client.WPF {
             map.parent = this;
 
             MainFrame.Navigate(map);
+
+            // Network
+            network = new NetworkManager();
+            network.Init();
+            network.Start();
         }
 
         private void Update(object sender, EventArgs e)
@@ -84,6 +92,9 @@ namespace IMS.Client.WPF {
                 e.Cancel = true;
             }
             else {
+                network.End();
+                network = null;
+
                 base.OnClosing(e);
             }
         }
