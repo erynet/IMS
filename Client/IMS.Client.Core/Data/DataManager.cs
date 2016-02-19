@@ -25,7 +25,7 @@ namespace IMS.Client.Core {
                 groupID = 1,
                 upsName = "화장실-1",
                 partnerList = PartnerList.Parse("2"),
-                panelID = 1,
+                panelID = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
@@ -38,7 +38,7 @@ namespace IMS.Client.Core {
                 groupID = 1,
                 upsName = "화장실-2",
                 partnerList = PartnerList.Parse("1"),
-                panelID = 1,
+                panelID = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
@@ -52,7 +52,7 @@ namespace IMS.Client.Core {
             var panel1 = new Panel();
             panel1.Data = new Panel.Info {
                 isUsing = true,
-                panelID = 3,
+                panelID = panel1.ID,
                 panelName = "방",
                 isExtended = false,
                 ip = "192.168.0.1",

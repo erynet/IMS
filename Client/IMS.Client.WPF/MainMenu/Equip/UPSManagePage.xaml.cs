@@ -25,6 +25,7 @@ namespace IMS.Client.WPF {
         private List<Core.Ups.Info> changedList = new List<Core.Ups.Info>();
 
         private List<int> groupCopyList = new List<int>();
+        private List<int> panelCopyList = new List<int>();
 
         public UPSManagePage()
         {
@@ -48,6 +49,14 @@ namespace IMS.Client.WPF {
             }
 
             GroupID.ItemsSource = groupCopyList;
+
+            panelCopyList.Clear();
+            var panelInfoList = Core.DataManager.inst.GetPanelData();
+            foreach(var panelInfo in panelInfoList) {
+                panelCopyList.Add(panelInfo.panelID);
+            }
+
+            PanelID.ItemsSource = panelCopyList;
 
             ResetView();
         }

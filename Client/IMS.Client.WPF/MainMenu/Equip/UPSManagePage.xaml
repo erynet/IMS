@@ -16,7 +16,7 @@
                 <DataGridComboBoxColumn x:Name="GroupID"  Header="그룹 번호" TextBinding="{Binding groupID}"/>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding upsName}"/>
                 <DataGridTextColumn Header="짝" Binding="{Binding partnerList}"/>
-                <DataGridTextColumn Header="분전반" Binding="{Binding panelID}"/>
+                <DataGridComboBoxColumn x:Name ="PanelID" Header="분전반" TextBinding="{Binding panelID}"/>
                 <DataGridTextColumn Header="사양" Binding="{Binding batteryDescription}"/>
                 <DataGridTextColumn Header="용량" Binding="{Binding batteryCapacity}"/>
                 <DataGridTextColumn Header="IP 주소" Binding="{Binding ip}"/>
