@@ -1,11 +1,13 @@
-﻿namespace IMS.Client.Core {
+﻿using IMS.Server.Sub.WCFHost.Abstract.DataContract;
+
+namespace IMS.Client.Core {
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
             public int upsID { get; set; }
             public int groupID { get; set; }
             public string upsName { get; set; }
-            public PartnerList partnerList { get; set; }
+            public IntList partnerList { get; set; }
             public int panelID { get; set; }
             public string batteryDescription { get; set; }
             public string batteryCapacity { get; set; }
@@ -14,7 +16,7 @@
 
             public Info()
             {
-                partnerList = new PartnerList();
+                partnerList = new IntList();
             }
 
             public void Copy(Info rhs)
@@ -23,7 +25,7 @@
                 upsID = rhs.upsID;
                 groupID = rhs.groupID;
                 upsName = rhs.upsName;
-                partnerList = new PartnerList(rhs.partnerList);
+                partnerList = new IntList(rhs.partnerList);
                 panelID = rhs.panelID;
                 batteryDescription = rhs.batteryDescription;
                 batteryCapacity = rhs.batteryCapacity;
@@ -40,6 +42,30 @@
         public Ups()
         {
             ID = uid++;
+        }
+
+        public Ups(IMSUps other)
+        {
+            ID = uid++;
+
+            Data = new Info {
+                isUsing = other.Status == null ? false : other.Status.Value == 1, // TODO : Check
+                upsID = other.Idx ?? -1,
+                groupID = other.GroupIdx,
+                upsName = other.Name,
+                partnerList = new IntList(),
+                panelID = other.CduNo ?? -1,
+                batteryDescription = other.Description,
+                batteryCapacity = other.Capacity,
+                ip = other.IpAddress,
+                installDate = other.InstallAt
+            };
+
+            foreach (var otherUps in other.MateList) {
+                if (otherUps.Idx != null) {
+                    Data.partnerList.Add(otherUps.Idx.Value);
+                }
+            }
         }
     }
 }

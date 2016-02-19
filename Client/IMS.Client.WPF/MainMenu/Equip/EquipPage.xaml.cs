@@ -33,7 +33,7 @@ namespace IMS.Client.WPF {
             upsManage.parent = this;
             groupManage.parent = this;
 
-            MainFrame.Navigate(upsManage);
+            MainFrame.Navigate(groupManage);
         }
 
         private void button_ups_setting_Click(object sender, RoutedEventArgs e)

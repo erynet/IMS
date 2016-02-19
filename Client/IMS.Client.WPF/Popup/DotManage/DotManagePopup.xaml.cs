@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IMS.Client.Core;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -24,7 +25,18 @@ namespace IMS.Client.WPF {
 
         public void Refresh(int panelID)
         {
+            var panel = DataManager.inst.GetPanel(panelID);
+            if (panel == null) {
+                return;
+            }
 
+
+            if(panel.Data.isExtended == true) {
+                ExtendedDotList.Visibility = Visibility.Visible;
+            }
+            else {
+                ExtendedDotList.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

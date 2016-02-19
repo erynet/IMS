@@ -9,14 +9,14 @@
       Title="GroupManagePage">
 
     <Grid>
-        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,0,0,50" Sorting="GroupList_Sorting">
+        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="10,0,-10,50" Sorting="GroupList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupID}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
-                <DataGridCheckBoxColumn Header="그룹 개별 장비 사용" Binding="{Binding isSeperatelyUsing}"/>
                 <DataGridTextColumn Header="좌표" Binding="{Binding coordinate}"/>
+                <DataGridTextColumn Header="소속 장비" Binding="{Binding upsList}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="1348,975,0,0" VerticalAlignment="Top" Width="104" Height="35" Click="button_add_Click"/>

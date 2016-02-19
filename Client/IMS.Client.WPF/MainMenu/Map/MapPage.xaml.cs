@@ -61,7 +61,7 @@ namespace IMS.Client.WPF {
 
                 // UPS count
                 var upsCountLabel = display.upsCount;
-                upsCountLabel.Content = data.UpsList.Count;
+                upsCountLabel.Content = data.upsList.Count;
                 upsCountLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y + 40, 0, 0);
 
                 grid.Children.Add(image);

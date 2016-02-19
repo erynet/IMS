@@ -15,9 +15,11 @@
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding panelID}"/>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding panelName}"/>
                 <DataGridCheckBoxColumn Header="확장 여부" Binding="{Binding isExtended}"/>
+                <DataGridTextColumn Header="접점 수" Binding="{Binding upsList.Count}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="UPS" Binding="{Binding upsList}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="설치일" Binding="{Binding installDate}"/>
                 <DataGridTextColumn Header="IP" Binding="{Binding ip}"/>
-            
+
                 <DataGridTemplateColumn Header="접점 관리">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
