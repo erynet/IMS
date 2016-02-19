@@ -106,7 +106,7 @@ namespace IMS.Client.WPF {
             if (e.Column.Header.ToString() == "짝") {
                 var txt = e.EditingElement as TextBox;
                 if (txt.Text != "") {
-                    info.partnerList = Core.PartnerList.Parse(txt.Text);
+                    info.partnerList = Core.IntList.Parse(txt.Text);
                 }
             }
 

@@ -45,7 +45,7 @@
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\Panel.cs" />
-    <Compile Include="Data\PartnerList.cs" />
+    <Compile Include="Data\IntList.cs" />
     <Compile Include="Data\Point.cs" />
     <Compile Include="Network\NetworkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

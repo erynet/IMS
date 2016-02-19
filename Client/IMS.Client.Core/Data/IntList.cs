@@ -1,45 +1,45 @@
 ﻿using System.Collections.Generic;
 
 namespace IMS.Client.Core {
-    public class PartnerList {
-        static public PartnerList Parse(string text)
+    public class IntList {
+        static public IntList Parse(string text)
         {
-            var ret = new PartnerList();
+            var ret = new IntList();
 
             var ids = text.Split(',');
             foreach (var strID in ids) {
                 int id;
                 if (int.TryParse(strID, out id) == true) {
-                    ret.idList.Add(id);
+                    ret.list.Add(id);
                 }
             }
 
             return ret;
         }
 
-        private List<int> idList = new List<int>();
+        private List<int> list = new List<int>();
 
-        public IReadOnlyList<int> IDList => idList;
+        public IReadOnlyList<int> IDList => list;
 
-        public PartnerList()
+        public IntList()
         {
 
         }
 
-        public PartnerList(PartnerList rhs)
+        public IntList(IntList rhs)
         {
-            idList.AddRange(rhs.idList);
+            list.AddRange(rhs.list);
         }
 
         public override string ToString()
         {
             string ret = "";
 
-            foreach (var id in idList) {
+            foreach (var id in list) {
                 ret += id + ",";
             }
 
-            if (idList.Count != 0) {
+            if (list.Count != 0) {
                 ret = ret.Remove(ret.Length - 1, 1);
             }
 
@@ -48,7 +48,7 @@ namespace IMS.Client.Core {
 
         public void Remove(int id)
         {
-            idList.Remove(id);
+            list.Remove(id);
         }
     }
 }
