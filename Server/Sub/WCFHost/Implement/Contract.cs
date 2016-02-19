@@ -78,22 +78,17 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         public string Athenticate(string macAddress)
         {
-            IMSSession s = GetSession(macAddress);
-            if (s == null)
-                return "";
-            return s.SessionId;
+            var s = GetSession(macAddress);
+            return s == null ? "" : s.SessionId;
         }
 
         public bool Leave()
         {
             string sessionId = OperationContext.Current.SessionId;
 
-            if (_sessions.ContainsKey(sessionId))
-            {
-                IMSSession temp;
-                return _sessions.TryRemove(sessionId, out temp);
-            }
-            return false;
+            if (!_sessions.ContainsKey(sessionId)) return false;
+            IMSSession temp;
+            return _sessions.TryRemove(sessionId, out temp);
         }
 
         public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?),
