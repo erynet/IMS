@@ -24,15 +24,17 @@ namespace IMS.Client.Core {
         public void End()
         {
             updateThread?.Abort();
+            var exitSuccess = client.Leave();
         }
 
         private void Update()
         {
             try {
+                var ret = client.Athenticate(mac);
+
+                // Loop
                 var time = DateTime.Now;
 
-                client.Ping();
-                
                 while (true) {
                     var now = DateTime.Now;
                     var dt = now - time;
