@@ -78,12 +78,22 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         public string Athenticate(string macAddress)
         {
-            throw new NotImplementedException();
+            IMSSession s = GetSession(macAddress);
+            if (s == null)
+                return "";
+            return s.SessionId;
         }
 
         public bool Leave()
         {
-            throw new NotImplementedException();
+            string sessionId = OperationContext.Current.SessionId;
+
+            if (_sessions.ContainsKey(sessionId))
+            {
+                IMSSession temp;
+                return _sessions.TryRemove(sessionId, out temp);
+            }
+            return false;
         }
 
         public List<IMSEvent> GetEvents(int maxCount = 100, int? priority = default(int?),
@@ -103,7 +113,8 @@ namespace IMS.Server.Sub.WCFHost.Implement
         {
 
             // 사용자가 같은 세션으로 이미 등록되어 있을수도 있으므로, 그것을 얻기 위한 함수를 구현한다.
-            string sessionId = OperationContext.Current.SessionId;
+            _operationContext = OperationContext.Current;
+            string sessionId = _operationContext.SessionId;
 
             Debug.Assert(sessionId != null, "GetExistSession : SessionId is null");
 
@@ -130,32 +141,51 @@ namespace IMS.Server.Sub.WCFHost.Implement
                             restoredSession.EventIdx = existSession.EventIdx;
                             restoredSession.WarningIdx = existSession.WarningIdx;
                             
-                            _sessions.TryAdd(sessionId, restoredSession);
+                            _sessions[sessionId] = restoredSession;
                             return restoredSession;
                         }
                         else
                         {
-                            int eventId = (from el in ctx.EventLog orderby el.Idx descending select el.Idx).
+                            int eventIdx = (from el in ctx.EventLog orderby el.Idx descending select el.Idx).
                                 DefaultIfEmpty(0).First();
-                            int warningId = (from wl in ctx.WarningLog orderby wl.Idx descending select wl.Idx).
+                            int warningIdx = (from wl in ctx.WarningLog orderby wl.Idx descending select wl.Idx).
                                 DefaultIfEmpty(0).First();
 
-                            // 이 지점.
+                            Session newSession = new Session()
+                            {
+                                MacAddress = macAddress,
+                                EventIdx = eventIdx,
+                                WarningIdx = warningIdx
+                            };
 
+                            using (var trx = new TransactionScope())
+                            {
+                                try
+                                {
+                                    ctx.Session.Add(newSession);
+                                    ctx.SaveChanges();
+                                }
+                                catch (Exception)
+                                {
+                                    return null;
+                                }
+                                
+                                trx.Complete();
+                            }
+                            
                             IMSSession restoredSession = new IMSSession(sessionId, remoteIpAddress, macAddress);
-                            restoredSession.EventIdx = eventId;
-                            restoredSession.WarningIdx = warningId;
+                            restoredSession.EventIdx = eventIdx;
+                            restoredSession.WarningIdx = warningIdx;
 
-                            _sessions.TryAdd(sessionId, restoredSession);
-
+                            _sessions[sessionId] = restoredSession;
                         }
                     }
                 }
                 return _sessions[sessionId]; // 세면 목록에서 해당 세션을 찾아서 리턴한다.
             }
-
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
                 return null; // 예외가 발생해도 null 을 리턴한다.
             }
         }
