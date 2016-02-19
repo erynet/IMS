@@ -11,9 +11,15 @@ namespace IMS.Client.WPF {
     /// Interaction logic for MapPage.xaml
     /// </summary>
     public partial class MapPage : Page {
+        private class GroupImageDisplay {
+            public System.Windows.Controls.Image groupIcon = new System.Windows.Controls.Image();
+            public Label groupID = new Label();
+            public Label upsCount = new Label();
+        }
+
         public MainWindow parent;
 
-        private List<System.Windows.Controls.Image> groupImageList = new List<System.Windows.Controls.Image>();
+        private List<GroupImageDisplay> groupImageList = new List<GroupImageDisplay>();
 
         public MapPage()
         {
@@ -26,15 +32,21 @@ namespace IMS.Client.WPF {
         {
             var grid = Content as Grid;
 
-            foreach (var image in groupImageList) {
-                grid.Children.Remove(image);
+            foreach (var display in groupImageList) {
+                grid.Children.Remove(display.groupIcon);
+                grid.Children.Remove(display.groupID);
+                grid.Children.Remove(display.upsCount);
             }
 
             groupImageList.Clear();
 
             var groupList = Core.DataManager.inst.GetGroupData();
             foreach (var data in groupList) {
-                var image = new System.Windows.Controls.Image();
+                var display = new GroupImageDisplay();
+                groupImageList.Add(display);
+
+                // Icon
+                var image = display.groupIcon;
                 image.Source = BitmapToImageSource(Properties.Resources.group_icon_normal_1);
                 image.Margin = new Thickness(data.coordinate.X, data.coordinate.Y, 0, 0);
                 image.HorizontalAlignment = HorizontalAlignment.Left;
@@ -42,8 +54,19 @@ namespace IMS.Client.WPF {
                 image.Width = 64;
                 image.Height = 64;
 
+                // Group ID
+                var groupIDLabel = display.groupID;
+                groupIDLabel.Content = data.groupID;
+                groupIDLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y, 0, 0);
+
+                // UPS count
+                var upsCountLabel = display.upsCount;
+                upsCountLabel.Content = data.UpsList.Count;
+                upsCountLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y + 40, 0, 0);
+
                 grid.Children.Add(image);
-                groupImageList.Add(image);
+                grid.Children.Add(groupIDLabel);
+                grid.Children.Add(upsCountLabel);
             }
         }
 
