@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using IMS.Server.Sub.WCFHost.Abstract.DataContract;
 
 namespace IMS.Client.Core {
     public class Group {
@@ -35,6 +35,26 @@ namespace IMS.Client.Core {
         public Group()
         {
             ID = uid++;
+        }
+
+        public Group(IMSGroup other)
+        {
+            ID = uid++;
+
+            Data = new Info {
+                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                groupID = other.Idx ?? -1,
+                isGroupVisible = other.Enabled,
+                groupName = other.Name,
+                coordinate = new Point(other.CoordX, other.CoordY),
+                upsList = new IntList()
+            };
+
+            foreach (var otherUps in other.UpsList) {
+                if (otherUps.Idx != null) {
+                    Data.upsList.Add(otherUps.Idx.Value);
+                }
+            }
         }
     }
 }

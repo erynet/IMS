@@ -1,4 +1,6 @@
-﻿namespace IMS.Client.Core {
+﻿using IMS.Server.Sub.WCFHost.Abstract.DataContract;
+
+namespace IMS.Client.Core {
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
@@ -40,6 +42,30 @@
         public Ups()
         {
             ID = uid++;
+        }
+
+        public Ups(IMSUps other)
+        {
+            ID = uid++;
+
+            Data = new Info {
+                isUsing = other.Status == null ? false : other.Status.Value == 1, // TODO : Check
+                upsID = other.Idx ?? -1,
+                groupID = other.GroupIdx,
+                upsName = other.Name,
+                partnerList = new IntList(),
+                panelID = other.CduNo ?? -1,
+                batteryDescription = other.Description,
+                batteryCapacity = other.Capacity,
+                ip = other.IpAddress,
+                installDate = other.InstallAt
+            };
+
+            foreach (var otherUps in other.MateList) {
+                if (otherUps.Idx != null) {
+                    Data.partnerList.Add(otherUps.Idx.Value);
+                }
+            }
         }
     }
 }

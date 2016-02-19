@@ -1,4 +1,6 @@
-﻿namespace IMS.Client.Core {
+﻿using IMS.Server.Sub.WCFHost.Abstract.DataContract;
+
+namespace IMS.Client.Core {
     public class Panel {
         public class Info {
             public bool isUsing { get; set; }
@@ -34,6 +36,27 @@
         public Panel()
         {
             ID = uid++;
+        }
+
+        public Panel(IMSCdu other)
+        {
+            ID = uid++;
+
+            Data = new Info {
+                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                panelID = other.Idx ?? -1,
+                panelName = other.Name,
+                isExtended = other.Extendable,
+                upsList = new IntList(),
+                installDate = other.InstallAt,
+                ip = other.IpAddress
+            };
+
+            foreach (var otherUps in other.UpsList) {
+                if (otherUps.Idx != null) {
+                    Data.upsList.Add(otherUps.Idx.Value);
+                }
+            }
         }
     }
 }
