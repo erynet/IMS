@@ -82,8 +82,8 @@ namespace IMS.Client.Core {
                 coordinate = new Point(400, 500)
             };
 
-            group2.Data.UpsList.Add(0);
-            group2.Data.UpsList.Add(1);
+            group2.Data.upsList.Add(0);
+            group2.Data.upsList.Add(1);
 
             groupList.Add(group1.Data.groupID, group1);
             groupList.Add(group2.Data.groupID, group2);
@@ -212,7 +212,7 @@ namespace IMS.Client.Core {
             }
 
             var partnerList = ups.Data.partnerList;
-            foreach (var partnerID in partnerList.IDList) {
+            foreach (var partnerID in partnerList) {
                 if (partnerID == id) {
                     continue;
                 }
@@ -222,7 +222,7 @@ namespace IMS.Client.Core {
             }
 
             var group = GetGroup(ups.Data.groupID);
-            group?.Data.UpsList.Remove(id);
+            group?.Data.upsList.Remove(id);
 
             upsList.Remove(id);
         }
@@ -259,7 +259,7 @@ namespace IMS.Client.Core {
                 return;
             }
 
-            foreach (var upsId in group.Data.UpsList) {
+            foreach (var upsId in group.Data.upsList) {
                 var ups = GetUps(upsId);
                 if (ups == null) {
                     continue;

@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace IMS.Client.Core {
-    public class IntList {
+    public class IntList : IList<int> {
         static public IntList Parse(string text)
         {
             var ret = new IntList();
@@ -20,6 +22,22 @@ namespace IMS.Client.Core {
         private List<int> list = new List<int>();
 
         public IReadOnlyList<int> IDList => list;
+
+        public int Count => list.Count;
+        public bool IsReadOnly => false;
+
+        public int this[int index]
+        {
+            get
+            {
+                return list[index];
+            }
+
+            set
+            {
+                list[index] = value;
+            }
+        }
 
         public IntList()
         {
@@ -49,6 +67,56 @@ namespace IMS.Client.Core {
         public void Remove(int id)
         {
             list.Remove(id);
+        }
+
+        public int IndexOf(int item)
+        {
+            return list.IndexOf(item);
+        }
+
+        public void Insert(int index, int item)
+        {
+            list.Insert(index, item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            list.RemoveAt(index);
+        }
+
+        public void Add(int item)
+        {
+            list.Add(item);
+        }
+
+        public void Clear()
+        {
+            list.Clear();
+        }
+
+        public bool Contains(int item)
+        {
+            return list.Contains(item);
+        }
+
+        public void CopyTo(int[] array, int arrayIndex)
+        {
+            list.CopyTo(array, arrayIndex);
+        }
+
+        bool ICollection<int>.Remove(int item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
