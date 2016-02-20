@@ -1,19 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using IMS.Server.Sub.Lib.LocalDB;
 using IMS.Server.Sub.WCFHost.Abstract.DataContract;
 
 namespace IMS.Server.Sub.WCFHost.Implement
 {
     public partial class Contract
     {
-        public List<IMSCdu> GetAllCdu(int groupIdx)
+        public List<IMSCdu> GetAllCdu(int? groupIdx = null)
         {
             throw new NotImplementedException();
         }
 
         public IMSCdu GetCdu(int cduIdx)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var ctx = new LocalDB())
+                {
+                    var cdu = (from c in ctx.Cdu where c.Idx == cduIdx select c).DefaultIfEmpty(null).First();
+                    if (cdu == null)
+                        return null;
+
+                    IMSCdu result = new IMSCdu()
+                    {
+                        Idx = cdu.Idx,
+                        GroupIdx = cdu.GroupIdx,
+                        No = cdu.No,
+                        Name = cdu.Name,
+                        UpsList = cdu.UpsList,
+                        Extendable = cdu.Extendable,
+                        ContractCount = cdu.ContractCount,
+                        IpAddress = cdu.IpAddress,
+                        Status = cdu.Status,
+                        Enabled = cdu.Enabled,
+                        InstallAt = cdu.InstallAt,
+                        Description = cdu.Description
+                    };
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool SetCdu(IMSCdu cdu)

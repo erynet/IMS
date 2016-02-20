@@ -82,7 +82,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         bool SetGroup(IMSGroup g);
 
         [OperationContract]
-        int AddGroup(IMSGroup group);
+        int AddGroup(IMSGroup g);
 
         [OperationContract]
         bool DelGroup(int groupIdx);
@@ -93,7 +93,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
 
         // 특정 그룹 아래에 속한 모든 UPS 들의 정보를 받아갈때 사용한다.
         [OperationContract]
-        List<IMSUps> GetAllUps(int groupIdx);
+        List<IMSUps> GetAllUps(int? groupIdx);
 
         [OperationContract]
         IMSUps GetUps(int upsIdx);
@@ -118,7 +118,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract
         #region Cdu
 
         [OperationContract]
-        List<IMSCdu> GetAllCdu(int groupIdx);
+        List<IMSCdu> GetAllCdu(int? groupIdx);
 
         [OperationContract]
         IMSCdu GetCdu(int cduIdx);

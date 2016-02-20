@@ -6,7 +6,7 @@ namespace IMS.Server.Sub.WCFHost.Implement
 {
     public partial class Contract
     {
-        public List<IMSUps> GetAllUps(int groupIdx)
+        public List<IMSUps> GetAllUps(int? groupIdx)
         {
             throw new NotImplementedException();
         }
