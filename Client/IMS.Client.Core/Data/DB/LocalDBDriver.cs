@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Transactions;
 using IMS.Database.LocalDB;
 
@@ -15,15 +16,35 @@ namespace IMS.Client.Core.Data.DB
             {
                 using (var ctx = new LocalDB())
                 {
+                    var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
+
                     if (ascending)
                         return (from g in ctx.Group
                                 orderby g.No ascending
                                 select new Group.Info()
-                                { }).ToList();
+                                {
+                                    isUsing = g.Enabled,
+                                    groupIdx = g.Idx,
+                                    groupNo = g.No,
+                                    isGroupVisible = g.Display,
+                                    groupName = g.Name,
+                                    coordinate = new Point(g.CoordX, g.CoordY),
+                                    upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                                    upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                                }).ToList();
                     return (from g in ctx.Group
                             orderby g.No descending
                             select new Group.Info()
-                            { }).ToList();
+                            {
+                                isUsing = g.Enabled,
+                                groupIdx = g.Idx,
+                                groupNo = g.No,
+                                isGroupVisible = g.Display,
+                                groupName = g.Name,
+                                coordinate = new Point(g.CoordX, g.CoordY),
+                                upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                                upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                            }).ToList();
                 }
             }
             catch (Exception e)
@@ -39,10 +60,21 @@ namespace IMS.Client.Core.Data.DB
             {
                 using (var ctx = new LocalDB())
                 {
+                    var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
+
                     return (from g in ctx.Group
                             where g.Idx == groupIdx
                             select new Group.Info()
-                            { }).DefaultIfEmpty(null).First();
+                            {
+                                isUsing = g.Enabled,
+                                groupIdx = g.Idx,
+                                groupNo = g.No,
+                                isGroupVisible = g.Display,
+                                groupName = g.Name,
+                                coordinate = new Point(g.CoordX, g.CoordY),
+                                upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                                upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                            }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
@@ -58,10 +90,21 @@ namespace IMS.Client.Core.Data.DB
             {
                 using (var ctx = new LocalDB())
                 {
+                    var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
+
                     return (from g in ctx.Group
                             where g.No == groupNo
                             select new Group.Info()
-                            { }).DefaultIfEmpty(null).First();
+                            {
+                                isUsing = g.Enabled,
+                                groupIdx = g.Idx,
+                                groupNo = g.No,
+                                isGroupVisible = g.Display,
+                                groupName = g.Name,
+                                coordinate = new Point(g.CoordX, g.CoordY),
+                                upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                                upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                            }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
@@ -71,15 +114,29 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
-        public static bool SetGroup(Group.Info group)
+        public static bool SetGroup(Group.Info gr)
         {
             try
             {
                 using (var ctx = new LocalDB())
                 {
+                    var existGroup =
+                        (from g in ctx.Group where g.Idx == gr.groupIdx select g).DefaultIfEmpty(null).First();
+                    if (existGroup == null)
+                        return false;
+
+                    existGroup.Idx = gr.groupIdx;
+                    existGroup.No = gr.groupNo;
+                    existGroup.Name = gr.groupName;
+                    existGroup.Display = gr.isGroupVisible;
+                    existGroup.CoordX = gr.coordinate.X;
+                    existGroup.CoordY = gr.coordinate.Y;
+                    existGroup.Enabled = gr.isUsing;
+                    
                     using (var trx = new TransactionScope())
                     {
-
+                        ctx.SaveChanges();
+                        trx.Complete();
                     }
                 }
                 return true;
@@ -91,15 +148,26 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
-        public static bool AddGroup(Group.Info group)
+        public static bool AddGroup(Group.Info gr)
         {
             try
             {
                 using (var ctx = new LocalDB())
                 {
+                    Database.LocalDB.Model.Group newGroup = new Database.LocalDB.Model.Group()
+                    {
+                        No = gr.groupNo,
+                        Name = gr.groupName,
+                        Display = gr.isGroupVisible,
+                        CoordX = gr.coordinate.X,
+                        CoordY = gr.coordinate.Y,
+                        Enabled = gr.isUsing
+                    };
+
                     using (var trx = new TransactionScope())
                     {
-
+                        ctx.Group.Add(newGroup);
+                        trx.Complete();
                     }
                 }
                 return true;
@@ -117,9 +185,14 @@ namespace IMS.Client.Core.Data.DB
             {
                 using (var ctx = new LocalDB())
                 {
+                    var existGroup = (from g in ctx.Group where g.Idx == groupIdx select g).DefaultIfEmpty(null).First();
+                    if (existGroup == null)
+                        return false;
+
                     using (var trx = new TransactionScope())
                     {
-
+                        ctx.Group.Remove(existGroup);
+                        trx.Complete();
                     }
                 }
                 return true;
