@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using IMS.Database.LocalDB;
 
 namespace IMS.Client.Core.Data.DB
@@ -69,18 +70,42 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
-        //public static bool SetCduSocket(int cduNo, List<CduSocket.Info> newInfo)
-        //{
-        //    try
-        //    {
+        public static bool SetCduSocket(int cduIdx, List<CduSocket.Info> newInfo)
+        {
+            try
+            {
+                using (var ctx = new LocalDB())
+                {
+                    var existSockets = (from s in ctx.CduSocket where s.CduIdx == cduIdx select s).ToList();
+                    List<Database.LocalDB.Model.CduSocket> newSockets = new List<Database.LocalDB.Model.CduSocket>();
+                    var ns = (from s in newInfo select s).ToList();
+                    foreach (var s in ns)
+                    {
+                        newSockets.Add(new Database.LocalDB.Model.CduSocket()
+                        {
+                            CduIdx = s.cduIdx,
+                            No = s.cduSocketNo,
+                            Name = s.cduSocketName,
+                            Enabled = s.isUsing
+                        });
+                    }
 
-        //    }
-        //    catch (Exception)
-        //    {
-                
-        //        throw;
-        //    }
-        //}
+                    using (var trx = new TransactionScope())
+                    {
+                        ctx.CduSocket.RemoveRange(existSockets);
+                        ctx.CduSocket.AddRange(newSockets);
+                        ctx.SaveChanges();
+                        trx.Complete();
+                    }
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"SetCduSocket : {e.ToString()}");
+                return false;
+            }
+        }
 
         #endregion
 
