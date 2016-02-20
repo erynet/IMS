@@ -5,6 +5,7 @@ namespace IMS.Client.Core {
         public class Info {
             public bool isUsing { get; set; }
             public int upsID { get; set; }
+            public int upsNo { get; set; }
             public int groupID { get; set; }
             public string upsName { get; set; }
             public IntList partnerList { get; set; }
@@ -23,6 +24,7 @@ namespace IMS.Client.Core {
             {
                 isUsing = rhs.isUsing;
                 upsID = rhs.upsID;
+                upsNo = rhs.upsNo;
                 groupID = rhs.groupID;
                 upsName = rhs.upsName;
                 partnerList = new IntList(rhs.partnerList);
@@ -51,6 +53,7 @@ namespace IMS.Client.Core {
             Data = new Info {
                 isUsing = other.Enabled,
                 upsID = other.Idx ?? -1,
+                upsNo = other.No,
                 groupID = other.GroupIdx,
                 upsName = other.Name,
                 partnerList = new IntList(),
@@ -69,6 +72,7 @@ namespace IMS.Client.Core {
             var ret = new IMSUps {
                 Enabled = Data.isUsing,
                 Idx = ID,
+                No = Data.upsNo,
                 GroupIdx = Data.groupID,
                 Name = Data.upsName,
                 MateList = Data.partnerList.ToString(),
