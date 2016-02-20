@@ -13,8 +13,8 @@ namespace IMS.Database.LocalDB.Model
         public bool Display { get; set; }
         public int CoordX { get; set; }
         public int CoordY { get; set; }
-        public string UpsList { get; set; }
-        public string CduList { get; set; }
+        //public string UpsList { get; set; }
+        //public string CduList { get; set; }
         public int Status { get; set; }
         public bool Enabled { get; set; }
         public string Description { get; set; }
@@ -67,30 +67,30 @@ namespace IMS.Database.LocalDB.Model
             Property(g => g.CoordY)
                 .IsRequired()
                 .HasColumnOrder(5);
-            Property(g => g.UpsList)
-                .IsOptional()
-                .HasMaxLength(512)
-                .IsUnicode()
-                .HasColumnType("varchar")
-                .HasColumnOrder(6);
-            Property(g => g.CduList)
-                .IsOptional()
-                .HasMaxLength(512)
-                .IsUnicode()
-                .HasColumnType("varchar")
-                .HasColumnOrder(7);
+            //Property(g => g.UpsList)
+            //    .IsOptional()
+            //    .HasMaxLength(512)
+            //    .IsUnicode()
+            //    .HasColumnType("varchar")
+            //    .HasColumnOrder(6);
+            //Property(g => g.CduList)
+            //    .IsOptional()
+            //    .HasMaxLength(512)
+            //    .IsUnicode()
+            //    .HasColumnType("varchar")
+            //    .HasColumnOrder(7);
             Property(g => g.Status)
                 .IsRequired()
-                .HasColumnOrder(8);
+                .HasColumnOrder(6);
             Property(g => g.Enabled)
                 .IsRequired()
-                .HasColumnOrder(9);
+                .HasColumnOrder(7);
             Property(g => g.Description)
                 .IsOptional()
                 .HasMaxLength(4096)
                 .IsUnicode(true)
                 .HasColumnType("text")
-                .HasColumnOrder(10);
+                .HasColumnOrder(8);
         }
     }
 

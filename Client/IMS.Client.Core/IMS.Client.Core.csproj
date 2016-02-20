@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
-    <Compile Include="Data\DB\LocalDBDriver.cs" />
+    <Compile Include="Data\DB\Cdu.cs" />
+    <Compile Include="Data\DB\Group.cs" />
+    <Compile Include="Data\DB\Ups.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\Cdu.cs" />
     <Compile Include="Data\IntList.cs" />

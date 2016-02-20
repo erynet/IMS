@@ -12,7 +12,7 @@ namespace IMS.Database.LocalDB.Model
         public int GroupIdx { get; set; }
         public int No { get; set; }
         public string Name { get; set; }
-        public string UpsList { get; set; }
+        //public string UpsList { get; set; }
         public bool Extendable { get; set; }
         public int ContractCount { get; set; }
         public string IpAddress { get; set; }
@@ -66,42 +66,42 @@ namespace IMS.Database.LocalDB.Model
                 .IsUnicode()
                 .HasColumnType("varchar")
                 .HasColumnOrder(3);
-            Property(c => c.UpsList)
-                .IsOptional()
-                .HasMaxLength(512)
-                .IsUnicode()
-                .HasColumnType("varchar")
-                .HasColumnOrder(4);
+            //Property(c => c.UpsList)
+            //    .IsOptional()
+            //    .HasMaxLength(512)
+            //    .IsUnicode()
+            //    .HasColumnType("varchar")
+            //    .HasColumnOrder(4);
             Property(c => c.Extendable)
                 .IsRequired()
-                .HasColumnOrder(5);
+                .HasColumnOrder(4);
             Property(c => c.ContractCount)
                 .IsRequired()
-                .HasColumnOrder(6);
+                .HasColumnOrder(5);
             Property(c => c.IpAddress)
                 .IsRequired()
                 .HasMaxLength(32)
                 .IsUnicode()
                 .HasColumnType("varchar")
-                .HasColumnOrder(7);
+                .HasColumnOrder(6);
             Property(c => c.Status)
                 .IsRequired()
-                .HasColumnOrder(8);
+                .HasColumnOrder(7);
             Property(c => c.Enabled)
                 .IsRequired()
-                .HasColumnOrder(9);
+                .HasColumnOrder(8);
             Property(c => c.InstallAt)
                 .IsOptional()
                 .HasMaxLength(128)
                 .IsUnicode()
                 .HasColumnType("varchar")
-                .HasColumnOrder(10);
+                .HasColumnOrder(9);
             Property(c => c.Description)
                 .IsOptional()
                 .HasMaxLength(4096)
                 .IsUnicode()
                 .HasColumnType("text")
-                .HasColumnOrder(11);
+                .HasColumnOrder(10);
 
             //HasOptional(c => c.Group)
             //    .WithMany(g => g.Cdu)
