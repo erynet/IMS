@@ -12,22 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IMS.Client.Core.Data;
 
 namespace IMS.Client.WPF {
     /// <summary>
-    /// Interaction logic for DataPage.xaml
+    /// Interaction logic for UpsEventPage.xaml
     /// </summary>
-    public partial class DataPage : Page {
-        private CduEventPage cduEvent = new CduEventPage();
-        private UpsEventPage upsEvent = new UpsEventPage();
-
-        public DataPage()
+    public partial class UpsEventPage : Page {
+        public UpsEventPage()
         {
             InitializeComponent();
+        }
 
-            cduEvent.Refresh();
-            upsEvent.Refresh();
-            MainFrame.Navigate(upsEvent);
+        public void Refresh()
+        {
+            var upsEventList = DataManager.inst.GetRecentUpsEvent(0, 100);
+            UpsEventList.ItemsSource = upsEventList;
         }
     }
 }

@@ -68,6 +68,12 @@
     <Compile Include="MainMenu\Alarm\AlarmPage.xaml.cs">
       <DependentUpon>AlarmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu\Data\DataPage.xaml.cs">
+      <DependentUpon>DataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\Data\UpsEventPage.xaml.cs">
+      <DependentUpon>UpsEventPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu\Equip\GroupManagePage.xaml.cs">
       <DependentUpon>GroupManagePage.xaml</DependentUpon>
     </Compile>
@@ -86,8 +92,8 @@
     <Compile Include="Popup\UPSInfo\AnalogViewPage.xaml.cs">
       <DependentUpon>AnalogViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Data\DataPage.xaml.cs">
-      <DependentUpon>DataPage.xaml</DependentUpon>
+    <Compile Include="MainMenu\Data\CduEventPage.xaml.cs">
+      <DependentUpon>CduEventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\Equip\ErrorUPSViewPage.xaml.cs">
       <DependentUpon>ErrorUPSViewPage.xaml</DependentUpon>
@@ -123,6 +129,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainMenu\Data\DataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainMenu\Data\UpsEventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu\Equip\GroupManagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Data\DataPage.xaml">
+    <Page Include="MainMenu\Data\CduEventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
