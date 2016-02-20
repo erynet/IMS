@@ -30,8 +30,8 @@ namespace IMS.Client.Core.Data.DB
                                 cduNo = c.No,
                                 cduName = c.Name,
                                 isExtended = c.Extendable,
-                                //upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                //upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                                //upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                                //upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
                                 upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
@@ -51,8 +51,8 @@ namespace IMS.Client.Core.Data.DB
                         //            cduNo = c.No,
                         //            cduName = c.Name,
                         //            isExtended = c.Extendable,
-                        //            //upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                        //            //upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                        //            //upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                        //            //upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                         //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                         //            //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
                         //            upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
@@ -73,8 +73,8 @@ namespace IMS.Client.Core.Data.DB
                                 cduNo = c.No,
                                 cduName = c.Name,
                                 isExtended = c.Extendable,
-                                //upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                //upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                                //upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                                //upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
                                 upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
@@ -187,7 +187,7 @@ namespace IMS.Client.Core.Data.DB
                     if (existCdu == null)
                         return false;
 
-                    //existCdu.GroupIdx = cdu.
+                    //existCdu.GroupNo = cdu.
                     existCdu.No = cdu.cduNo;
                     existCdu.Name = cdu.cduName;
                     existCdu.Extendable = cdu.isExtended;

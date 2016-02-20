@@ -35,8 +35,8 @@ namespace IMS.Client.Core.Data.DB
                                 coordinate = new Point(g.CoordX, g.CoordY),
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                             });
                         }
                         return result;
@@ -53,8 +53,8 @@ namespace IMS.Client.Core.Data.DB
                     //            coordinate = new Point(g.CoordX, g.CoordY),
                     //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                     //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                     //        }).ToList();
                     else
                     {
@@ -72,8 +72,8 @@ namespace IMS.Client.Core.Data.DB
                                 coordinate = new Point(g.CoordX, g.CoordY),
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                             });
                         }
                         return result;
@@ -90,8 +90,8 @@ namespace IMS.Client.Core.Data.DB
                     //            coordinate = new Point(g.CoordX, g.CoordY),
                     //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                     //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                     //        }).ToList();
                 }
             }
@@ -126,8 +126,8 @@ namespace IMS.Client.Core.Data.DB
                         coordinate = new Point(gr.CoordX, gr.CoordY),
                         //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                         //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                        upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
-                        upsNoList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.No).ToArray())
+                        upsIdxList = new IntList((from u in upsTotal where u.GroupNo == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.GroupNo == gr.Idx orderby u.No ascending select u.No).ToArray())
                     };
 
                     //return (from g in ctx.Group
@@ -142,8 +142,8 @@ namespace IMS.Client.Core.Data.DB
                     //            coordinate = new Point(g.CoordX, g.CoordY),
                     //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                     //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                     //        }).DefaultIfEmpty(null).First();
                 }
             }
@@ -178,8 +178,8 @@ namespace IMS.Client.Core.Data.DB
                         coordinate = new Point(gr.CoordX, gr.CoordY),
                         //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                         //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                        upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
-                        upsNoList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.No).ToArray())
+                        upsIdxList = new IntList((from u in upsTotal where u.GroupNo == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.GroupNo == gr.Idx orderby u.No ascending select u.No).ToArray())
                     };
 
                     //return (from g in ctx.Group
@@ -194,8 +194,8 @@ namespace IMS.Client.Core.Data.DB
                     //            coordinate = new Point(g.CoordX, g.CoordY),
                     //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                     //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
                     //        }).DefaultIfEmpty(null).First();
                 }
             }

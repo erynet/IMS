@@ -39,7 +39,50 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
+        public static List<CduSocket.Info> GetCduSocketsByNo(int cduNo)
+        {
+            try
+            {
+                using (var ctx = new LocalDB())
+                {
+                    var socks =
+                        (from s in ctx.CduSocket where s.CduIdx == cduNo orderby s.No ascending select s).ToList();
+                    List<CduSocket.Info> result = new List<CduSocket.Info>();
+                    foreach (var s in socks)
+                    {
+                        result.Add(new CduSocket.Info()
+                        {
+                            isUsing = s.Enabled,
+                            cduIdx = s.CduIdx,
+                            cduSocketIdx = s.Idx,
+                            cduSocketNo = s.No,
+                            cduSocketName = s.Name
+                        });
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"GetCduSockets : {e.ToString()}");
+                return new List<CduSocket.Info>();
+            }
+        }
+
+        //public static bool SetCduSocket(int cduNo, List<CduSocket.Info> newInfo)
+        //{
+        //    try
+        //    {
+
+        //    }
+        //    catch (Exception)
+        //    {
+                
+        //        throw;
+        //    }
+        //}
+
         #endregion
 
-     }
+    }
 }

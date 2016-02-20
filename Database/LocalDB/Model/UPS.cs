@@ -8,7 +8,7 @@ namespace IMS.Database.LocalDB.Model
     public class UPS
     {
         public int Idx { get; set; }
-        public int GroupIdx { get; set; }
+        public int GroupNo { get; set; }
         public int No { get; set; }
         public string Name { get; set; }
         public string MateList { get; set; }
@@ -45,7 +45,7 @@ namespace IMS.Database.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(u => u.GroupIdx)
+            Property(u => u.GroupNo)
                 .IsOptional()
                 .HasColumnOrder(1);
             Property(u => u.No)
@@ -109,7 +109,7 @@ namespace IMS.Database.LocalDB.Model
 
             //HasOptional(u => u.Group)
             //    .WithMany(g => g.Ups)
-            //    .HasForeignKey(u => u.GroupIdx)
+            //    .HasForeignKey(u => u.GroupNo)
             //    .WillCascadeOnDelete(true);
 
 

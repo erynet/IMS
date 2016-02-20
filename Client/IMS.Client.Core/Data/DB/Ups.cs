@@ -45,9 +45,9 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupIdx,
+                                groupIdx = u.GroupNo,
                                 groupNo =
-                                    (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                                    (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0)
                                         .FirstOrDefault(),
                                 upsName = u.Name,
                                 partnerIdxList = tempPartnerIdxList,
@@ -71,8 +71,8 @@ namespace IMS.Client.Core.Data.DB
                     //            isUsing = u.Enabled,
                     //            upsIdx = u.Idx,
                     //            upsNo = u.No,
-                    //            groupIdx = u.GroupIdx,
-                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            groupIdx = u.GroupNo,
+                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0).FirstOrDefault(),
                     //            upsName = u.Name,
                     //            partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
                     //            partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
@@ -107,9 +107,9 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupIdx,
+                                groupIdx = u.GroupNo,
                                 groupNo =
-                                    (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                                    (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0)
                                         .FirstOrDefault(),
                                 upsName = u.Name,
                                 partnerIdxList = tempPartnerIdxList,
@@ -133,8 +133,8 @@ namespace IMS.Client.Core.Data.DB
                     //            isUsing = u.Enabled,
                     //            upsIdx = u.Idx,
                     //            upsNo = u.No,
-                    //            groupIdx = u.GroupIdx,
-                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            groupIdx = u.GroupNo,
+                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0).FirstOrDefault(),
                     //            upsName = u.Name,
                     //            partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
                     //            partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
@@ -173,9 +173,9 @@ namespace IMS.Client.Core.Data.DB
                     //    isUsing = u.Enabled,
                     //    upsIdx = u.Idx,
                     //    upsNo = u.No,
-                    //    groupIdx = u.GroupIdx,
+                    //    groupIdx = u.GroupNo,
                     //    groupNo =
-                    //        (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                    //        (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0)
                     //            .FirstOrDefault(),
                     //    upsName = u.Name,
                     //    partnerIdxList = new IntList((from iu in upsTotal
@@ -204,8 +204,8 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupIdx,
-                                groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                                groupIdx = u.GroupNo,
+                                groupNo = (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0).FirstOrDefault(),
                                 upsName = u.Name,
                                 partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
                                 partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
@@ -242,8 +242,8 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupIdx,
-                                groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                                groupIdx = u.GroupNo,
+                                groupNo = (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0).FirstOrDefault(),
                                 upsName = u.Name,
                                 partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
                                 partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
@@ -274,8 +274,8 @@ namespace IMS.Client.Core.Data.DB
                     if (existUps == null)
                         return false;
 
-                    //existCdu.GroupIdx = cdu.
-                    existUps.GroupIdx = ups.groupIdx;
+                    //existCdu.GroupNo = cdu.
+                    existUps.GroupNo = ups.groupIdx;
                     existUps.No = ups.upsNo;
                     existUps.Name = ups.upsName;
                     existUps.MateList = ups.partnerNoList.ToString();
@@ -310,7 +310,7 @@ namespace IMS.Client.Core.Data.DB
                 {
                     UPS newUps = new UPS()
                     {
-                        GroupIdx = ups.groupIdx,
+                        GroupNo = ups.groupIdx,
                         No = ups.upsNo,
                         Name = ups.upsName,
                         MateList = ups.partnerNoList.ToString(),

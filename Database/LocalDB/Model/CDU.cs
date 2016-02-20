@@ -9,7 +9,7 @@ namespace IMS.Database.LocalDB.Model
     public class CDU
     {
         public int Idx { get; set; }
-        public int GroupIdx { get; set; }
+        public int GroupNo { get; set; }
         public int No { get; set; }
         public string Name { get; set; }
         //public string UpsList { get; set; }
@@ -49,7 +49,7 @@ namespace IMS.Database.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(c => c.GroupIdx)
+            Property(c => c.GroupNo)
                 .IsOptional()
                 .HasColumnOrder(1);
             Property(c => c.No)
@@ -105,7 +105,7 @@ namespace IMS.Database.LocalDB.Model
 
             //HasOptional(c => c.Group)
             //    .WithMany(g => g.Cdu)
-            //    .HasForeignKey(c => c.GroupIdx)
+            //    .HasForeignKey(c => c.GroupNo)
             //    .WillCascadeOnDelete(true);
         }
     }
