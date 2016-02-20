@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using IMS.Client.Core.Data.DB;
 
 namespace IMS.Client.Core.Data {
     public class DataManager {
