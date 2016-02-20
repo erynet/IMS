@@ -45,10 +45,9 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupNo,
-                                groupNo =
-                                    (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0)
+                                groupIdx = (from g in groupTotal where g.No == u.GroupNo select g.Idx).DefaultIfEmpty(0)
                                         .FirstOrDefault(),
+                                groupNo = u.GroupNo,
                                 upsName = u.Name,
                                 partnerIdxList = tempPartnerIdxList,
                                 partnerNoList = tempPartnerNoList,
@@ -242,8 +241,8 @@ namespace IMS.Client.Core.Data.DB
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
-                                groupIdx = u.GroupNo,
-                                groupNo = (from g in groupTotal where g.Idx == u.GroupNo select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                                groupIdx = (from g in groupTotal where g.No == u.GroupNo select g.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                                groupNo = u.GroupNo,
                                 upsName = u.Name,
                                 partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
                                 partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
@@ -275,7 +274,7 @@ namespace IMS.Client.Core.Data.DB
                         return false;
 
                     //existCdu.GroupNo = cdu.
-                    existUps.GroupNo = ups.groupIdx;
+                    existUps.GroupNo = ups.groupNo;
                     existUps.No = ups.upsNo;
                     existUps.Name = ups.upsName;
                     existUps.MateList = ups.partnerNoList.ToString();
@@ -310,7 +309,7 @@ namespace IMS.Client.Core.Data.DB
                 {
                     UPS newUps = new UPS()
                     {
-                        GroupNo = ups.groupIdx,
+                        GroupNo = ups.groupNo,
                         No = ups.upsNo,
                         Name = ups.upsName,
                         MateList = ups.partnerNoList.ToString(),

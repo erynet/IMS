@@ -35,8 +35,8 @@ namespace IMS.Client.Core.Data.DB
                                 coordinate = new Point(g.CoordX, g.CoordY),
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
+                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.No orderby u.No ascending select u.Idx).ToArray()),
+                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.No orderby u.No ascending select u.No).ToArray())
                             });
                         }
                         return result;
@@ -72,8 +72,8 @@ namespace IMS.Client.Core.Data.DB
                                 coordinate = new Point(g.CoordX, g.CoordY),
                                 //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
                                 //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.No).ToArray())
+                                upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.No orderby u.No ascending select u.Idx).ToArray()),
+                                upsNoList = new IntList((from u in upsTotal where u.GroupNo == g.No orderby u.No ascending select u.No).ToArray())
                             });
                         }
                         return result;
