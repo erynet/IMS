@@ -34,6 +34,14 @@ namespace IMS.Client.Core {
                 ip = rhs.ip;
                 installDate = rhs.installDate;
             }
+
+            public Info Clone()
+            {
+                var clone = new Info();
+                clone.Copy(this);
+
+                return clone;
+            }
         }
 
         static private int uid = 0;

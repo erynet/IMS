@@ -27,6 +27,14 @@ namespace IMS.Client.Core {
                 coordinate = new Point(rhs.coordinate);
                 upsList = new IntList(rhs.upsList);
             }
+
+            public Info Clone()
+            {
+                var clone = new Info();
+                clone.Copy(this);
+
+                return clone;
+            }
         }
 
         static private int uid = 0;

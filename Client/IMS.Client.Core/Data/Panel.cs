@@ -28,6 +28,14 @@ namespace IMS.Client.Core {
                 installDate = rhs.installDate;
                 ip = rhs.ip;
             }
+
+            public Info Clone()
+            {
+                var clone = new Info();
+                clone.Copy(this);
+
+                return clone;
+            }
         }
 
         public Info Data = new Info();
