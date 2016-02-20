@@ -12,11 +12,11 @@
         <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,35,0,0" Sorting="GroupList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
-                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupIdx}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNo}"/>
                 <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
                 <DataGridTextColumn Header="좌표" Binding="{Binding coordinate}"/>
-                <DataGridTextColumn Header="소속 장비" Binding="{Binding upsIdxList}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="소속 장비" Binding="{Binding upsNoList}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Click="button_add_Click"/>

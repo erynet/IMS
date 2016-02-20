@@ -12,11 +12,11 @@
         <DataGrid x:Name="PanelList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" Sorting="PanelList_Sorting" CellEditEnding="PanelList_CellEditEnding">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
-                <DataGridTextColumn Header="장비 번호" Binding="{Binding cduIdx}"/>
+                <DataGridTextColumn Header="장비 번호" Binding="{Binding cduNo}"/>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding cduName}"/>
                 <DataGridCheckBoxColumn Header="확장 여부" Binding="{Binding isExtended}"/>
-                <DataGridTextColumn Header="접점 수" Binding="{Binding upsIdxList.Count}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="UPS" Binding="{Binding upsIdxList}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="접점 수" Binding="{Binding upsNoList.Count}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="UPS" Binding="{Binding upsNoList}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="설치일" Binding="{Binding installDate}"/>
                 <DataGridTextColumn Header="IP" Binding="{Binding ip}"/>
 
