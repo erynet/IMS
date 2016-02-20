@@ -9,153 +9,153 @@
     <Grid>
         <Grid x:Name="MainDotList" Margin="-20,-20,20,20">
             <Label x:Name="label" Content="1번 접점" HorizontalAlignment="Left" Margin="55,58,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="126,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="35,63,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name1" HorizontalAlignment="Left" Height="23" Margin="126,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable1" Content="" HorizontalAlignment="Left" Margin="35,63,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy" Content="2번 접점" HorizontalAlignment="Left" Margin="55,88,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy1" Content="" HorizontalAlignment="Left" Margin="35,93,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name2" HorizontalAlignment="Left" Height="23" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable2" Content="" HorizontalAlignment="Left" Margin="35,93,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy1" Content="3번 접점" HorizontalAlignment="Left" Margin="55,119,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="126,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy3" Content="" HorizontalAlignment="Left" Margin="35,124,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name3" HorizontalAlignment="Left" Height="23" Margin="126,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable3" Content="" HorizontalAlignment="Left" Margin="35,124,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy2" Content="4번 접점" HorizontalAlignment="Left" Margin="55,148,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="126,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy5" Content="" HorizontalAlignment="Left" Margin="35,153,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name4" HorizontalAlignment="Left" Height="23" Margin="126,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable4" Content="" HorizontalAlignment="Left" Margin="35,153,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy3" Content="5번 접점" HorizontalAlignment="Left" Margin="55,177,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="23" Margin="126,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy7" Content="" HorizontalAlignment="Left" Margin="35,182,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name5" HorizontalAlignment="Left" Height="23" Margin="126,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable5" Content="" HorizontalAlignment="Left" Margin="35,182,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy4" Content="6번 접점" HorizontalAlignment="Left" Margin="55,203,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy4" HorizontalAlignment="Left" Height="23" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy9" Content="" HorizontalAlignment="Left" Margin="35,208,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name6" HorizontalAlignment="Left" Height="23" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable6" Content="" HorizontalAlignment="Left" Margin="35,208,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy5" Content="7번 접점" HorizontalAlignment="Left" Margin="55,235,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy5" HorizontalAlignment="Left" Height="23" Margin="126,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy11" Content="" HorizontalAlignment="Left" Margin="35,240,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name7" HorizontalAlignment="Left" Height="23" Margin="126,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable7" Content="" HorizontalAlignment="Left" Margin="35,240,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy6" Content="8번 접점" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy6" HorizontalAlignment="Left" Height="23" Margin="126,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy13" Content="" HorizontalAlignment="Left" Margin="35,270,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name8" HorizontalAlignment="Left" Height="23" Margin="126,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable8" Content="" HorizontalAlignment="Left" Margin="35,270,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy7" Content="9번 접점" HorizontalAlignment="Left" Margin="55,292,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy7" HorizontalAlignment="Left" Height="23" Margin="126,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy15" Content="" HorizontalAlignment="Left" Margin="35,297,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name9" HorizontalAlignment="Left" Height="23" Margin="126,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable9" Content="" HorizontalAlignment="Left" Margin="35,297,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy8" Content="10번 접점" HorizontalAlignment="Left" Margin="55,322,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy8" HorizontalAlignment="Left" Height="23" Margin="126,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy17" Content="" HorizontalAlignment="Left" Margin="35,327,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name10" HorizontalAlignment="Left" Height="23" Margin="126,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable10" Content="" HorizontalAlignment="Left" Margin="35,327,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy9" Content="11번 접점" HorizontalAlignment="Left" Margin="55,353,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy9" HorizontalAlignment="Left" Height="23" Margin="126,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy19" Content="" HorizontalAlignment="Left" Margin="35,358,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name11" HorizontalAlignment="Left" Height="23" Margin="126,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable11" Content="" HorizontalAlignment="Left" Margin="35,358,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy10" Content="12번 접점" HorizontalAlignment="Left" Margin="55,382,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy10" HorizontalAlignment="Left" Height="23" Margin="126,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy21" Content="" HorizontalAlignment="Left" Margin="35,387,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name12" HorizontalAlignment="Left" Height="23" Margin="126,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable12" Content="" HorizontalAlignment="Left" Margin="35,387,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy11" Content="13번 접점" HorizontalAlignment="Left" Margin="55,411,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy11" HorizontalAlignment="Left" Height="23" Margin="126,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy23" Content="" HorizontalAlignment="Left" Margin="35,416,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name13" HorizontalAlignment="Left" Height="23" Margin="126,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable13" Content="" HorizontalAlignment="Left" Margin="35,416,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy12" Content="14번 접점" HorizontalAlignment="Left" Margin="55,437,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy12" HorizontalAlignment="Left" Height="23" Margin="126,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy25" Content="" HorizontalAlignment="Left" Margin="35,442,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name14" HorizontalAlignment="Left" Height="23" Margin="126,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable14" Content="" HorizontalAlignment="Left" Margin="35,442,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy13" Content="15번 접점" HorizontalAlignment="Left" Margin="55,469,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy13" HorizontalAlignment="Left" Height="23" Margin="126,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy27" Content="" HorizontalAlignment="Left" Margin="35,474,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name15" HorizontalAlignment="Left" Height="23" Margin="126,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable15" Content="" HorizontalAlignment="Left" Margin="35,474,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy14" Content="16번 접점" HorizontalAlignment="Left" Margin="55,499,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy14" HorizontalAlignment="Left" Height="23" Margin="126,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy29" Content="" HorizontalAlignment="Left" Margin="35,504,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name16" HorizontalAlignment="Left" Height="23" Margin="126,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable16" Content="" HorizontalAlignment="Left" Margin="35,504,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy15" Content="17번 접점" HorizontalAlignment="Left" Margin="55,530,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy15" HorizontalAlignment="Left" Height="22" Margin="126,534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy31" Content="" HorizontalAlignment="Left" Margin="35,536,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name17" HorizontalAlignment="Left" Height="22" Margin="126,534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable17" Content="" HorizontalAlignment="Left" Margin="35,536,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy16" Content="18번 접점" HorizontalAlignment="Left" Margin="55,560,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy16" HorizontalAlignment="Left" Height="22" Margin="126,564,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy33" Content="" HorizontalAlignment="Left" Margin="35,566,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name18" HorizontalAlignment="Left" Height="22" Margin="126,564,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable18" Content="" HorizontalAlignment="Left" Margin="35,566,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy17" Content="19번 접점" HorizontalAlignment="Left" Margin="55,592,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy17" HorizontalAlignment="Left" Height="24" Margin="126,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy35" Content="" HorizontalAlignment="Left" Margin="35,596,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name19" HorizontalAlignment="Left" Height="24" Margin="126,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable19" Content="" HorizontalAlignment="Left" Margin="35,596,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy18" Content="20번 접점" HorizontalAlignment="Left" Margin="55,620,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy18" HorizontalAlignment="Left" Height="22" Margin="126,624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy37" Content="" HorizontalAlignment="Left" Margin="35,626,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name20" HorizontalAlignment="Left" Height="22" Margin="126,624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable20" Content="" HorizontalAlignment="Left" Margin="35,626,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy19" Content="21번 접점" HorizontalAlignment="Left" Margin="55,650,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy19" HorizontalAlignment="Left" Height="24" Margin="126,652,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy39" Content="" HorizontalAlignment="Left" Margin="35,654,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name21" HorizontalAlignment="Left" Height="24" Margin="126,652,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable21" Content="" HorizontalAlignment="Left" Margin="35,654,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy20" Content="22번 접점" HorizontalAlignment="Left" Margin="55,676,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy20" HorizontalAlignment="Left" Height="24" Margin="126,678,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy41" Content="" HorizontalAlignment="Left" Margin="35,680,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name22" HorizontalAlignment="Left" Height="24" Margin="126,678,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable22" Content="" HorizontalAlignment="Left" Margin="35,680,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy21" Content="23번 접점" HorizontalAlignment="Left" Margin="55,705,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy21" HorizontalAlignment="Left" Height="24" Margin="126,707,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy43" Content="" HorizontalAlignment="Left" Margin="35,709,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name23" HorizontalAlignment="Left" Height="24" Margin="126,707,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable23" Content="" HorizontalAlignment="Left" Margin="35,709,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy22" Content="24번 접점" HorizontalAlignment="Left" Margin="55,735,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy22" HorizontalAlignment="Left" Height="24" Margin="126,737,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy45" Content="" HorizontalAlignment="Left" Margin="35,739,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name24" HorizontalAlignment="Left" Height="24" Margin="126,737,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable24" Content="" HorizontalAlignment="Left" Margin="35,739,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Grid x:Name="ExtendedDotList" Margin="-20,-20,20,20">
             <Label x:Name="label_Copy23" Content="25번 접점" HorizontalAlignment="Left" Margin="446,58,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy23" HorizontalAlignment="Left" Height="23" Margin="517,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy47" Content="" HorizontalAlignment="Left" Margin="426,63,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name25" HorizontalAlignment="Left" Height="23" Margin="517,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable25" Content="" HorizontalAlignment="Left" Margin="426,63,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy24" Content="26번 접점" HorizontalAlignment="Left" Margin="446,88,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy24" HorizontalAlignment="Left" Height="23" Margin="517,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy49" Content="" HorizontalAlignment="Left" Margin="426,93,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name26" HorizontalAlignment="Left" Height="23" Margin="517,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable26" Content="" HorizontalAlignment="Left" Margin="426,93,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy25" Content="27번 접점" HorizontalAlignment="Left" Margin="446,119,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy25" HorizontalAlignment="Left" Height="23" Margin="517,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy51" Content="" HorizontalAlignment="Left" Margin="426,124,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name27" HorizontalAlignment="Left" Height="23" Margin="517,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable27" Content="" HorizontalAlignment="Left" Margin="426,124,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy26" Content="28번 접점" HorizontalAlignment="Left" Margin="446,148,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy26" HorizontalAlignment="Left" Height="23" Margin="517,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy53" Content="" HorizontalAlignment="Left" Margin="426,153,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name28" HorizontalAlignment="Left" Height="23" Margin="517,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable28" Content="" HorizontalAlignment="Left" Margin="426,153,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy27" Content="29번 접점" HorizontalAlignment="Left" Margin="446,177,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy27" HorizontalAlignment="Left" Height="23" Margin="517,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy55" Content="" HorizontalAlignment="Left" Margin="426,182,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name29" HorizontalAlignment="Left" Height="23" Margin="517,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable29" Content="" HorizontalAlignment="Left" Margin="426,182,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy28" Content="30번 접점" HorizontalAlignment="Left" Margin="446,203,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy28" HorizontalAlignment="Left" Height="23" Margin="517,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy57" Content="" HorizontalAlignment="Left" Margin="426,208,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name30" HorizontalAlignment="Left" Height="23" Margin="517,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable30" Content="" HorizontalAlignment="Left" Margin="426,208,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy29" Content="31번 접점" HorizontalAlignment="Left" Margin="446,235,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy29" HorizontalAlignment="Left" Height="23" Margin="517,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy59" Content="" HorizontalAlignment="Left" Margin="426,240,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name31" HorizontalAlignment="Left" Height="23" Margin="517,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable31" Content="" HorizontalAlignment="Left" Margin="426,240,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy30" Content="32번 접점" HorizontalAlignment="Left" Margin="446,265,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy30" HorizontalAlignment="Left" Height="23" Margin="517,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy61" Content="" HorizontalAlignment="Left" Margin="426,270,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name32" HorizontalAlignment="Left" Height="23" Margin="517,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable32" Content="" HorizontalAlignment="Left" Margin="426,270,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy31" Content="33번 접점" HorizontalAlignment="Left" Margin="446,292,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy31" HorizontalAlignment="Left" Height="23" Margin="517,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy63" Content="" HorizontalAlignment="Left" Margin="426,297,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name33" HorizontalAlignment="Left" Height="23" Margin="517,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable33" Content="" HorizontalAlignment="Left" Margin="426,297,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy32" Content="34번 접점" HorizontalAlignment="Left" Margin="446,322,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy32" HorizontalAlignment="Left" Height="23" Margin="517,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy65" Content="" HorizontalAlignment="Left" Margin="426,327,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name34" HorizontalAlignment="Left" Height="23" Margin="517,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable34" Content="" HorizontalAlignment="Left" Margin="426,327,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy33" Content="35번 접점" HorizontalAlignment="Left" Margin="446,353,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy33" HorizontalAlignment="Left" Height="23" Margin="517,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy67" Content="" HorizontalAlignment="Left" Margin="426,358,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name35" HorizontalAlignment="Left" Height="23" Margin="517,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable35" Content="" HorizontalAlignment="Left" Margin="426,358,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy34" Content="36번 접점" HorizontalAlignment="Left" Margin="446,382,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy34" HorizontalAlignment="Left" Height="23" Margin="517,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy69" Content="" HorizontalAlignment="Left" Margin="426,387,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name36" HorizontalAlignment="Left" Height="23" Margin="517,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable36" Content="" HorizontalAlignment="Left" Margin="426,387,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy35" Content="37번 접점" HorizontalAlignment="Left" Margin="446,411,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy35" HorizontalAlignment="Left" Height="23" Margin="517,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy71" Content="" HorizontalAlignment="Left" Margin="426,416,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name37" HorizontalAlignment="Left" Height="23" Margin="517,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable37" Content="" HorizontalAlignment="Left" Margin="426,416,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy36" Content="38번 접점" HorizontalAlignment="Left" Margin="446,437,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy36" HorizontalAlignment="Left" Height="23" Margin="517,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy73" Content="" HorizontalAlignment="Left" Margin="426,442,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name38" HorizontalAlignment="Left" Height="23" Margin="517,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable38" Content="" HorizontalAlignment="Left" Margin="426,442,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy37" Content="39번 접점" HorizontalAlignment="Left" Margin="446,469,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy37" HorizontalAlignment="Left" Height="23" Margin="517,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy75" Content="" HorizontalAlignment="Left" Margin="426,474,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name39" HorizontalAlignment="Left" Height="23" Margin="517,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable39" Content="" HorizontalAlignment="Left" Margin="426,474,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy38" Content="40번 접점" HorizontalAlignment="Left" Margin="446,499,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy38" HorizontalAlignment="Left" Height="23" Margin="517,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy77" Content="" HorizontalAlignment="Left" Margin="426,504,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name40" HorizontalAlignment="Left" Height="23" Margin="517,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable40" Content="" HorizontalAlignment="Left" Margin="426,504,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy39" Content="41번 접점" HorizontalAlignment="Left" Margin="446,530,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy39" HorizontalAlignment="Left" Height="22" Margin="517,534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy79" Content="" HorizontalAlignment="Left" Margin="426,536,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name41" HorizontalAlignment="Left" Height="22" Margin="517,534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable41" Content="" HorizontalAlignment="Left" Margin="426,536,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy40" Content="42번 접점" HorizontalAlignment="Left" Margin="446,560,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy40" HorizontalAlignment="Left" Height="22" Margin="517,564,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy81" Content="" HorizontalAlignment="Left" Margin="426,566,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name42" HorizontalAlignment="Left" Height="22" Margin="517,564,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable42" Content="" HorizontalAlignment="Left" Margin="426,566,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy41" Content="43번 접점" HorizontalAlignment="Left" Margin="446,592,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy41" HorizontalAlignment="Left" Height="24" Margin="517,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy83" Content="" HorizontalAlignment="Left" Margin="426,596,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name43" HorizontalAlignment="Left" Height="24" Margin="517,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable43" Content="" HorizontalAlignment="Left" Margin="426,596,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy42" Content="44번 접점" HorizontalAlignment="Left" Margin="446,620,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy42" HorizontalAlignment="Left" Height="22" Margin="517,624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy85" Content="" HorizontalAlignment="Left" Margin="426,626,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name44" HorizontalAlignment="Left" Height="22" Margin="517,624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable44" Content="" HorizontalAlignment="Left" Margin="426,626,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy43" Content="45번 접점" HorizontalAlignment="Left" Margin="446,650,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy43" HorizontalAlignment="Left" Height="24" Margin="517,652,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy87" Content="" HorizontalAlignment="Left" Margin="426,654,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name45" HorizontalAlignment="Left" Height="24" Margin="517,652,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable45" Content="" HorizontalAlignment="Left" Margin="426,654,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy44" Content="46번 접점" HorizontalAlignment="Left" Margin="446,676,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy44" HorizontalAlignment="Left" Height="24" Margin="517,678,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy89" Content="" HorizontalAlignment="Left" Margin="426,680,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name46" HorizontalAlignment="Left" Height="24" Margin="517,678,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable46" Content="" HorizontalAlignment="Left" Margin="426,680,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy45" Content="47번 접점" HorizontalAlignment="Left" Margin="446,705,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy45" HorizontalAlignment="Left" Height="24" Margin="517,707,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy91" Content="" HorizontalAlignment="Left" Margin="426,709,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="name47" HorizontalAlignment="Left" Height="24" Margin="517,707,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable47" Content="" HorizontalAlignment="Left" Margin="426,709,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy46" Content="48번 접점" HorizontalAlignment="Left" Margin="446,735,0,0" VerticalAlignment="Top" Width="71"/>
-            <TextBox x:Name="textBox_Copy46" HorizontalAlignment="Left" Height="24" Margin="517,737,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-            <CheckBox x:Name="checkBox_Copy93" Content="" HorizontalAlignment="Left" Margin="426,739,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="button" Content="저장" HorizontalAlignment="Left" Margin="34,28,0,0" VerticalAlignment="Top" Width="76"/>
-            <Button x:Name="button_Copy" Content="취소" HorizontalAlignment="Left" Margin="128,28,0,0" VerticalAlignment="Top" Width="76"/>
+            <TextBox x:Name="name48" HorizontalAlignment="Left" Height="24" Margin="517,737,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <CheckBox x:Name="enable48" Content="" HorizontalAlignment="Left" Margin="426,739,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="button_save" Content="저장" HorizontalAlignment="Left" Margin="34,28,0,0" VerticalAlignment="Top" Width="76" Click="button_save_Click"/>
+            <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="128,28,0,0" VerticalAlignment="Top" Width="76"/>
         </Grid>
     </Grid>
 </Window>
