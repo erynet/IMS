@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IMS.Client.WPF"
         mc:Ignorable="d"
-        Title="ETI IMS" Height="1080" Width="1920" Left="0" Top="0" ResizeMode="NoResize" Icon="../Resource/icons/eti_icon_1.png">
+        Title="ETI IMS" Height="1080" Width="1920" Left="0" Top="0" ResizeMode="CanMinimize" Icon="../Resource/icons/eti_icon_1.png">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="32"/>
         <Button x:Name="button_map" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" Click="button_map_Click">
