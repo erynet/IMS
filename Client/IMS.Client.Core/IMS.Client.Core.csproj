@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\Group.cs" />
-    <Compile Include="Data\Panel.cs" />
+    <Compile Include="Data\Cdu.cs" />
     <Compile Include="Data\IntList.cs" />
     <Compile Include="Data\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

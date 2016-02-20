@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IMS.Client.Core {
+﻿namespace IMS.Client.Core.Data {
     public class Point {
         private int x;
         private int y;

@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using IMS.Client.Core.Data;
+using Point = IMS.Client.Core.Data.Point;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -11,9 +13,9 @@ namespace IMS.Client.WPF {
     public partial class GroupManagePage : Page {
         public EquipPage parent;
 
-        private List<Core.Group.Info> copyList;
-        private List<Core.Group.Info> addedList = new List<Core.Group.Info>();
-        private List<Core.Group.Info> changedList = new List<Core.Group.Info>();
+        private List<Group.Info> copyList;
+        private List<Group.Info> addedList = new List<Group.Info>();
+        private List<Group.Info> changedList = new List<Group.Info>();
 
         public GroupManagePage()
         {
@@ -27,7 +29,7 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Group.Info>(Core.DataManager.inst.GetGroupData());
+            copyList = new List<Group.Info>(DataManager.inst.GetGroupData());
             GroupList.ItemsSource = copyList;
 
             ResetView();
@@ -59,12 +61,12 @@ namespace IMS.Client.WPF {
 
         private void GroupList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            var info = GroupList.SelectedItem as Core.Group.Info;
+            var info = GroupList.SelectedItem as Group.Info;
 
             if (e.Column.Header.ToString() == "좌표") {
                 var txt = e.EditingElement as TextBox;
                 if(txt.Text != "") {
-                    info.coordinate = Core.Point.Parse(txt.Text);
+                    info.coordinate = Point.Parse(txt.Text);
                 }
             }
 
@@ -76,11 +78,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.DataManager.inst.AddGroup(info);
+                DataManager.inst.AddGroup(info);
             }
 
             foreach (var info in changedList) {
-                Core.DataManager.inst.EditGroup(info);
+                DataManager.inst.EditGroup(info);
             }
 
             parent.GroupRefresh();
@@ -88,7 +90,7 @@ namespace IMS.Client.WPF {
 
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
-            var newInfo = new Core.Group.Info();
+            var newInfo = new Group.Info();
             addedList.Add(newInfo);
             copyList.Add(newInfo);
 
@@ -97,7 +99,7 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
-            var info = GroupList.SelectedItem as Core.Group.Info;
+            var info = GroupList.SelectedItem as Group.Info;
             if (addedList.Contains(info) == true) {
                 addedList.Remove(info);
                 copyList.Remove(info);
@@ -108,7 +110,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.DataManager.inst.DeleteGroup(info.groupID);
+                            DataManager.inst.DeleteGroup(info.groupID);
                             parent.GroupRefreshExceptGroup();
 
                             copyList.Remove(info);

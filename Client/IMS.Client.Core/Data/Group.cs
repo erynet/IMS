@@ -1,4 +1,4 @@
-﻿namespace IMS.Client.Core {
+﻿namespace IMS.Client.Core.Data {
     public class Group {
         public class Info {
             public bool isUsing { get; set; }

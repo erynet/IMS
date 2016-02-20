@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IMS.Client.Core;
+using IMS.Client.Core.Data;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -25,7 +26,7 @@ namespace IMS.Client.WPF {
 
         public void Refresh(int panelID)
         {
-            var panel = DataManager.inst.GetPanel(panelID);
+            var panel = DataManager.inst.GetCdu(panelID);
             if (panel == null) {
                 return;
             }

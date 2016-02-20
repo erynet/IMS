@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 using IMS.Client.Core;
+using IMS.Client.Core.Data;
 
 namespace IMS.Client.WPF {
     /// <summary>

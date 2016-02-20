@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IMS.Client.Core.Data;
+using Cdu = IMS.Client.Core.Data.Cdu;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -20,9 +22,9 @@ namespace IMS.Client.WPF {
     public partial class PanelManagePage : Page {
         public EquipPage parent;
 
-        private List<Core.Panel.Info> copyList;
-        private List<Core.Panel.Info> addedList = new List<Core.Panel.Info>();
-        private List<Core.Panel.Info> changedList = new List<Core.Panel.Info>();
+        private List<Cdu.Info> copyList;
+        private List<Cdu.Info> addedList = new List<Cdu.Info>();
+        private List<Cdu.Info> changedList = new List<Cdu.Info>();
 
         public PanelManagePage()
         {
@@ -36,7 +38,7 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Panel.Info>(Core.DataManager.inst.GetPanelData());
+            copyList = new List<Cdu.Info>(DataManager.inst.GetCduData());
             PanelList.ItemsSource = copyList;
 
             ResetView();
@@ -71,9 +73,9 @@ namespace IMS.Client.WPF {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
-                    var info = row.DataContext as Core.Panel.Info;
+                    var info = row.DataContext as Cdu.Info;
 
-                    parent.DotManagePopup(info.panelID);
+                    parent.DotManagePopup(info.cduID);
 
                     break;
                 }
@@ -85,7 +87,7 @@ namespace IMS.Client.WPF {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
-                    var info = row.DataContext as Core.Panel.Info;
+                    var info = row.DataContext as Cdu.Info;
 
                     break;
                 }
@@ -94,7 +96,7 @@ namespace IMS.Client.WPF {
 
         private void PanelList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            var info = PanelList.SelectedItem as Core.Panel.Info;
+            var info = PanelList.SelectedItem as Cdu.Info;
 
             if (addedList.Contains(info) == false && changedList.Contains(info) == false) {
                 changedList.Add(info);
@@ -104,11 +106,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.DataManager.inst.AddPanel(info);
+                DataManager.inst.AddCdu(info);
             }
 
             foreach (var info in changedList) {
-                Core.DataManager.inst.EditPanel(info);
+                DataManager.inst.EditCdu(info);
             }
 
             parent.PanelRefresh();
@@ -116,7 +118,7 @@ namespace IMS.Client.WPF {
 
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
-            var newInfo = new Core.Panel.Info();
+            var newInfo = new Cdu.Info();
             addedList.Add(newInfo);
             copyList.Add(newInfo);
 
@@ -125,7 +127,7 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
-            var info = PanelList.SelectedItem as Core.Panel.Info;
+            var info = PanelList.SelectedItem as Cdu.Info;
             if (addedList.Contains(info) == true) {
                 addedList.Remove(info);
                 copyList.Remove(info);
@@ -136,7 +138,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.DataManager.inst.DeletePanel(info.panelID);
+                            DataManager.inst.DeleteCdu(info.cduID);
                             parent.PanelRefreshExceptPanel();
 
                             copyList.Remove(info);

@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using IMS.Client.Core.Data;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -40,7 +41,7 @@ namespace IMS.Client.WPF {
 
             groupImageList.Clear();
 
-            var groupList = Core.DataManager.inst.GetGroupData();
+            var groupList = DataManager.inst.GetGroupData();
             foreach (var data in groupList) {
                 var display = new GroupImageDisplay();
                 groupImageList.Add(display);

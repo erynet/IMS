@@ -1,10 +1,10 @@
-﻿namespace IMS.Client.Core {
-    public class Panel {
+﻿namespace IMS.Client.Core.Data {
+    public class Cdu {
         public class Info {
             public bool isUsing { get; set; }
-            public int panelID { get; set; }
-            public int panelNo { get; set; }
-            public string panelName { get; set; }
+            public int cduID { get; set; }
+            public int cduNo { get; set; }
+            public string cduName { get; set; }
             public bool isExtended { get; set; }
             public IntList upsList { get; set; }
             public string installDate { get; set; }
@@ -18,9 +18,9 @@
             public void Copy(Info rhs)
             {
                 isUsing = rhs.isUsing;
-                panelID = rhs.panelID;
-                panelNo = rhs.panelNo;
-                panelName = rhs.panelName;
+                cduID = rhs.cduID;
+                cduNo = rhs.cduNo;
+                cduName = rhs.cduName;
                 isExtended = rhs.isExtended;
                 upsList = new IntList(rhs.upsList);
                 installDate = rhs.installDate;
@@ -41,7 +41,7 @@
         static private int uid = 0;
         public int ID { get; private set; }
 
-        public Panel()
+        public Cdu()
         {
             ID = uid++;
         }

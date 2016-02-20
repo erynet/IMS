@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 
-namespace IMS.Client.Core {
+namespace IMS.Client.Core.Data {
     public class DataManager {
         private static DataManager client = new DataManager();
         public static DataManager inst => client;
 
         private Dictionary<int, Ups> upsList = new Dictionary<int, Ups>();
-        private Dictionary<int, Panel> panelList = new Dictionary<int, Panel>();
+        private Dictionary<int, Cdu> cduList = new Dictionary<int, Cdu>();
         private Dictionary<int, Group> groupList = new Dictionary<int, Group>();
 
         public Dictionary<int, Ups> UpsList => upsList;
-        public Dictionary<int, Panel> PanelList => panelList;
+        public Dictionary<int, Cdu> CduList => cduList;
         public Dictionary<int, Group> GroupList => groupList;
 
         public void Init()
@@ -25,7 +25,7 @@ namespace IMS.Client.Core {
                 groupID = 1,
                 upsName = "화장실-1",
                 partnerList = IntList.Parse("2"),
-                panelID = 0,
+                cduID = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
@@ -38,7 +38,7 @@ namespace IMS.Client.Core {
                 groupID = 1,
                 upsName = "화장실-2",
                 partnerList = IntList.Parse("1"),
-                panelID = 0,
+                cduID = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
@@ -48,19 +48,19 @@ namespace IMS.Client.Core {
             upsList.Add(ups1.Data.upsID, ups1);
             upsList.Add(ups2.Data.upsID, ups2);
 
-            // Panel
-            var panel1 = new Panel();
-            panel1.Data = new Panel.Info {
+            // Cdu
+            var cdu1 = new Cdu();
+            cdu1.Data = new Cdu.Info {
                 isUsing = true,
-                panelID = panel1.ID,
-                panelName = "방",
+                cduID = cdu1.ID,
+                cduName = "방",
                 isExtended = false,
                 upsList = new IntList { 0, 1 },
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
 
-            panelList.Add(panel1.Data.panelID, panel1);
+            cduList.Add(cdu1.Data.cduID, cdu1);
 
             // Group
             var group1 = new Group();
@@ -100,12 +100,12 @@ namespace IMS.Client.Core {
             return ret;
         }
 
-        public List<Panel.Info> GetPanelData()
+        public List<Cdu.Info> GetCduData()
         {
-            var ret = new List<Panel.Info>();
+            var ret = new List<Cdu.Info>();
 
-            foreach (var pair in panelList) {
-                var copyData = new Panel.Info();
+            foreach (var pair in cduList) {
+                var copyData = new Cdu.Info();
                 copyData.Copy(pair.Value.Data);
                 ret.Add(copyData);
             }
@@ -139,15 +139,15 @@ namespace IMS.Client.Core {
             }
         }
 
-        public void AddPanel(Panel.Info newInfo)
+        public void AddCdu(Cdu.Info newInfo)
         {
-            var panel = GetPanel(newInfo.panelID);
-            if (panel == null) {
-                panel = new Panel();
-                panel.Data = newInfo;
-                newInfo.panelID = panel.ID;
+            var cdu = GetCdu(newInfo.cduID);
+            if (cdu == null) {
+                cdu = new Cdu();
+                cdu.Data = newInfo;
+                newInfo.cduID = cdu.ID;
 
-                panelList.Add(panel.ID, panel);
+                cduList.Add(cdu.ID, cdu);
             }
         }
 
@@ -166,10 +166,10 @@ namespace IMS.Client.Core {
             ups?.Data.Copy(info);
         }
 
-        public void EditPanel(Panel.Info info)
+        public void EditCdu(Cdu.Info info)
         {
-            var panel = GetPanel(info.panelID);
-            panel?.Data.Copy(info);
+            var cdu = GetCdu(info.cduID);
+            cdu?.Data.Copy(info);
         }
 
         public void EditGroup(Group.Info newInfo)
@@ -186,10 +186,10 @@ namespace IMS.Client.Core {
             return ret;
         }
 
-        public Panel GetPanel(int id)
+        public Cdu GetCdu(int id)
         {
-            Panel ret = null;
-            panelList.TryGetValue(id, out ret);
+            Cdu ret = null;
+            cduList.TryGetValue(id, out ret);
 
             return ret;
         }
@@ -220,9 +220,9 @@ namespace IMS.Client.Core {
                 partnerUps?.Data.partnerList.Remove(id);
             }
 
-            // Panel
-            var panel = GetPanel(ups.Data.panelID);
-            panel?.Data.upsList.Remove(id);
+            // Cdu
+            var cdu = GetCdu(ups.Data.cduID);
+            cdu?.Data.upsList.Remove(id);
 
             // Group
             var group = GetGroup(ups.Data.groupID);
@@ -231,10 +231,10 @@ namespace IMS.Client.Core {
             upsList.Remove(id);
         }
 
-        public void DeletePanel(int id)
+        public void DeleteCdu(int id)
         {
-            var panel = GetPanel(id);
-            if (panel == null) {
+            var cdu = GetCdu(id);
+            if (cdu == null) {
                 return;
             }
 
@@ -243,7 +243,7 @@ namespace IMS.Client.Core {
 
             foreach (var pair in upsList) {
                 var ups = pair.Value;
-                if (ups.Data.panelID == id) {
+                if (ups.Data.cduID == id) {
                     removeUpsList.Add(ups.ID);
                 }
             }
@@ -253,7 +253,7 @@ namespace IMS.Client.Core {
             }
 
             // Remove
-            panelList.Remove(id);
+            cduList.Remove(id);
         }
 
         public void DeleteGroup(int id)

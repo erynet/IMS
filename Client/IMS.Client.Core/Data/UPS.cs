@@ -1,4 +1,4 @@
-﻿namespace IMS.Client.Core {
+﻿namespace IMS.Client.Core.Data {
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
@@ -7,7 +7,7 @@
             public int groupID { get; set; }
             public string upsName { get; set; }
             public IntList partnerList { get; set; }
-            public int panelID { get; set; }
+            public int cduID { get; set; }
             public string batteryDescription { get; set; }
             public string batteryCapacity { get; set; }
             public string ip { get; set; }
@@ -26,7 +26,7 @@
                 groupID = rhs.groupID;
                 upsName = rhs.upsName;
                 partnerList = new IntList(rhs.partnerList);
-                panelID = rhs.panelID;
+                cduID = rhs.cduID;
                 batteryDescription = rhs.batteryDescription;
                 batteryCapacity = rhs.batteryCapacity;
                 ip = rhs.ip;

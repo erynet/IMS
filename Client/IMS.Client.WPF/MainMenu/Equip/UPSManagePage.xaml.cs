@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IMS.Client.Core.Data;
 
 namespace IMS.Client.WPF {
     /// <summary>
@@ -20,9 +21,9 @@ namespace IMS.Client.WPF {
     public partial class UPSManagePage : Page {
         public EquipPage parent;
 
-        private List<Core.Ups.Info> copyList;
-        private List<Core.Ups.Info> addedList = new List<Core.Ups.Info>();
-        private List<Core.Ups.Info> changedList = new List<Core.Ups.Info>();
+        private List<Ups.Info> copyList;
+        private List<Ups.Info> addedList = new List<Ups.Info>();
+        private List<Ups.Info> changedList = new List<Ups.Info>();
 
         private List<int> groupCopyList = new List<int>();
         private List<int> panelCopyList = new List<int>();
@@ -39,11 +40,11 @@ namespace IMS.Client.WPF {
             addedList.Clear();
             changedList.Clear();
 
-            copyList = new List<Core.Ups.Info>(Core.DataManager.inst.GetUpsData());
+            copyList = new List<Ups.Info>(DataManager.inst.GetUpsData());
             UPSList.ItemsSource = copyList;
 
             groupCopyList.Clear();
-            var groupInfoList = Core.DataManager.inst.GetGroupData();
+            var groupInfoList = DataManager.inst.GetGroupData();
             foreach (var groupInfo in groupInfoList) {
                 groupCopyList.Add(groupInfo.groupID);
             }
@@ -51,9 +52,9 @@ namespace IMS.Client.WPF {
             GroupID.ItemsSource = groupCopyList;
 
             panelCopyList.Clear();
-            var panelInfoList = Core.DataManager.inst.GetPanelData();
+            var panelInfoList = DataManager.inst.GetCduData();
             foreach(var panelInfo in panelInfoList) {
-                panelCopyList.Add(panelInfo.panelID);
+                panelCopyList.Add(panelInfo.cduID);
             }
 
             PanelID.ItemsSource = panelCopyList;
@@ -90,7 +91,7 @@ namespace IMS.Client.WPF {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
                 if (vis is DataGridRow) {
                     var row = vis as DataGridRow;
-                    var info = row.DataContext as Core.Ups.Info;
+                    var info = row.DataContext as Ups.Info;
 
                     parent.UpsInfoPopup(info.upsID);
 
@@ -101,12 +102,12 @@ namespace IMS.Client.WPF {
 
         private void UPSList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            var info = UPSList.SelectedItem as Core.Ups.Info;
+            var info = UPSList.SelectedItem as Ups.Info;
 
             if (e.Column.Header.ToString() == "짝") {
                 var txt = e.EditingElement as TextBox;
                 if (txt.Text != "") {
-                    info.partnerList = Core.IntList.Parse(txt.Text);
+                    info.partnerList = IntList.Parse(txt.Text);
                 }
             }
 
@@ -118,11 +119,11 @@ namespace IMS.Client.WPF {
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
             foreach (var info in addedList) {
-                Core.DataManager.inst.AddUps(info);
+                DataManager.inst.AddUps(info);
             }
 
             foreach (var info in changedList) {
-                Core.DataManager.inst.EditUps(info);
+                DataManager.inst.EditUps(info);
             }
 
             parent.UpsRefresh();
@@ -130,7 +131,7 @@ namespace IMS.Client.WPF {
 
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
-            var newInfo = new Core.Ups.Info();
+            var newInfo = new Ups.Info();
             addedList.Add(newInfo);
             copyList.Add(newInfo);
 
@@ -139,7 +140,7 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
-            var info = UPSList.SelectedItem as Core.Ups.Info;
+            var info = UPSList.SelectedItem as Ups.Info;
             if (addedList.Contains(info) == true) {
                 addedList.Remove(info);
                 copyList.Remove(info);
@@ -150,7 +151,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            Core.DataManager.inst.DeleteUps(info.upsID);
+                            DataManager.inst.DeleteUps(info.upsID);
                             parent.UpsRefreshExceptUps();
 
                             copyList.Remove(info);

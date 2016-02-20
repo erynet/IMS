@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace IMS.Client.Core {
+namespace IMS.Client.Core.Data {
     public class IntList : IList<int> {
         static public IntList Parse(string text)
         {
