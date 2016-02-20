@@ -111,17 +111,17 @@ namespace IMS.Client.Core.Data {
 
         bool ICollection<int>.Remove(int item)
         {
-            throw new NotImplementedException();
+            return list.Remove(item);
         }
 
         public IEnumerator<int> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return list.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return list.GetEnumerator();
         }
     }
 }
