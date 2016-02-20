@@ -49,11 +49,11 @@
     <Compile Include="Data\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Ups.cs" />
-    <Compile Include="WCF\GenCli.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6 Tools\x64\SvcUtil.exe" net.tcp://secsm.ery.wo.tc:8082/IMS /Language=c# /t:Code /out:$(ProjectDir)WCF/GenCli.cs /config:$(ProjectDir)WCF/GenCli.config /syncOnly</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

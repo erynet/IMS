@@ -1,6 +1,4 @@
-﻿using IMS.Server.Sub.WCFHost.Abstract.DataContract;
-
-namespace IMS.Client.Core {
+﻿namespace IMS.Client.Core {
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
@@ -52,50 +50,6 @@ namespace IMS.Client.Core {
         public Ups()
         {
             ID = uid++;
-        }
-
-        public Ups(IMSUps other)
-        {
-            ID = uid++;
-
-            ParseServerData(other);
-        }
-
-        public void ParseServerData(IMSUps other)
-        {
-            Data = new Info {
-                isUsing = other.Enabled,
-                upsID = other.Idx ?? -1,
-                upsNo = other.No,
-                groupID = other.GroupIdx,
-                upsName = other.Name,
-                partnerList = new IntList(),
-                panelID = other.CduNo ?? -1,
-                batteryDescription = other.Description,
-                batteryCapacity = other.Capacity,
-                ip = other.IpAddress,
-                installDate = other.InstallAt
-            };
-
-            Data.partnerList = IntList.Parse(other.MateList);
-        }
-
-        public IMSUps GenerateServerData()
-        {
-            var ret = new IMSUps {
-                Enabled = Data.isUsing,
-                Idx = ID,
-                No = Data.upsNo,
-                GroupIdx = Data.groupID,
-                Name = Data.upsName,
-                MateList = Data.partnerList.ToString(),
-                Description = Data.batteryDescription,
-                Capacity = Data.batteryCapacity,
-                IpAddress = Data.ip,
-                InstallAt = Data.installDate
-            };
-
-            return ret;
         }
     }
 }
