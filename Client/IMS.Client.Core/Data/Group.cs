@@ -5,6 +5,7 @@ namespace IMS.Client.Core {
         public class Info {
             public bool isUsing { get; set; }
             public int groupID { get; set; }
+            public int groupNo { get; set; }
             public bool isGroupVisible { get; set; }
             public string groupName { get; set; }
             public Point coordinate { get; set; }
@@ -20,10 +21,19 @@ namespace IMS.Client.Core {
             {
                 isUsing = rhs.isUsing;
                 groupID = rhs.groupID;
+                groupNo = rhs.groupNo;
                 isGroupVisible = rhs.isGroupVisible;
                 groupName = rhs.groupName;
                 coordinate = new Point(rhs.coordinate);
                 upsList = new IntList(rhs.upsList);
+            }
+
+            public Info Clone()
+            {
+                var clone = new Info();
+                clone.Copy(this);
+
+                return clone;
             }
         }
 
@@ -41,10 +51,16 @@ namespace IMS.Client.Core {
         {
             ID = uid++;
 
+            ParseServerData(other);
+        }
+
+        public void ParseServerData(IMSGroup other)
+        {
             Data = new Info {
-                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                isUsing = other.Enabled,
                 groupID = other.Idx ?? -1,
-                isGroupVisible = other.Enabled,
+                groupNo = other.No,
+                isGroupVisible = other.Display,
                 groupName = other.Name,
                 coordinate = new Point(other.CoordX, other.CoordY),
                 upsList = new IntList()
@@ -55,6 +71,22 @@ namespace IMS.Client.Core {
                     Data.upsList.Add(otherUps.Idx.Value);
                 }
             }
+        }
+
+        public IMSGroup GenerateServerData()
+        {
+            var ret = new IMSGroup {
+                Enabled = Data.isUsing,
+                Idx = ID,
+                No = Data.groupNo,
+                Display = Data.isGroupVisible,
+                Name = Data.groupName,
+                CoordX = Data.coordinate.X,
+                CoordY = Data.coordinate.Y,
+                // UpsList = Data.upsList.ToString()  
+            };
+
+            return ret;
         }
     }
 }

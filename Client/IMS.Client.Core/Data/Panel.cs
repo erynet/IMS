@@ -5,6 +5,7 @@ namespace IMS.Client.Core {
         public class Info {
             public bool isUsing { get; set; }
             public int panelID { get; set; }
+            public int panelNo { get; set; }
             public string panelName { get; set; }
             public bool isExtended { get; set; }
             public IntList upsList { get; set; }
@@ -20,11 +21,20 @@ namespace IMS.Client.Core {
             {
                 isUsing = rhs.isUsing;
                 panelID = rhs.panelID;
+                panelNo = rhs.panelNo;
                 panelName = rhs.panelName;
                 isExtended = rhs.isExtended;
                 upsList = new IntList(rhs.upsList);
                 installDate = rhs.installDate;
                 ip = rhs.ip;
+            }
+
+            public Info Clone()
+            {
+                var clone = new Info();
+                clone.Copy(this);
+
+                return clone;
             }
         }
 
@@ -42,9 +52,15 @@ namespace IMS.Client.Core {
         {
             ID = uid++;
 
+            ParseServerData(other);
+        }
+
+        public void ParseServerData(IMSCdu other)
+        {
             Data = new Info {
-                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                isUsing = other.Enabled,
                 panelID = other.Idx ?? -1,
+                panelNo = other.No,
                 panelName = other.Name,
                 isExtended = other.Extendable,
                 upsList = new IntList(),
@@ -53,6 +69,22 @@ namespace IMS.Client.Core {
             };
 
             Data.upsList = IntList.Parse(other.UpsList);
+        }
+
+        public IMSCdu GenerateServerData()
+        {
+            var ret = new IMSCdu {
+                Enabled = Data.isUsing,
+                Idx = ID,
+                No = Data.panelNo,
+                Name = Data.panelName,
+                Extendable = Data.isExtended,
+                UpsList = Data.upsList.ToString(),
+                InstallAt = Data.installDate,
+                IpAddress = Data.ip
+            };
+
+            return ret;
         }
     }
 }
