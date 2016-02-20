@@ -131,9 +131,10 @@ namespace IMS.Client.Core.Data {
             //return ret;
         }
 
-        public List<SocketInfo> GetSocketData()
+        public List<CduSocket.Info> GetSocketData(int cduIdx)
         {
-            return null;
+            return LocalDBDriver.GetCduSocketsByIdx(cduIdx);
+            //return null;
         }
 
         public void AddUps(Ups.Info newInfo)
@@ -193,9 +194,9 @@ namespace IMS.Client.Core.Data {
             //group?.Data.Copy(newInfo);
         }
 
-        public void EditSocket(List<SocketInfo> socketList)
+        public void EditSocket(int cduIdx, List<CduSocket.Info> infos)
         {
-            // TODO
+            LocalDBDriver.SetCduSocket(cduIdx, infos);
         }
 
         public Ups.Info GetUps(int idx)
