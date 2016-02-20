@@ -17,75 +17,75 @@ namespace IMS.Client.Core.Data {
         public void Init()
         {
             // Ups
-            var ups1 = new Ups();
-            var ups2 = new Ups();
+            //var ups1 = new Ups();
+            //var ups2 = new Ups();
 
-            ups1.Data = new Ups.Info {
-                isUsing = false,
-                upsIdx = ups1.ID,
-                groupIdx = 1,
-                upsName = "화장실-1",
-                partnerIdxList = IntList.Parse("2"),
-                cduIdx = 0,
-                batteryDescription = "듀라셀",
-                batteryCapacity = "1kW",
-                ip = "192.168.0.1",
-                installDate = "2016.01.01",
-            };
+            //ups1.Data = new Ups.Info {
+            //    isUsing = false,
+            //    upsIdx = ups1.ID,
+            //    groupIdx = 1,
+            //    upsName = "화장실-1",
+            //    partnerIdxList = IntList.Parse("2"),
+            //    cduIdx = 0,
+            //    batteryDescription = "듀라셀",
+            //    batteryCapacity = "1kW",
+            //    ip = "192.168.0.1",
+            //    installDate = "2016.01.01",
+            //};
 
-            ups2.Data = new Ups.Info {
-                isUsing = false,
-                upsIdx = ups2.ID,
-                groupIdx = 1,
-                upsName = "화장실-2",
-                partnerIdxList = IntList.Parse("1"),
-                cduIdx = 0,
-                batteryDescription = "듀라셀",
-                batteryCapacity = "1kW",
-                ip = "192.168.0.1",
-                installDate = "2016.01.01",
-            };
+            //ups2.Data = new Ups.Info {
+            //    isUsing = false,
+            //    upsIdx = ups2.ID,
+            //    groupIdx = 1,
+            //    upsName = "화장실-2",
+            //    partnerIdxList = IntList.Parse("1"),
+            //    cduIdx = 0,
+            //    batteryDescription = "듀라셀",
+            //    batteryCapacity = "1kW",
+            //    ip = "192.168.0.1",
+            //    installDate = "2016.01.01",
+            //};
 
-            upsList.Add(ups1.Data.upsIdx, ups1);
-            upsList.Add(ups2.Data.upsIdx, ups2);
+            //upsList.Add(ups1.Data.upsIdx, ups1);
+            //upsList.Add(ups2.Data.upsIdx, ups2);
 
-            // Cdu
-            var cdu1 = new Cdu();
-            cdu1.Data = new Cdu.Info {
-                isUsing = true,
-                cduIdx = cdu1.ID,
-                cduName = "방",
-                isExtended = false,
-                upsIdxList = new IntList { 0, 1 },
-                ip = "192.168.0.1",
-                installDate = "2016.01.01",
-            };
+            //// Cdu
+            //var cdu1 = new Cdu();
+            //cdu1.Data = new Cdu.Info {
+            //    isUsing = true,
+            //    cduIdx = cdu1.ID,
+            //    cduName = "방",
+            //    isExtended = false,
+            //    upsIdxList = new IntList { 0, 1 },
+            //    ip = "192.168.0.1",
+            //    installDate = "2016.01.01",
+            //};
 
-            cduList.Add(cdu1.Data.cduIdx, cdu1);
+            //cduList.Add(cdu1.Data.cduIdx, cdu1);
 
-            // Group
-            var group1 = new Group();
-            group1.Data = new Group.Info {
-                isUsing = true,
-                groupIdx = group1.ID,
-                isGroupVisible = true,
-                groupName = "방1",
-                coordinate = new Point(300, 400),
-                upsIdxList = new IntList()
-            };
+            //// Group
+            //var group1 = new Group();
+            //group1.Data = new Group.Info {
+            //    isUsing = true,
+            //    groupIdx = group1.ID,
+            //    isGroupVisible = true,
+            //    groupName = "방1",
+            //    coordinate = new Point(300, 400),
+            //    upsIdxList = new IntList()
+            //};
 
-            var group2 = new Group();
-            group2.Data = new Group.Info {
-                isUsing = true,
-                groupIdx = group2.ID,
-                isGroupVisible = true,
-                groupName = "방2",
-                coordinate = new Point(400, 500),
-                upsIdxList = new IntList { 0, 1 }
-            };
+            //var group2 = new Group();
+            //group2.Data = new Group.Info {
+            //    isUsing = true,
+            //    groupIdx = group2.ID,
+            //    isGroupVisible = true,
+            //    groupName = "방2",
+            //    coordinate = new Point(400, 500),
+            //    upsIdxList = new IntList { 0, 1 }
+            //};
 
-            groupList.Add(group1.Data.groupIdx, group1);
-            groupList.Add(group2.Data.groupIdx, group2);
+            //groupList.Add(group1.Data.groupIdx, group1);
+            //groupList.Add(group2.Data.groupIdx, group2);
         }
 
         public List<Ups.Info> GetUpsData()
