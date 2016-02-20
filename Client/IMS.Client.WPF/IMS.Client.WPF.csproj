@@ -89,7 +89,7 @@
     <Compile Include="MainMenu\Data\DataPage.xaml.cs">
       <DependentUpon>DataPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu\Data\ErrorUPSViewPage.xaml.cs">
+    <Compile Include="MainMenu\Equip\ErrorUPSViewPage.xaml.cs">
       <DependentUpon>ErrorUPSViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popup\UPSInfo\LogViewPage.xaml.cs">
@@ -151,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu\Data\ErrorUPSViewPage.xaml">
+    <Page Include="MainMenu\Equip\ErrorUPSViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
