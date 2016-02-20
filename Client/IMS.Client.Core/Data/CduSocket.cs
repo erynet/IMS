@@ -6,7 +6,7 @@
         {
             public bool isUsing { get; set; }
             public int cduIdx { get; set; }
-            //public int cduNo { get; set; }
+            //public int upsNo { get; set; }
             public int cduSocketIdx { get; set; }
             public int cduSocketNo { get; set; }
             public string cduSocketName { get; set; }

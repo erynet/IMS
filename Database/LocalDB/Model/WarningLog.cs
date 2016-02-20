@@ -63,11 +63,11 @@ namespace IMS.Database.LocalDB.Model
 
             //HasOptional(w => w.UPS)
             //    .WithMany(u => u.WarningLogs)
-            //    .HasForeignKey(w => w.UpsIdx)
+            //    .HasForeignKey(w => w.UpsNo)
             //    .WillCascadeOnDelete(false);
             //HasOptional(w => w.CDU)
             //    .WithMany(u => u.WarningLogs)
-            //    .HasForeignKey(w => w.CduIdx)
+            //    .HasForeignKey(w => w.CduNo)
             //    .WillCascadeOnDelete(false);
         }
     }

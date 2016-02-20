@@ -8,7 +8,7 @@ namespace IMS.Database.LocalDB.Model
     public class CduEvent
     {
         public int Idx { get; set; }
-        public int CduIdx { get; set; }
+        public int CduNo { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public int Priority { get; set; }
@@ -33,7 +33,7 @@ namespace IMS.Database.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(c => c.CduIdx)
+            Property(c => c.CduNo)
                 .IsOptional()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
@@ -64,7 +64,7 @@ namespace IMS.Database.LocalDB.Model
                 .HasColumnOrder(5);
             //HasOptional(c => c.CDU)
             //    .WithMany(c => c.CduEvents)
-            //    .HasForeignKey(c => c.CduIdx)
+            //    .HasForeignKey(c => c.CduNo)
             //    .WillCascadeOnDelete(false);
         }
     }

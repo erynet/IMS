@@ -8,7 +8,7 @@ namespace IMS.Database.LocalDB.Model
     public class UpsEvent
     {
         public int Idx { get; set; }
-        public int UpsIdx { get; set; }
+        public int UpsNo { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public int Priority { get; set; }
@@ -33,7 +33,7 @@ namespace IMS.Database.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(u => u.UpsIdx)
+            Property(u => u.UpsNo)
                 .IsOptional()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
@@ -64,7 +64,7 @@ namespace IMS.Database.LocalDB.Model
                 .HasColumnOrder(5);
             //HasOptional(u => u.UPS)
             //    .WithMany(u => u.UpsEvents)
-            //    .HasForeignKey(u => u.UpsIdx)
+            //    .HasForeignKey(u => u.UpsNo)
             //    .WillCascadeOnDelete(false);
         }
     }

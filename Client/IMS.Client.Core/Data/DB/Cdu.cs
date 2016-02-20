@@ -48,7 +48,7 @@ namespace IMS.Client.Core.Data.DB
                         //        {
                         //            isUsing = c.Enabled,
                         //            cduIdx = c.Idx,
-                        //            cduNo = c.No,
+                        //            upsNo = c.No,
                         //            cduName = c.Name,
                         //            isExtended = c.Extendable,
                         //            //upsIdxList = new IntList((from u in upsTotal where u.GroupNo == g.Idx orderby u.No ascending select u.Idx).ToArray()),
@@ -91,7 +91,7 @@ namespace IMS.Client.Core.Data.DB
                     //        {
                     //            isUsing = c.Enabled,
                     //            cduIdx = c.Idx,
-                    //            cduNo = c.No,
+                    //            upsNo = c.No,
                     //            cduName = c.Name,
                     //            isExtended = c.Extendable,
                     //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
@@ -118,22 +118,39 @@ namespace IMS.Client.Core.Data.DB
                 {
                     var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
 
-                    return (from c in ctx.Cdu
-                            where c.Idx == cduIdx
-                            select new Cdu.Info()
-                            {
-                                isUsing = c.Enabled,
-                                cduIdx = c.Idx,
-                                cduNo = c.No,
-                                cduName = c.Name,
-                                isExtended = c.Extendable,
-                                //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
-                                //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
-                                upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
-                                installDate = c.InstallAt,
-                                ip = c.IpAddress
-                            }).DefaultIfEmpty(null).First();
+                    var c = (from cdu in ctx.Cdu where cdu.Idx == cduIdx select cdu).DefaultIfEmpty(null).First();
+                    if (c == null)
+                        return null;
+
+                    return new Cdu.Info()
+                    {
+                        isUsing = c.Enabled,
+                        cduIdx = c.Idx,
+                        cduNo = c.No,
+                        cduName = c.Name,
+                        isExtended = c.Extendable,
+                        upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
+                        installDate = c.InstallAt,
+                        ip = c.IpAddress
+                    };
+
+                    //return (from c in ctx.Cdu
+                    //        where c.Idx == cduIdx
+                    //        select new Cdu.Info()
+                    //        {
+                    //            isUsing = c.Enabled,
+                    //            cduIdx = c.Idx,
+                    //            cduNo = c.No,
+                    //            cduName = c.Name,
+                    //            isExtended = c.Extendable,
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                    //            upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
+                    //            installDate = c.InstallAt,
+                    //            ip = c.IpAddress
+                    //        }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
@@ -151,22 +168,39 @@ namespace IMS.Client.Core.Data.DB
                 {
                     var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
 
-                    return (from c in ctx.Cdu
-                            where c.No == cduNo
-                            select new Cdu.Info()
-                            {
-                                isUsing = c.Enabled,
-                                cduIdx = c.Idx,
-                                cduNo = c.No,
-                                cduName = c.Name,
-                                isExtended = c.Extendable,
-                                //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
-                                //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
-                                upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
-                                installDate = c.InstallAt,
-                                ip = c.IpAddress
-                            }).DefaultIfEmpty(null).First();
+                    var c = (from cdu in ctx.Cdu where cdu.No == cduNo select cdu).DefaultIfEmpty(null).First();
+                    if (c == null)
+                        return null;
+
+                    return new Cdu.Info()
+                    {
+                        isUsing = c.Enabled,
+                        cduIdx = c.Idx,
+                        cduNo = c.No,
+                        cduName = c.Name,
+                        isExtended = c.Extendable,
+                        upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
+                        installDate = c.InstallAt,
+                        ip = c.IpAddress
+                    };
+
+                    //return (from c in ctx.Cdu
+                    //        where c.No == cduNo
+                    //        select new Cdu.Info()
+                    //        {
+                    //            isUsing = c.Enabled,
+                    //            cduIdx = c.Idx,
+                    //            cduNo = c.No,
+                    //            cduName = c.Name,
+                    //            isExtended = c.Extendable,
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(c.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                    //            upsIdxList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.CduNo == c.No orderby u.No ascending select u.No).ToArray()),
+                    //            installDate = c.InstallAt,
+                    //            ip = c.IpAddress
+                    //        }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)

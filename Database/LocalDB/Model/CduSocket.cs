@@ -47,7 +47,7 @@ namespace IMS.Database.LocalDB.Model
 
             //HasRequired(c => c.CDU)
             //    .WithMany(c => c.CduSockets)
-            //    .HasForeignKey(c => c.CduIdx)
+            //    .HasForeignKey(c => c.CduNo)
             //    .WillCascadeOnDelete(true);
         }
     }
