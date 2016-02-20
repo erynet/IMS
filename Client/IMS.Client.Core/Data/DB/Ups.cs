@@ -22,44 +22,121 @@ namespace IMS.Client.Core.Data.DB
                     var cduTotal = (from c in ctx.Cdu orderby c.No ascending select c).ToArray();
 
                     if (ascending)
-                        return (from u in ctx.Ups
-                                orderby u.No ascending
-                                select new Ups.Info()
-                                {
-                                    isUsing = u.Enabled,
-                                    upsIdx = u.Idx,
-                                    upsNo = u.No,
-                                    groupIdx = u.GroupIdx,
-                                    groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
-                                    upsName = u.Name,
-                                    partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
-                                    partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
-                                    cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
-                                    cduNo = u.CduNo,
-                                    batteryDescription = u.Specification,
-                                    batteryCapacity = u.Capacity,
-                                    ip = u.IpAddress,
-                                    installDate = u.InstallAt
-                                }).ToList();
-                    return (from u in ctx.Ups
-                            orderby u.No descending
-                            select new Ups.Info()
+                    {
+                        var upss = (from u in ctx.Ups orderby u.No ascending select u).ToList();
+                        List<Ups.Info> result = new List<Ups.Info>();
+                        foreach (var u in upss)
+                        {
+                            result.Add(new Ups.Info()
                             {
                                 isUsing = u.Enabled,
                                 upsIdx = u.Idx,
                                 upsNo = u.No,
                                 groupIdx = u.GroupIdx,
-                                groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                                groupNo =
+                                    (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                                        .FirstOrDefault(),
                                 upsName = u.Name,
-                                partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
-                                partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
-                                cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                                partnerIdxList = new IntList((from iu in upsTotal
+                                                              where
+                                                                  Regex.Split(u.MateList, @"\D+")
+                                                                      .Select(n => Convert.ToInt32(n))
+                                                                      .ToArray()
+                                                                      .Contains(iu.No)
+                                                              orderby iu.No ascending
+                                                              select iu.Idx).ToArray()),
+                                partnerNoList =
+                                    new IntList(
+                                        Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                                cduIdx =
+                                    (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0)
+                                        .FirstOrDefault(),
                                 cduNo = u.CduNo,
                                 batteryDescription = u.Specification,
                                 batteryCapacity = u.Capacity,
                                 ip = u.IpAddress,
                                 installDate = u.InstallAt
-                            }).ToList();
+                            });
+                        }
+                        return result;
+                    }
+                    //return (from u in ctx.Ups
+                    //        orderby u.No ascending
+                    //        select new Ups.Info()
+                    //        {
+                    //            isUsing = u.Enabled,
+                    //            upsIdx = u.Idx,
+                    //            upsNo = u.No,
+                    //            groupIdx = u.GroupIdx,
+                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            upsName = u.Name,
+                    //            partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
+                    //            partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                    //            cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            cduNo = u.CduNo,
+                    //            batteryDescription = u.Specification,
+                    //            batteryCapacity = u.Capacity,
+                    //            ip = u.IpAddress,
+                    //            installDate = u.InstallAt
+                    //        }).ToList();
+                    else
+                    {
+                        var upss = (from u in ctx.Ups orderby u.No descending select u).ToList();
+                        List<Ups.Info> result = new List<Ups.Info>();
+                        foreach (var u in upss)
+                        {
+                            result.Add(new Ups.Info()
+                            {
+                                isUsing = u.Enabled,
+                                upsIdx = u.Idx,
+                                upsNo = u.No,
+                                groupIdx = u.GroupIdx,
+                                groupNo =
+                                    (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                                        .FirstOrDefault(),
+                                upsName = u.Name,
+                                partnerIdxList = new IntList((from iu in upsTotal
+                                                              where
+                                                                  Regex.Split(u.MateList, @"\D+")
+                                                                      .Select(n => Convert.ToInt32(n))
+                                                                      .ToArray()
+                                                                      .Contains(iu.No)
+                                                              orderby iu.No ascending
+                                                              select iu.Idx).ToArray()),
+                                partnerNoList =
+                                    new IntList(
+                                        Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                                cduIdx =
+                                    (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0)
+                                        .FirstOrDefault(),
+                                cduNo = u.CduNo,
+                                batteryDescription = u.Specification,
+                                batteryCapacity = u.Capacity,
+                                ip = u.IpAddress,
+                                installDate = u.InstallAt
+                            });
+                        }
+                        return result;
+                    }
+                    //return (from u in ctx.Ups
+                    //        orderby u.No descending
+                    //        select new Ups.Info()
+                    //        {
+                    //            isUsing = u.Enabled,
+                    //            upsIdx = u.Idx,
+                    //            upsNo = u.No,
+                    //            groupIdx = u.GroupIdx,
+                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            upsName = u.Name,
+                    //            partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
+                    //            partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                    //            cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            cduNo = u.CduNo,
+                    //            batteryDescription = u.Specification,
+                    //            batteryCapacity = u.Capacity,
+                    //            ip = u.IpAddress,
+                    //            installDate = u.InstallAt
+                    //        }).ToList();
                 }
             }
             catch (Exception e)
@@ -76,28 +153,61 @@ namespace IMS.Client.Core.Data.DB
                 using (var ctx = new LocalDB())
                 {
                     var groupTotal = (from g in ctx.Group orderby g.No ascending select g).ToArray();
-                    var upsTotal = (from u in ctx.Ups orderby u.No ascending select u).ToArray();
+                    var upsTotal = (from ups in ctx.Ups orderby ups.No ascending select ups).ToArray();
                     var cduTotal = (from c in ctx.Cdu orderby c.No ascending select c).ToArray();
 
-                    return (from u in ctx.Ups
-                            where u.Idx == upsIdx
-                            select new Ups.Info()
-                            {
-                                isUsing = u.Enabled,
-                                upsIdx = u.Idx,
-                                upsNo = u.No,
-                                groupIdx = u.GroupIdx,
-                                groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
-                                upsName = u.Name,
-                                partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
-                                partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
-                                cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
-                                cduNo = u.CduNo,
-                                batteryDescription = u.Specification,
-                                batteryCapacity = u.Capacity,
-                                ip = u.IpAddress,
-                                installDate = u.InstallAt
-                            }).DefaultIfEmpty(null).First();
+                    var u = (from ups in ctx.Ups where ups.Idx == upsIdx select ups).DefaultIfEmpty(null).First();
+                    if (u == null)
+                        return null;
+
+                    return new Ups.Info()
+                    {
+                        isUsing = u.Enabled,
+                        upsIdx = u.Idx,
+                        upsNo = u.No,
+                        groupIdx = u.GroupIdx,
+                        groupNo =
+                            (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0)
+                                .FirstOrDefault(),
+                        upsName = u.Name,
+                        partnerIdxList = new IntList((from iu in upsTotal
+                                                      where
+                                                          Regex.Split(u.MateList, @"\D+")
+                                                              .Select(n => Convert.ToInt32(n))
+                                                              .ToArray()
+                                                              .Contains(iu.No)
+                                                      orderby iu.No ascending
+                                                      select iu.Idx).ToArray()),
+                        partnerNoList =
+                            new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                        cduIdx =
+                            (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                        cduNo = u.CduNo,
+                        batteryDescription = u.Specification,
+                        batteryCapacity = u.Capacity,
+                        ip = u.IpAddress,
+                        installDate = u.InstallAt
+                    };
+
+                    //return (from u in ctx.Ups
+                    //        where u.Idx == upsIdx
+                    //        select new Ups.Info()
+                    //        {
+                    //            isUsing = u.Enabled,
+                    //            upsIdx = u.Idx,
+                    //            upsNo = u.No,
+                    //            groupIdx = u.GroupIdx,
+                    //            groupNo = (from g in groupTotal where g.Idx == u.GroupIdx select g.No).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            upsName = u.Name,
+                    //            partnerIdxList = new IntList((from iu in upsTotal where Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray().Contains(iu.No) orderby iu.No ascending select iu.Idx).ToArray()),
+                    //            partnerNoList = new IntList(Regex.Split(u.MateList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray()),
+                    //            cduIdx = (from c in cduTotal where c.Idx == u.CduNo select c.Idx).DefaultIfEmpty(0).FirstOrDefault(),
+                    //            cduNo = u.CduNo,
+                    //            batteryDescription = u.Specification,
+                    //            batteryCapacity = u.Capacity,
+                    //            ip = u.IpAddress,
+                    //            installDate = u.InstallAt
+                    //        }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
