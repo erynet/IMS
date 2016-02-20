@@ -10,7 +10,7 @@ namespace IMS.Server.Sub.WCFHost.Abstract.DataContract
         [DataMember]
         public int? Idx { get; set; }
         [DataMember]
-        public int GroupIdx { get; set; }
+        public int? GroupIdx { get; set; }
         [DataMember]
         public int No { get; set; }
         [DataMember]

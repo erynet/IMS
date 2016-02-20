@@ -186,12 +186,14 @@ namespace IMS.Server.Sub.WCFHost.Implement
                     existGroup.Display = g.Display;
                     existGroup.CoordX = g.CoordX;
                     existGroup.CoordY = g.CoordY;
-                    existGroup.UpsList =
-                        string.Join(",",
-                            (from upsNo in g.UpsList orderby upsNo ascending select $"{upsNo}").ToArray());
-                    existGroup.CduList =
-                        string.Join(",",
-                            (from cudNo in g.CduList orderby cudNo ascending select $"{cudNo}").ToArray());
+                    // 이 부분에서 실제로 하위의 것들도 같은 관계가 되어 있는지 발리데이션 해야 한다.
+                    // 그냥 
+                    //existGroup.UpsList =
+                    //    string.Join(",",
+                    //        (from upsNo in g.UpsList orderby upsNo ascending select $"{upsNo}").ToArray());
+                    //existGroup.CduList =
+                    //    string.Join(",",
+                    //        (from cudNo in g.CduList orderby cudNo ascending select $"{cudNo}").ToArray());
                     existGroup.Enabled = g.Enabled;
                     existGroup.Description = g.Description;
 
@@ -222,12 +224,12 @@ namespace IMS.Server.Sub.WCFHost.Implement
                         Display = g.Display,
                         CoordX = g.CoordX,
                         CoordY = g.CoordY,
-                        UpsList =
-                            string.Join(",",
-                                (from upsNo in g.UpsList orderby upsNo ascending select $"{upsNo}").ToArray()),
-                        CduList =
-                            string.Join(",",
-                                (from cudNo in g.CduList orderby cudNo ascending select $"{cudNo}").ToArray()),
+                        //UpsList =
+                        //    string.Join(",",
+                        //        (from upsNo in g.UpsList orderby upsNo ascending select $"{upsNo}").ToArray()),
+                        //CduList =
+                        //    string.Join(",",
+                        //        (from cudNo in g.CduList orderby cudNo ascending select $"{cudNo}").ToArray()),
                         Enabled = g.Enabled,
                         Description = g.Description
                     };
