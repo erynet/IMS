@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using IMS.Client.Core.Data.DB;
 
 namespace IMS.Client.Core.Data {
@@ -135,6 +136,26 @@ namespace IMS.Client.Core.Data {
         {
             return LocalDBDriver.GetCduSocketsByIdx(cduIdx);
             //return null;
+        }
+
+        public List<UpsEvent.Info> GetRecentUpsEvent(int upsNo, int maxRow = 100)
+        {
+            return LocalDBDriver.GetRecentUpsEvent(upsNo, maxRow);
+        }
+
+        public List<UpsEvent.Info> GetUpsEventRange(int upsNo, DateTime from_time, DateTime to_time)
+        {
+            return LocalDBDriver.GetUpsEventRange(upsNo, from_time, to_time);
+        }
+
+        public List<CduEvent.Info> GetRecentCduEvent(int cduNo, int maxRow = 100)
+        {
+            return LocalDBDriver.GetRecentCduEvent(cduNo, maxRow);
+        }
+
+        public List<CduEvent.Info> GetCduEventRange(int cduNo, DateTime from_time, DateTime to_time)
+        {
+            return LocalDBDriver.GetCduEventRange(cduNo, from_time, to_time);
         }
 
         public void AddUps(Ups.Info newInfo)
