@@ -252,6 +252,9 @@
     <Resource Include="Resource\icons\group_icon_alarm_1.png" />
     <Resource Include="Resource\icons\group_icon_normal_1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ups_mimic_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
