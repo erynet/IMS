@@ -71,7 +71,7 @@ namespace IMS.Client.Core {
             Data.upsList = IntList.Parse(other.UpsList);
         }
 
-        public IMSCdu ServerData()
+        public IMSCdu GenerateServerData()
         {
             var ret = new IMSCdu {
                 Enabled = Data.isUsing,

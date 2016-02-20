@@ -86,7 +86,6 @@ namespace IMS.Client.Core {
         }
 
         // Send
-
         public void SendPacket(Func<Action> func)
         {
             var task = new Task<Action>(func);
@@ -100,7 +99,7 @@ namespace IMS.Client.Core {
             var backup = sendGroup.Data.Clone();
 
             SendPacket(() => {
-                var ret = client.SetGroup(sendGroup.ServerData());
+                var ret = client.SetGroup(sendGroup.GenerateServerData());
 
                 return new Action(() => {
                     if (ret == true) {

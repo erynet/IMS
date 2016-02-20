@@ -80,7 +80,7 @@ namespace IMS.Client.Core {
             Data.partnerList = IntList.Parse(other.MateList);
         }
 
-        public IMSUps ServerData()
+        public IMSUps GenerateServerData()
         {
             var ret = new IMSUps {
                 Enabled = Data.isUsing,

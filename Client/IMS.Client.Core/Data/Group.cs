@@ -73,7 +73,7 @@ namespace IMS.Client.Core {
             }
         }
 
-        public IMSGroup ServerData()
+        public IMSGroup GenerateServerData()
         {
             var ret = new IMSGroup {
                 Enabled = Data.isUsing,
