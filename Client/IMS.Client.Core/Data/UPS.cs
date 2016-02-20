@@ -61,11 +61,7 @@ namespace IMS.Client.Core {
                 installDate = other.InstallAt
             };
 
-            foreach (var otherUps in other.MateList) {
-                if (otherUps.Idx != null) {
-                    Data.partnerList.Add(otherUps.Idx.Value);
-                }
-            }
+            Data.partnerList = IntList.Parse(other.MateList);
         }
     }
 }
