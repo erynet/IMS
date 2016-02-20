@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using IMS.Server.Sub.Lib.LocalDB.Model;
+using IMS.Database.LocalDB.Model;
 
-namespace IMS.Server.Sub.Lib.LocalDB
+namespace IMS.Database.LocalDB
 {
     public class LocalDB : DbContext
     {
@@ -9,7 +9,7 @@ namespace IMS.Server.Sub.Lib.LocalDB
         {
             //Database.SetInitializer<LabelInspectorDb>(new CreateDatabaseIfNotExists<LabelInspectorDb>());
             //Database.SetInitializer<LabelInspectorDb>(new DropCreateDatabaseAlways<LabelInspectorDb>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LocalDB>());
+            System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LocalDB>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

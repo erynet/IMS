@@ -72,10 +72,6 @@
       <Project>{77c5810a-f591-44bd-8f9e-40364826a35e}</Project>
       <Name>IMS.Server.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lib\Common\LocalDB\IMS.Server.Sub.Lib.LocalDB.csproj">
-      <Project>{68ebf52b-17ad-4873-8b57-3061fce49469}</Project>
-      <Name>IMS.Server.Sub.Lib.LocalDB</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

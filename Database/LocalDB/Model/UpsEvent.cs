@@ -3,69 +3,69 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace IMS.Server.Sub.Lib.LocalDB.Model
+namespace IMS.Database.LocalDB.Model
 {
-    public class CduEvent
+    public class UpsEvent
     {
         public int Idx { get; set; }
-        public int CduIdx { get; set; }
+        public int UpsIdx { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public int Priority { get; set; }
         public DateTime TimeStamp { get; set; }
 
-        public CDU CDU { get; set; }
+        //public UPS UPS { get; set; }
 
-        public CduEvent()
+        public UpsEvent()
         {
             Priority = 1;   // 0: Debug, 1: Info, 2: Waring, 3: Critical
             TimeStamp = DateTime.Now;
         }
     }
 
-    public class CduEventConfiguration : EntityTypeConfiguration<CduEvent>
+    public class UpsEventConfiguration : EntityTypeConfiguration<UpsEvent>
     {
-        public CduEventConfiguration()
+        public UpsEventConfiguration()
         {
-            ToTable("CduEvent");
-            HasKey(c => c.Idx);
-            Property(c => c.Idx)
+            ToTable("UpsEvent");
+            HasKey(u => u.Idx);
+            Property(u => u.Idx)
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(c => c.CduIdx)
+            Property(u => u.UpsIdx)
                 .IsOptional()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
-                        new IndexAttribute("Idx_cdu_event_timestamp_cduidx", 2)))
+                        new IndexAttribute("Idx_ups_event_timestamp_upsidx", 2)))
                 .HasColumnOrder(1);
-            Property(c => c.Title)
+            Property(u => u.Title)
                 .IsRequired()
                 .HasMaxLength(256)
                 .IsUnicode()
                 .HasColumnType("varchar")
                 .HasColumnOrder(2);
-            Property(c => c.Body)
+            Property(u => u.Body)
                 .IsOptional()
                 .HasMaxLength(4096)
                 .IsUnicode()
                 .HasColumnType("text")
                 .HasColumnOrder(3);
-            Property(c => c.Priority)
+            Property(u => u.Priority)
                 .IsRequired()
                 .HasColumnOrder(4);
             // http://gavindraper.com/2014/06/26/entity-framework-fluent-api-and-indexing/
-            Property(c => c.TimeStamp)
+            Property(u => u.TimeStamp)
                 .IsRequired()
                 .HasColumnType("datetime2")
-                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName, 
                     new IndexAnnotation(
-                        new IndexAttribute("Idx_cdu_event_timestamp_cduidx", 1)))
+                        new IndexAttribute("Idx_ups_event_timestamp_upsidx", 1)))
                 .HasColumnOrder(5);
-            HasOptional(c => c.CDU)
-                .WithMany(c => c.CduEvents)
-                .HasForeignKey(c => c.CduIdx)
-                .WillCascadeOnDelete(false);
+            //HasOptional(u => u.UPS)
+            //    .WithMany(u => u.UpsEvents)
+            //    .HasForeignKey(u => u.UpsIdx)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

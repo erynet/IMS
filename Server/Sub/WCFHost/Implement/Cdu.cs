@@ -150,17 +150,41 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
         public bool DelCdu(int cduIdx)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var ctx = new LocalDB())
+                {
+                    var existCdu = (from c in ctx.Cdu where c.Idx == cduIdx select c).DefaultIfEmpty(null).First();
+                    if (existCdu == null)
+                        return false;
+
+                    using (var trx = new TransactionScope())
+                    {
+                        ctx.Cdu.Attach(existCdu);
+                        ctx.Cdu.Remove(existCdu);
+                        ctx.SaveChanges();
+
+                        trx.Complete();
+                    }
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public IMSCduStatus GetCduStatus(int cduIdx)
         {
-            throw new NotImplementedException();
+            return null;
+            // throw new NotImplementedException();
         }
 
         public List<IMSCduEvent> GetCduEvents(int cduIdx, int maxCount = 100, DateTime? from = default(DateTime?), DateTime? to = default(DateTime?))
         {
-            throw new NotImplementedException();
+            return new List<IMSCduEvent>();
+            //throw new NotImplementedException();
         }
 
         public List<IMSCduSocket> GetCduSocket(int cduIdx)

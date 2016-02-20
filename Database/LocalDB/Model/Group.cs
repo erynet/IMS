@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
-using System.Security.Policy;
 
-namespace IMS.Server.Sub.Lib.LocalDB.Model
+namespace IMS.Database.LocalDB.Model
 {
     public class Group
     {
@@ -21,8 +19,8 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public bool Enabled { get; set; }
         public string Description { get; set; }
         
-        public virtual ICollection<UPS> Ups { get; set; }
-        public virtual ICollection<CDU> Cdu { get; set; }
+        //public virtual ICollection<UPS> Ups { get; set; }
+        //public virtual ICollection<CDU> Cdu { get; set; }
 
         public Group()
         {
@@ -32,8 +30,8 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
             Status = 0;
             Enabled = true;
 
-            Ups = new List<UPS>();
-            Cdu = new List<CDU>();
+            //Ups = new List<UPS>();
+            //Cdu = new List<CDU>();
         }
     }
 

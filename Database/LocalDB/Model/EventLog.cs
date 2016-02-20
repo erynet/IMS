@@ -1,9 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace IMS.Server.Sub.Lib.LocalDB.Model
+namespace IMS.Database.LocalDB.Model
 {
     public class EventLog
     {

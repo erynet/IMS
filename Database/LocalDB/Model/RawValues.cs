@@ -1,4 +1,4 @@
-﻿namespace IMS.Server.Sub.Lib.LocalDB.Model
+﻿namespace IMS.Database.LocalDB.Model
 {
     public class RawValues
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{68EBF52B-17AD-4873-8B57-3061FCE49469}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IMS.Server.Sub.Lib.LocalDB</RootNamespace>
-    <AssemblyName>IMS.Server.Sub.Lib.LocalDB</AssemblyName>
+    <RootNamespace>IMS.Database.LocalDB</RootNamespace>
+    <AssemblyName>IMS.Database.LocalDB</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

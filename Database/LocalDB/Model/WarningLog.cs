@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace IMS.Server.Sub.Lib.LocalDB.Model
+namespace IMS.Database.LocalDB.Model
 {
     public class WarningLog
     {
@@ -15,8 +15,8 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public int Priority { get; set; }
         public DateTime TimeStamp { get; set; }
 
-        public virtual UPS UPS { get; set; }
-        public virtual CDU CDU { get; set; }
+        //public virtual UPS UPS { get; set; }
+        //public virtual CDU CDU { get; set; }
     
         public WarningLog(string description, int code)
         {
@@ -61,14 +61,14 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .HasColumnType("datetime2")
                 .HasColumnOrder(6);
 
-            HasOptional(w => w.UPS)
-                .WithMany(u => u.WarningLogs)
-                .HasForeignKey(w => w.UpsIdx)
-                .WillCascadeOnDelete(false);
-            HasOptional(w => w.CDU)
-                .WithMany(u => u.WarningLogs)
-                .HasForeignKey(w => w.CduIdx)
-                .WillCascadeOnDelete(false);
+            //HasOptional(w => w.UPS)
+            //    .WithMany(u => u.WarningLogs)
+            //    .HasForeignKey(w => w.UpsIdx)
+            //    .WillCascadeOnDelete(false);
+            //HasOptional(w => w.CDU)
+            //    .WithMany(u => u.WarningLogs)
+            //    .HasForeignKey(w => w.CduIdx)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

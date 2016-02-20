@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace IMS.Server.Sub.Lib.LocalDB.Model
+namespace IMS.Database.LocalDB.Model
 {
     public class CduSocket
     {
@@ -12,7 +11,7 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
         public string Name { get; set; }
         public bool Enabled { get; set; }
 
-        public virtual CDU CDU { get; set; }
+        //public virtual CDU CDU { get; set; }
 
         public CduSocket()
         {
@@ -46,10 +45,10 @@ namespace IMS.Server.Sub.Lib.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(4);
 
-            HasRequired(c => c.CDU)
-                .WithMany(c => c.CduSockets)
-                .HasForeignKey(c => c.CduIdx)
-                .WillCascadeOnDelete(true);
+            //HasRequired(c => c.CDU)
+            //    .WithMany(c => c.CduSockets)
+            //    .HasForeignKey(c => c.CduIdx)
+            //    .WillCascadeOnDelete(true);
         }
     }
 }

@@ -30,42 +30,42 @@ namespace IMS.Server.Sub.WCFHost.Implement
                     {
                         int[] upsNoArray = Regex.Split(group.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray();
                         IMSUps[] upss = (from u in ctx.Ups
-                            where upsNoArray.Contains(u.No)
-                            select new IMSUps()
-                            {
-                                Idx = u.Idx,
-                                GroupIdx = u.GroupIdx,
-                                No = u.No,
-                                Name = u.Name,
-                                MateList = u.MateList,
-                                CduNo = u.CduNo,
-                                Specification = u.Specification,
-                                Capacity = u.Capacity,
-                                IpAddress = u.IpAddress,
-                                Status = u.Status,
-                                Enabled = u.Enabled,
-                                InstallAt = u.InstallAt,
-                                Description = u.Description
-                            }).ToArray();
+                                         where upsNoArray.Contains(u.No)
+                                         select new IMSUps()
+                                         {
+                                             Idx = u.Idx,
+                                             GroupIdx = u.GroupIdx,
+                                             No = u.No,
+                                             Name = u.Name,
+                                             MateList = u.MateList,
+                                             CduNo = u.CduNo,
+                                             Specification = u.Specification,
+                                             Capacity = u.Capacity,
+                                             IpAddress = u.IpAddress,
+                                             Status = u.Status,
+                                             Enabled = u.Enabled,
+                                             InstallAt = u.InstallAt,
+                                             Description = u.Description
+                                         }).ToArray();
 
                         int[] cduNoArray = Regex.Split(group.CduList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray();
                         IMSCdu[] cdus = (from c in ctx.Cdu
-                            where cduNoArray.Contains(c.No)
-                            select new IMSCdu()
-                            {
-                                Idx = c.Idx,
-                                GroupIdx = c.GroupIdx,
-                                No = c.No,
-                                Name = c.Name,
-                                UpsList = c.UpsList,
-                                Extendable = c.Extendable,
-                                ContractCount = c.ContractCount,
-                                IpAddress = c.IpAddress,
-                                Status = c.Status,
-                                Enabled = c.Enabled,
-                                InstallAt = c.InstallAt,
-                                Description = c.Description
-                            }).ToArray();
+                                         where cduNoArray.Contains(c.No)
+                                         select new IMSCdu()
+                                         {
+                                             Idx = c.Idx,
+                                             GroupIdx = c.GroupIdx,
+                                             No = c.No,
+                                             Name = c.Name,
+                                             UpsList = c.UpsList,
+                                             Extendable = c.Extendable,
+                                             ContractCount = c.ContractCount,
+                                             IpAddress = c.IpAddress,
+                                             Status = c.Status,
+                                             Enabled = c.Enabled,
+                                             InstallAt = c.InstallAt,
+                                             Description = c.Description
+                                         }).ToArray();
 
                         IMSGroup imsGroup = new IMSGroup()
                         {
@@ -111,42 +111,42 @@ namespace IMS.Server.Sub.WCFHost.Implement
 
                     int[] upsNoArray = Regex.Split(group.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray();
                     IMSUps[] upss = (from u in ctx.Ups
-                        where upsNoArray.Contains(u.No)
-                        select new IMSUps()
-                        {
-                            Idx = u.Idx,
-                            GroupIdx = u.GroupIdx,
-                            No = u.No,
-                            Name = u.Name,
-                            MateList = u.MateList,
-                            CduNo = u.CduNo,
-                            Specification = u.Specification,
-                            Capacity = u.Capacity,
-                            IpAddress = u.IpAddress,
-                            Status = u.Status,
-                            Enabled = u.Enabled,
-                            InstallAt = u.InstallAt,
-                            Description = u.Description
-                        }).ToArray();
+                                     where upsNoArray.Contains(u.No)
+                                     select new IMSUps()
+                                     {
+                                         Idx = u.Idx,
+                                         GroupIdx = u.GroupIdx,
+                                         No = u.No,
+                                         Name = u.Name,
+                                         MateList = u.MateList,
+                                         CduNo = u.CduNo,
+                                         Specification = u.Specification,
+                                         Capacity = u.Capacity,
+                                         IpAddress = u.IpAddress,
+                                         Status = u.Status,
+                                         Enabled = u.Enabled,
+                                         InstallAt = u.InstallAt,
+                                         Description = u.Description
+                                     }).ToArray();
 
                     int[] cduNoArray = Regex.Split(group.CduList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray();
                     IMSCdu[] cdus = (from c in ctx.Cdu
-                        where cduNoArray.Contains(c.No)
-                        select new IMSCdu()
-                        {
-                            Idx = c.Idx,
-                            GroupIdx = c.GroupIdx,
-                            No = c.No,
-                            Name = c.Name,
-                            UpsList = c.UpsList,
-                            Extendable = c.Extendable,
-                            ContractCount = c.ContractCount,
-                            IpAddress = c.IpAddress,
-                            Status = c.Status,
-                            Enabled = c.Enabled,
-                            InstallAt = c.InstallAt,
-                            Description = c.Description
-                        }).ToArray();
+                                     where cduNoArray.Contains(c.No)
+                                     select new IMSCdu()
+                                     {
+                                         Idx = c.Idx,
+                                         GroupIdx = c.GroupIdx,
+                                         No = c.No,
+                                         Name = c.Name,
+                                         UpsList = c.UpsList,
+                                         Extendable = c.Extendable,
+                                         ContractCount = c.ContractCount,
+                                         IpAddress = c.IpAddress,
+                                         Status = c.Status,
+                                         Enabled = c.Enabled,
+                                         InstallAt = c.InstallAt,
+                                         Description = c.Description
+                                     }).ToArray();
 
                     IMSGroup result = new IMSGroup()
                     {
@@ -195,6 +195,33 @@ namespace IMS.Server.Sub.WCFHost.Implement
                     //    string.Join(",",
                     //        (from cudNo in g.CduList orderby cudNo ascending select $"{cudNo}").ToArray());
                     existGroup.Enabled = g.Enabled;
+                    if (existGroup.Enabled)
+                    {
+                        var subUpsArray = (from u in ctx.Ups
+                                           where
+                                               (Regex.Split(existGroup.UpsList, @"\D+")
+                                                   .Select(n => Convert.ToInt32(n))
+                                                   .ToList()
+                                                   .Contains(u.No))
+                                           select u).ToArray();
+                        foreach (var subUps in subUpsArray)
+                        {
+                            subUps.Enabled = g.Enabled;
+                        }
+
+                        var subCduArray = (from c in ctx.Cdu
+                                           where
+                                               (Regex.Split(existGroup.CduList, @"\D+")
+                                                   .Select(n => Convert.ToInt32(n))
+                                                   .ToList()
+                                                   .Contains(c.No))
+                                           select c).ToArray();
+                        foreach (var subCdu in subCduArray)
+                        {
+                            subCdu.Enabled = g.Enabled;
+                        }
+                    }
+                    
                     existGroup.Description = g.Description;
 
                     using (var trx = new TransactionScope())
