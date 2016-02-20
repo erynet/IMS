@@ -2,27 +2,30 @@
     public class Cdu {
         public class Info {
             public bool isUsing { get; set; }
-            public int cduID { get; set; }
+            public int cduIdx { get; set; }
             public int cduNo { get; set; }
             public string cduName { get; set; }
             public bool isExtended { get; set; }
-            public IntList upsList { get; set; }
+            public IntList upsIdxList { get; set; }
+            public IntList upsNoList { get; set; }
             public string installDate { get; set; }
             public string ip { get; set; }
 
             public Info()
             {
-                upsList = new IntList();
+                upsIdxList = new IntList();
+                upsNoList = new IntList();
             }
 
             public void Copy(Info rhs)
             {
                 isUsing = rhs.isUsing;
-                cduID = rhs.cduID;
+                cduIdx = rhs.cduIdx;
                 cduNo = rhs.cduNo;
                 cduName = rhs.cduName;
                 isExtended = rhs.isExtended;
-                upsList = new IntList(rhs.upsList);
+                upsIdxList = new IntList(rhs.upsIdxList);
+                upsNoList = new IntList(rhs.upsNoList);
                 installDate = rhs.installDate;
                 ip = rhs.ip;
             }

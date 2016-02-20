@@ -46,7 +46,7 @@ namespace IMS.Client.WPF {
             groupCopyList.Clear();
             var groupInfoList = DataManager.inst.GetGroupData();
             foreach (var groupInfo in groupInfoList) {
-                groupCopyList.Add(groupInfo.groupID);
+                groupCopyList.Add(groupInfo.groupIdx);
             }
 
             GroupID.ItemsSource = groupCopyList;
@@ -54,7 +54,7 @@ namespace IMS.Client.WPF {
             panelCopyList.Clear();
             var panelInfoList = DataManager.inst.GetCduData();
             foreach(var panelInfo in panelInfoList) {
-                panelCopyList.Add(panelInfo.cduID);
+                panelCopyList.Add(panelInfo.cduIdx);
             }
 
             PanelID.ItemsSource = panelCopyList;
@@ -93,7 +93,7 @@ namespace IMS.Client.WPF {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Ups.Info;
 
-                    parent.UpsInfoPopup(info.upsID);
+                    parent.UpsInfoPopup(info.upsIdx);
 
                     break;
                 }
@@ -107,7 +107,7 @@ namespace IMS.Client.WPF {
             if (e.Column.Header.ToString() == "짝") {
                 var txt = e.EditingElement as TextBox;
                 if (txt.Text != "") {
-                    info.partnerList = IntList.Parse(txt.Text);
+                    info.partnerIdxList = IntList.Parse(txt.Text);
                 }
             }
 
@@ -151,7 +151,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            DataManager.inst.DeleteUps(info.upsID);
+                            DataManager.inst.DeleteUps(info.upsIdx);
                             parent.UpsRefreshExceptUps();
 
                             copyList.Remove(info);

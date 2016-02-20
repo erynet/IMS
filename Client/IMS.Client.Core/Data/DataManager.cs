@@ -22,11 +22,11 @@ namespace IMS.Client.Core.Data {
 
             ups1.Data = new Ups.Info {
                 isUsing = false,
-                upsID = ups1.ID,
-                groupID = 1,
+                upsIdx = ups1.ID,
+                groupIdx = 1,
                 upsName = "화장실-1",
-                partnerList = IntList.Parse("2"),
-                cduID = 0,
+                partnerIdxList = IntList.Parse("2"),
+                cduIdx = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
@@ -35,57 +35,57 @@ namespace IMS.Client.Core.Data {
 
             ups2.Data = new Ups.Info {
                 isUsing = false,
-                upsID = ups2.ID,
-                groupID = 1,
+                upsIdx = ups2.ID,
+                groupIdx = 1,
                 upsName = "화장실-2",
-                partnerList = IntList.Parse("1"),
-                cduID = 0,
+                partnerIdxList = IntList.Parse("1"),
+                cduIdx = 0,
                 batteryDescription = "듀라셀",
                 batteryCapacity = "1kW",
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
 
-            upsList.Add(ups1.Data.upsID, ups1);
-            upsList.Add(ups2.Data.upsID, ups2);
+            upsList.Add(ups1.Data.upsIdx, ups1);
+            upsList.Add(ups2.Data.upsIdx, ups2);
 
             // Cdu
             var cdu1 = new Cdu();
             cdu1.Data = new Cdu.Info {
                 isUsing = true,
-                cduID = cdu1.ID,
+                cduIdx = cdu1.ID,
                 cduName = "방",
                 isExtended = false,
-                upsList = new IntList { 0, 1 },
+                upsIdxList = new IntList { 0, 1 },
                 ip = "192.168.0.1",
                 installDate = "2016.01.01",
             };
 
-            cduList.Add(cdu1.Data.cduID, cdu1);
+            cduList.Add(cdu1.Data.cduIdx, cdu1);
 
             // Group
             var group1 = new Group();
             group1.Data = new Group.Info {
                 isUsing = true,
-                groupID = group1.ID,
+                groupIdx = group1.ID,
                 isGroupVisible = true,
                 groupName = "방1",
                 coordinate = new Point(300, 400),
-                upsList = new IntList()
+                upsIdxList = new IntList()
             };
 
             var group2 = new Group();
             group2.Data = new Group.Info {
                 isUsing = true,
-                groupID = group2.ID,
+                groupIdx = group2.ID,
                 isGroupVisible = true,
                 groupName = "방2",
                 coordinate = new Point(400, 500),
-                upsList = new IntList { 0, 1 }
+                upsIdxList = new IntList { 0, 1 }
             };
 
-            groupList.Add(group1.Data.groupID, group1);
-            groupList.Add(group2.Data.groupID, group2);
+            groupList.Add(group1.Data.groupIdx, group1);
+            groupList.Add(group2.Data.groupIdx, group2);
         }
 
         public List<Ups.Info> GetUpsData()
@@ -130,11 +130,11 @@ namespace IMS.Client.Core.Data {
 
         public void AddUps(Ups.Info newInfo)
         {
-            var ups = GetUps(newInfo.upsID);
+            var ups = GetUps(newInfo.upsIdx);
             if (ups == null) {
                 ups = new Ups();
                 ups.Data = newInfo;
-                newInfo.upsID = ups.ID;
+                newInfo.upsIdx = ups.ID;
 
                 upsList.Add(ups.ID, ups);
             }
@@ -142,11 +142,11 @@ namespace IMS.Client.Core.Data {
 
         public void AddCdu(Cdu.Info newInfo)
         {
-            var cdu = GetCdu(newInfo.cduID);
+            var cdu = GetCdu(newInfo.cduIdx);
             if (cdu == null) {
                 cdu = new Cdu();
                 cdu.Data = newInfo;
-                newInfo.cduID = cdu.ID;
+                newInfo.cduIdx = cdu.ID;
 
                 cduList.Add(cdu.ID, cdu);
             }
@@ -156,26 +156,26 @@ namespace IMS.Client.Core.Data {
         {
             var group = new Group();
             group.Data = newInfo;
-            newInfo.groupID = group.ID;
+            newInfo.groupIdx = group.ID;
 
             groupList.Add(group.ID, group);
         }
 
         public void EditUps(Ups.Info info)
         {
-            var ups = GetUps(info.upsID);
+            var ups = GetUps(info.upsIdx);
             ups?.Data.Copy(info);
         }
 
         public void EditCdu(Cdu.Info info)
         {
-            var cdu = GetCdu(info.cduID);
+            var cdu = GetCdu(info.cduIdx);
             cdu?.Data.Copy(info);
         }
 
         public void EditGroup(Group.Info newInfo)
         {
-            var group = GetGroup(newInfo.groupID);
+            var group = GetGroup(newInfo.groupIdx);
             group?.Data.Copy(newInfo);
         }
 
@@ -211,23 +211,23 @@ namespace IMS.Client.Core.Data {
             }
 
             // Partner
-            var partnerList = ups.Data.partnerList;
+            var partnerList = ups.Data.partnerIdxList;
             foreach (var partnerID in partnerList) {
                 if (partnerID == id) {
                     continue;
                 }
 
                 var partnerUps = GetUps(partnerID);
-                partnerUps?.Data.partnerList.Remove(id);
+                partnerUps?.Data.partnerIdxList.Remove(id);
             }
 
             // Cdu
-            var cdu = GetCdu(ups.Data.cduID);
-            cdu?.Data.upsList.Remove(id);
+            var cdu = GetCdu(ups.Data.cduIdx);
+            cdu?.Data.upsIdxList.Remove(id);
 
             // Group
-            var group = GetGroup(ups.Data.groupID);
-            group?.Data.upsList.Remove(id);
+            var group = GetGroup(ups.Data.groupIdx);
+            group?.Data.upsIdxList.Remove(id);
 
             upsList.Remove(id);
         }
@@ -244,7 +244,7 @@ namespace IMS.Client.Core.Data {
 
             foreach (var pair in upsList) {
                 var ups = pair.Value;
-                if (ups.Data.cduID == id) {
+                if (ups.Data.cduIdx == id) {
                     removeUpsList.Add(ups.ID);
                 }
             }
@@ -264,13 +264,13 @@ namespace IMS.Client.Core.Data {
                 return;
             }
 
-            foreach (var upsId in group.Data.upsList) {
+            foreach (var upsId in group.Data.upsIdxList) {
                 var ups = GetUps(upsId);
                 if (ups == null) {
                     continue;
                 }
 
-                ups.Data.groupID = -1;
+                ups.Data.groupIdx = -1;
             }
 
             groupList.Remove(id);

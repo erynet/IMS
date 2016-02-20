@@ -57,12 +57,12 @@ namespace IMS.Client.WPF {
 
                 // Group ID
                 var groupIDLabel = display.groupID;
-                groupIDLabel.Content = data.groupID;
+                groupIDLabel.Content = data.groupIdx;
                 groupIDLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y, 0, 0);
 
                 // UPS count
                 var upsCountLabel = display.upsCount;
-                upsCountLabel.Content = data.upsList.Count;
+                upsCountLabel.Content = data.upsIdxList.Count;
                 upsCountLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y + 40, 0, 0);
 
                 grid.Children.Add(image);

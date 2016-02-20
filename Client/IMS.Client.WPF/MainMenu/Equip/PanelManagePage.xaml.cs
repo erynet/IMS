@@ -75,7 +75,7 @@ namespace IMS.Client.WPF {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Cdu.Info;
 
-                    parent.DotManagePopup(info.cduID);
+                    parent.DotManagePopup(info.cduIdx);
 
                     break;
                 }
@@ -138,7 +138,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            DataManager.inst.DeleteCdu(info.cduID);
+                            DataManager.inst.DeleteCdu(info.cduIdx);
                             parent.PanelRefreshExceptPanel();
 
                             copyList.Remove(info);

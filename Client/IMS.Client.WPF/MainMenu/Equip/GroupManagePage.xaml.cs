@@ -110,7 +110,7 @@ namespace IMS.Client.WPF {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            DataManager.inst.DeleteGroup(info.groupID);
+                            DataManager.inst.DeleteGroup(info.groupIdx);
                             parent.GroupRefreshExceptGroup();
 
                             copyList.Remove(info);

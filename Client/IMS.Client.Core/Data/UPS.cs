@@ -2,12 +2,15 @@
     public class Ups {
         public class Info {
             public bool isUsing { get; set; }
-            public int upsID { get; set; }
+            public int upsIdx { get; set; }
             public int upsNo { get; set; }
-            public int groupID { get; set; }
+            public int groupIdx { get; set; }
+            public int groupNo { get; set; }
             public string upsName { get; set; }
-            public IntList partnerList { get; set; }
-            public int cduID { get; set; }
+            public IntList partnerIdxList { get; set; }
+            public IntList partnerNoList { get; set; }
+            public int cduIdx { get; set; }
+            public int cduNo { get; set; }
             public string batteryDescription { get; set; }
             public string batteryCapacity { get; set; }
             public string ip { get; set; }
@@ -15,18 +18,22 @@
 
             public Info()
             {
-                partnerList = new IntList();
+                partnerIdxList = new IntList();
+                partnerNoList = new IntList();
             }
 
             public void Copy(Info rhs)
             {
                 isUsing = rhs.isUsing;
-                upsID = rhs.upsID;
+                upsIdx = rhs.upsIdx;
                 upsNo = rhs.upsNo;
-                groupID = rhs.groupID;
+                groupIdx = rhs.groupIdx;
+                groupNo = rhs.groupNo;
                 upsName = rhs.upsName;
-                partnerList = new IntList(rhs.partnerList);
-                cduID = rhs.cduID;
+                partnerIdxList = new IntList(rhs.partnerIdxList);
+                partnerNoList = new IntList(rhs.partnerNoList);
+                cduIdx = rhs.cduIdx;
+                cduNo = rhs.cduNo;
                 batteryDescription = rhs.batteryDescription;
                 batteryCapacity = rhs.batteryCapacity;
                 ip = rhs.ip;

@@ -2,28 +2,31 @@
     public class Group {
         public class Info {
             public bool isUsing { get; set; }
-            public int groupID { get; set; }
+            public int groupIdx { get; set; }
             public int groupNo { get; set; }
             public bool isGroupVisible { get; set; }
             public string groupName { get; set; }
             public Point coordinate { get; set; }
-            public IntList upsList { get; set; }
+            public IntList upsIdxList { get; set; }
+            public IntList upsNoList { get; set; }
 
             public Info()
             {
                 coordinate = new Point();
-                upsList = new IntList();
+                upsIdxList = new IntList();
+                upsNoList = new IntList();
             }
 
             public void Copy(Info rhs)
             {
                 isUsing = rhs.isUsing;
-                groupID = rhs.groupID;
+                groupIdx = rhs.groupIdx;
                 groupNo = rhs.groupNo;
                 isGroupVisible = rhs.isGroupVisible;
                 groupName = rhs.groupName;
                 coordinate = new Point(rhs.coordinate);
-                upsList = new IntList(rhs.upsList);
+                upsIdxList = new IntList(rhs.upsIdxList);
+                upsNoList = new IntList(rhs.upsNoList);
             }
 
             public Info Clone()
