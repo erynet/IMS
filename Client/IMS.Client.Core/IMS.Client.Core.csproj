@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -43,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\DB\LocalDBDriver.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\Cdu.cs" />
     <Compile Include="Data\IntList.cs" />
