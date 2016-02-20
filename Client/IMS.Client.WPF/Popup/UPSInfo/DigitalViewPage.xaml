@@ -57,6 +57,6 @@
         <Label x:Name="label1_Copy30" Content="IP :" HorizontalAlignment="Left" Margin="540,291,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy31" Content="설치일 :" HorizontalAlignment="Left" Margin="540,315,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy32" Content="비고 :" HorizontalAlignment="Left" Margin="540,341,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="___IMS_Client_WPF_component_ups_mimic_1_png" Margin="50,126,281,407" Source="/IMS.Client.WPF;component/ups_mimic_1.png" Stretch="Fill"/>
+        <Image x:Name="___IMS_Client_WPF_component_ups_mimic_1_png" Margin="50,131,281,402" Source="/IMS.Client.WPF;component/ups_mimic_1.png" Stretch="Fill" Width="320" Height="160"/>
     </Grid>
 </Page>
