@@ -9,49 +9,53 @@
       Title="DigitalViewPage">
 
     <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="21,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="756"/>
-        <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Height="44" Width="756" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="button_analog" Content="아날로그" HorizontalAlignment="Left" Margin="677,17,0,0" VerticalAlignment="Top" Width="89" Height="29" Click="button_analog_Click"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="183" Margin="21,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="507"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="183" Margin="533,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="244"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="174" Margin="21,315,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="174" Margin="323,315,0,0" Stroke="Black" VerticalAlignment="Top" Width="288"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="175" Margin="21,519,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="175" Margin="323,519,0,0" Stroke="Black" VerticalAlignment="Top" Width="288"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="379" Margin="624,315,0,0" Stroke="Black" VerticalAlignment="Top" Width="153"/>
-        <Label x:Name="label1_Copy" Content="온도" HorizontalAlignment="Left" Margin="33,295,0,0" VerticalAlignment="Top" Height="53" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
-        <Label x:Name="label1_Copy1" Content="출력" HorizontalAlignment="Left" Margin="330,295,0,0" VerticalAlignment="Top" Height="53" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
-        <Label x:Name="label1_Copy2" Content="바이패스 아웃풋" HorizontalAlignment="Left" Margin="33,498,0,0" VerticalAlignment="Top" Height="51" Width="137" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
-        <Label x:Name="label1_Copy3" Content="메인 입력" HorizontalAlignment="Left" Margin="330,498,0,0" VerticalAlignment="Top" Height="51" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
-        <Label x:Name="label1_Copy4" Content="배터리" HorizontalAlignment="Left" Margin="633,295,0,0" VerticalAlignment="Top" Height="53" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
-        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="694,702,0,0" VerticalAlignment="Top" Width="83" Height="48" Click="button_close_Click"/>
-        <Button x:Name="button_see_log" Content="로그 보기" HorizontalAlignment="Left" Margin="601,702,0,0" VerticalAlignment="Top" Width="84" Height="48" Click="button_see_log_Click"/>
-        <Button x:Name="button_error_list" Content="고장 목록" HorizontalAlignment="Left" Margin="511,702,0,0" VerticalAlignment="Top" Width="82" Height="48" Click="button_error_list_Click"/>
+        <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Height="33" Width="756" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="#FD000000" BorderThickness="1"/>
+        <Button x:Name="button_analog" Content="아날로그" HorizontalAlignment="Left" Margin="699,17,0,0" VerticalAlignment="Top" Width="75" Click="button_analog_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="295" Margin="21,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="507"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="295" Margin="533,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="244"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="21,400,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="323,400,0,0" Stroke="Black" VerticalAlignment="Top" Width="288"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="153" Margin="21,571,0,0" Stroke="Black" VerticalAlignment="Top" Width="289"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="153" Margin="323,571,0,0" Stroke="Black" VerticalAlignment="Top" Width="288"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="324" Margin="624,400,0,0" Stroke="Black" VerticalAlignment="Top" Width="153"/>
+        <Label x:Name="label1_Copy" Content="온도" HorizontalAlignment="Left" Margin="33,384,0,0" VerticalAlignment="Top" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
+        <Label x:Name="label1_Copy1" Content="출력" HorizontalAlignment="Left" Margin="330,384,0,0" VerticalAlignment="Top" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
+        <Label x:Name="label1_Copy2" Content="바이패스 아웃풋" HorizontalAlignment="Left" Margin="33,566,0,0" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
+        <Label x:Name="label1_Copy3" Content="메인 입력" HorizontalAlignment="Left" Margin="330,566,0,0" VerticalAlignment="Top" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
+        <Label x:Name="label1_Copy4" Content="배터리" HorizontalAlignment="Left" Margin="633,384,0,0" VerticalAlignment="Top" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9E9E9E"/>
+        <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="694,729,0,0" VerticalAlignment="Top" Width="83" Click="button_close_Click"/>
+        <Button x:Name="button_see_log" Content="로그 보기" HorizontalAlignment="Left" Margin="601,729,0,0" VerticalAlignment="Top" Width="84" Click="button_see_log_Click"/>
+        <Button x:Name="button_error_list" Content="고장 목록" HorizontalAlignment="Left" Margin="511,729,0,0" VerticalAlignment="Top" Width="82" Click="button_error_list_Click"/>
         <Label x:Name="label2" Content="장비 번호&#xA; :" HorizontalAlignment="Left" Margin="12,65,0,0" VerticalAlignment="Top" Width="72" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="equipment_number" HorizontalAlignment="Left" Height="26" Margin="89,65,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="label1" Content="이름 :" HorizontalAlignment="Left" Margin="540,114,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy5" Content="용량 :" HorizontalAlignment="Left" Margin="540,145,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy6" Content="설치일 :" HorizontalAlignment="Left" Margin="540,176,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy7" Content="IP :" HorizontalAlignment="Left" Margin="540,207,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy8" Content="배터리 사양 :" HorizontalAlignment="Left" Margin="540,238,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy9" Content="내부 :" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy10" Content="정류기 :" HorizontalAlignment="Left" Margin="33,384,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy11" Content="인버터 :" HorizontalAlignment="Left" Margin="32,415,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy12" Content="BISSU :" HorizontalAlignment="Left" Margin="32,446,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy13" Content="주파수 :" HorizontalAlignment="Left" Margin="330,349,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy14" Content="전압 :" HorizontalAlignment="Left" Margin="330,374,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy15" Content="전류 :" HorizontalAlignment="Left" Margin="330,399,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy16" Content="전력 :" HorizontalAlignment="Left" Margin="330,424,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy17" Content="부하량 :" HorizontalAlignment="Left" Margin="330,450,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy18" Content="주파수 :" HorizontalAlignment="Left" Margin="32,555,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy19" Content="전압 :" HorizontalAlignment="Left" Margin="32,580,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy20" Content="주파수 :" HorizontalAlignment="Left" Margin="342,557,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy21" Content="전압 :" HorizontalAlignment="Left" Margin="342,582,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy22" Content="전류 :" HorizontalAlignment="Left" Margin="342,607,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy23" Content="전압 :" HorizontalAlignment="Left" Margin="633,357,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy24" Content="전류 :" HorizontalAlignment="Left" Margin="633,388,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy25" Content="충전량 :" HorizontalAlignment="Left" Margin="633,419,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy26" Content="상태 :" HorizontalAlignment="Left" Margin="633,450,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy27" Content="운전시간 :" HorizontalAlignment="Left" Margin="633,481,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="장비 번호 :" HorizontalAlignment="Left" Margin="540,114,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy5" Content="그룹 번호 :" HorizontalAlignment="Left" Margin="540,140,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy6" Content="장비 이름 :" HorizontalAlignment="Left" Margin="540,166,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy7" Content="짝 :" HorizontalAlignment="Left" Margin="540,192,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy8" Content="분전반 번호 :" HorizontalAlignment="Left" Margin="540,218,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy9" Content="내부 :" HorizontalAlignment="Left" Margin="33,424,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy10" Content="정류기 :" HorizontalAlignment="Left" Margin="33,455,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy11" Content="인버터 :" HorizontalAlignment="Left" Margin="32,486,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy12" Content="BISSU :" HorizontalAlignment="Left" Margin="32,517,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy13" Content="주파수 :" HorizontalAlignment="Left" Margin="330,420,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy14" Content="전압 :" HorizontalAlignment="Left" Margin="330,445,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy15" Content="전류 :" HorizontalAlignment="Left" Margin="330,470,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy16" Content="전력 :" HorizontalAlignment="Left" Margin="330,495,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy17" Content="부하량 :" HorizontalAlignment="Left" Margin="330,521,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy18" Content="주파수 :" HorizontalAlignment="Left" Margin="32,598,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy19" Content="전압 :" HorizontalAlignment="Left" Margin="32,623,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy20" Content="주파수 :" HorizontalAlignment="Left" Margin="342,600,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy21" Content="전압 :" HorizontalAlignment="Left" Margin="342,625,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy22" Content="전류 :" HorizontalAlignment="Left" Margin="342,650,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy23" Content="전압 :" HorizontalAlignment="Left" Margin="633,421,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy24" Content="전류 :" HorizontalAlignment="Left" Margin="633,452,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy25" Content="충전량 :" HorizontalAlignment="Left" Margin="633,483,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy26" Content="상태 :" HorizontalAlignment="Left" Margin="633,514,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy27" Content="운전시간 :" HorizontalAlignment="Left" Margin="633,545,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy28" Content="배터리 사양 :" HorizontalAlignment="Left" Margin="540,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy29" Content="배터리 용량 :" HorizontalAlignment="Left" Margin="540,270,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy30" Content="IP :" HorizontalAlignment="Left" Margin="540,291,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy31" Content="설치일 :" HorizontalAlignment="Left" Margin="540,315,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy32" Content="비고 :" HorizontalAlignment="Left" Margin="540,341,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
