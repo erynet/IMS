@@ -95,18 +95,24 @@ namespace IMS.Client.Core {
             task.Start();
         }
 
-        public void SetGroup(Group group)
+        public void SetGroup(Group sendGroup)
         {
-            SendPacket(() => {
-                var ret = client.SetGroup(group.ServerData());
+            var backup = sendGroup.Data.Clone();
 
-                return () => {
+            SendPacket(() => {
+                var ret = client.SetGroup(sendGroup.ServerData());
+
+                return new Action(() => {
                     if (ret == true) {
+                        var group = DataManager.inst.GetGroup(backup.groupID);
+                        group?.Data.Copy(backup);
                     }
                     else {
                         // Something's wrong
                     }
-                };
+
+                    return;
+                });
             });
         }
     }
