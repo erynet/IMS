@@ -43,6 +43,11 @@ namespace IMS.Client.Core {
         {
             ID = uid++;
 
+            ParseServerData(other);
+        }
+
+        public void ParseServerData(IMSGroup other)
+        {
             Data = new Info {
                 isUsing = other.Enabled,
                 groupID = other.Idx ?? -1,

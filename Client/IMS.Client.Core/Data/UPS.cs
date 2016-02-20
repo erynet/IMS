@@ -50,6 +50,11 @@ namespace IMS.Client.Core {
         {
             ID = uid++;
 
+            ParseServerData(other);
+        }
+
+        public void ParseServerData(IMSUps other)
+        {
             Data = new Info {
                 isUsing = other.Enabled,
                 upsID = other.Idx ?? -1,

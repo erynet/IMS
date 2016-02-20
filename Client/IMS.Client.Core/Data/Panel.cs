@@ -44,6 +44,11 @@ namespace IMS.Client.Core {
         {
             ID = uid++;
 
+            ParseServerData(other);
+        }
+
+        public void ParseServerData(IMSCdu other)
+        {
             Data = new Info {
                 isUsing = other.Enabled,
                 panelID = other.Idx ?? -1,
