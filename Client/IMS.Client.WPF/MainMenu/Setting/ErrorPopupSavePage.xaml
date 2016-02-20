@@ -9,7 +9,7 @@
       Title="ErrorPopupSavePage">
 
     <Grid>
-        <Label x:Name="label" Content="고장 팝업 저장 시간 설정" HorizontalAlignment="Left" Margin="60,32,0,0" VerticalAlignment="Top" Height="46" Width="368"/>
+        <Label x:Name="label" Content="스페셜 이벤트 시간 설정" HorizontalAlignment="Left" Margin="60,32,0,0" VerticalAlignment="Top" Height="46" Width="368"/>
         <Label x:Name="label_Copy" Content="시작 시간" HorizontalAlignment="Left" Margin="60,96,0,0" VerticalAlignment="Top" Height="46" Width="368"/>
         <Label x:Name="label_Copy1" Content="종료 시간" HorizontalAlignment="Left" Margin="60,138,0,0" VerticalAlignment="Top" Height="47" Width="368"/>
         <TextBox x:Name="text_begin_hour" HorizontalAlignment="Left" Height="40" Margin="266,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
