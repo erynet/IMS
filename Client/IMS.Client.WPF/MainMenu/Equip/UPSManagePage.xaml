@@ -13,10 +13,22 @@
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding upsNo}"/>
-                <DataGridComboBoxColumn x:Name="GroupID"  Header="그룹 번호" TextBinding="{Binding groupNo}"/>
+                <DataGridComboBoxColumn x:Name="GroupNo"  Header="그룹 번호" TextBinding="{Binding groupNo}">
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <EventSetter Event="SelectionChanged" Handler="GroupNoSelectionChanged" />
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
                 <DataGridTextColumn Header="장비 이름" Binding="{Binding upsName}"/>
                 <DataGridTextColumn Header="짝" Binding="{Binding partnerIdxList}"/>
-                <DataGridComboBoxColumn x:Name ="PanelID" Header="분전반" TextBinding="{Binding cduNo}"/>
+                <DataGridComboBoxColumn x:Name ="PanelNo" Header="분전반" TextBinding="{Binding cduNo}">
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <EventSetter Event="SelectionChanged" Handler="PanelNoSelectionChanged" />
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
                 <DataGridTextColumn Header="사양" Binding="{Binding batteryDescription}"/>
                 <DataGridTextColumn Header="용량" Binding="{Binding batteryCapacity}"/>
                 <DataGridTextColumn Header="IP 주소" Binding="{Binding ip}"/>

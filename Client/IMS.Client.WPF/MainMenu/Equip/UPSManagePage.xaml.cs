@@ -37,6 +37,8 @@ namespace IMS.Client.WPF {
 
         public void Refresh()
         {
+            ResetView();
+
             addedList.Clear();
             changedList.Clear();
 
@@ -46,18 +48,18 @@ namespace IMS.Client.WPF {
             groupCopyList.Clear();
             var groupInfoList = DataManager.inst.GetGroupData();
             foreach (var groupInfo in groupInfoList) {
-                groupCopyList.Add(groupInfo.groupIdx);
+                groupCopyList.Add(groupInfo.groupNo);
             }
 
-            GroupID.ItemsSource = groupCopyList;
+            GroupNo.ItemsSource = groupCopyList;
 
             panelCopyList.Clear();
             var panelInfoList = DataManager.inst.GetCduData();
-            foreach(var panelInfo in panelInfoList) {
-                panelCopyList.Add(panelInfo.cduIdx);
+            foreach (var panelInfo in panelInfoList) {
+                panelCopyList.Add(panelInfo.cduNo);
             }
 
-            PanelID.ItemsSource = panelCopyList;
+            PanelNo.ItemsSource = panelCopyList;
 
             ResetView();
         }
@@ -114,6 +116,30 @@ namespace IMS.Client.WPF {
             if (addedList.Contains(info) == false && changedList.Contains(info) == false) {
                 changedList.Add(info);
             }
+        }
+
+        private void GroupNoSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 0) {
+                return;
+            }
+
+            int groupNo = (int)e.AddedItems[0];
+
+            var info = UPSList.SelectedItem as Ups.Info;
+            info.groupNo = groupNo;
+        }
+
+        private void PanelNoSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 0) {
+                return;
+            }
+
+            int panelNo = (int)e.AddedItems[0];
+
+            var info = UPSList.SelectedItem as Ups.Info;
+            info.cduNo = panelNo;
         }
 
         private void button_apply_Click(object sender, RoutedEventArgs e)
