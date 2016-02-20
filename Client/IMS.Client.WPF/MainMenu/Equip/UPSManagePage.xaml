@@ -9,7 +9,7 @@
       Title="UPSManagePage">
 
     <Grid>
-        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,50,0,0" CellEditEnding="UPSList_CellEditEnding" Sorting="UPSList_Sorting">
+        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" CellEditEnding="UPSList_CellEditEnding" Sorting="UPSList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding upsIdx}"/>
