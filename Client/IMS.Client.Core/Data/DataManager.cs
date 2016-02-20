@@ -131,6 +131,11 @@ namespace IMS.Client.Core.Data {
             //return ret;
         }
 
+        public List<SocketInfo> GetSocketData()
+        {
+            return null;
+        }
+
         public void AddUps(Ups.Info newInfo)
         {
             LocalDBDriver.AddUps(newInfo);
@@ -186,6 +191,11 @@ namespace IMS.Client.Core.Data {
             LocalDBDriver.SetGroup(info);
             //var group = GetGroup(newInfo.groupIdx);
             //group?.Data.Copy(newInfo);
+        }
+
+        public void EditSocket(List<SocketInfo> socketList)
+        {
+            // TODO
         }
 
         public Ups.Info GetUps(int idx)
