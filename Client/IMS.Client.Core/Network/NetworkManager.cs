@@ -4,6 +4,21 @@ using System.Threading;
 
 namespace IMS.Client.Core {
     public class NetworkManager {
+        private static string GetMACAddress()
+        {
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+
+            string sMacAddress = string.Empty;
+            foreach (NetworkInterface adapter in nics) {
+                if (sMacAddress == string.Empty)// only return MAC Address from first card  
+                {
+                    sMacAddress = adapter.GetPhysicalAddress().ToString();
+                }
+            }
+
+            return sMacAddress;
+        }
+
         private IMSClient client;
         private Thread updateThread;
 
@@ -44,21 +59,6 @@ namespace IMS.Client.Core {
             catch (Exception ex) {
 
             }
-        }
-
-        private static string GetMACAddress()
-        {
-            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-
-            string sMacAddress = string.Empty;
-            foreach (NetworkInterface adapter in nics) {
-                if (sMacAddress == string.Empty)// only return MAC Address from first card  
-                {
-                    sMacAddress = adapter.GetPhysicalAddress().ToString();
-                }
-            }
-
-            return sMacAddress;
         }
     }
 }
