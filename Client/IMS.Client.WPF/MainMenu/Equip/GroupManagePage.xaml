@@ -9,7 +9,7 @@
       Title="GroupManagePage">
 
     <Grid>
-        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="10,0,-10,50" Sorting="GroupList_Sorting">
+        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,0,0,50" Sorting="GroupList_Sorting">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupID}" IsReadOnly="True"/>
