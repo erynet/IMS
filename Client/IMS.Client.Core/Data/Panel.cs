@@ -52,11 +52,7 @@ namespace IMS.Client.Core {
                 ip = other.IpAddress
             };
 
-            foreach (var otherUps in other.UpsList) {
-                if (otherUps.Idx != null) {
-                    Data.upsList.Add(otherUps.Idx.Value);
-                }
-            }
+            Data.upsList = IntList.Parse(other.UpsList);
         }
     }
 }
