@@ -17,7 +17,7 @@ namespace IMS.Database.LocalDB
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new SettingConfiguration());
-            modelBuilder.Configurations.Add(new SessionConfiguration());
+            //modelBuilder.Configurations.Add(new SessionConfiguration());
             modelBuilder.Configurations.Add(new EventLogConfiguration());
             modelBuilder.Configurations.Add(new WarningLogConfiguration());
             modelBuilder.Configurations.Add(new GeneralLogConfiguration());
@@ -30,7 +30,7 @@ namespace IMS.Database.LocalDB
         }
 
         public DbSet<Setting> Setting { get; set; }
-        public DbSet<Session> Session { get; set; }
+        //public DbSet<Session> Session { get; set; }
         public DbSet<EventLog> EventLog { get; set; }
         public DbSet<WarningLog> WarningLog { get; set; }
         public DbSet<GeneralLog> GeneralLog { get; set; }

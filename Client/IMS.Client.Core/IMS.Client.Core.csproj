@@ -50,6 +50,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Ups.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Database\LocalDB\IMS.Database.LocalDB.csproj">
+      <Project>{68ebf52b-17ad-4873-8b57-3061fce49469}</Project>
+      <Name>IMS.Database.LocalDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
