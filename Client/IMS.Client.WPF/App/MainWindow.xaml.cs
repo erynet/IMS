@@ -18,9 +18,6 @@ namespace IMS.Client.WPF {
 
         private List<Window> popupList = new List<Window>();
 
-        private NetworkManager network;
-        private DispatcherTimer networkTimer = new DispatcherTimer();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -49,25 +46,11 @@ namespace IMS.Client.WPF {
             map.parent = this;
 
             MainFrame.Navigate(map);
-
-            // Network
-            network = new NetworkManager();
-            network.Init();
-            network.Start();
-
-            networkTimer.Tick += UpdateNetwork;
-            networkTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
-            networkTimer.Start();
         }
 
         private void Update(object sender, EventArgs e)
         {
             Title = "ETI IMS - version 0.1 - " + String.Format(@"{0:yyyy년 MM월 dd일 - HH시 mm분 ss초}", DateTime.Now);
-        }
-
-        private void UpdateNetwork(object sender, EventArgs e)
-        {
-            network.UpdateCallback();
         }
 
         private void OnClose(object sender, EventArgs e)
@@ -102,9 +85,6 @@ namespace IMS.Client.WPF {
                 e.Cancel = true;
             }
             else {
-                network.End();
-                network = null;
-
                 base.OnClosing(e);
             }
         }
