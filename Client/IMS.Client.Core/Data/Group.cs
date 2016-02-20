@@ -42,9 +42,9 @@ namespace IMS.Client.Core {
             ID = uid++;
 
             Data = new Info {
-                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                isUsing = other.Enabled,
                 groupID = other.Idx ?? -1,
-                isGroupVisible = other.Enabled,
+                isGroupVisible = other.Display,
                 groupName = other.Name,
                 coordinate = new Point(other.CoordX, other.CoordY),
                 upsList = new IntList()
@@ -55,6 +55,21 @@ namespace IMS.Client.Core {
                     Data.upsList.Add(otherUps.Idx.Value);
                 }
             }
+        }
+
+        public IMSGroup ServerData()
+        {
+            var ret = new IMSGroup {
+                Enabled = Data.isUsing,
+                Idx = ID,
+                Display = Data.isGroupVisible,
+                Name= Data.groupName,
+                CoordX = Data.coordinate.X,
+                CoordY = Data.coordinate.Y,
+                // UpsList = Data.upsList.ToString()  
+            };
+
+            return ret;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace IMS.Client.Core {
             ID = uid++;
 
             Data = new Info {
-                isUsing = other.Status == null ? false : other.Status.Value == 1,
+                isUsing = other.Enabled,
                 panelID = other.Idx ?? -1,
                 panelName = other.Name,
                 isExtended = other.Extendable,
@@ -53,6 +53,21 @@ namespace IMS.Client.Core {
             };
 
             Data.upsList = IntList.Parse(other.UpsList);
+        }
+
+        public IMSCdu ServerData()
+        {
+            var ret = new IMSCdu {
+                Enabled = Data.isUsing,
+                Idx = ID,
+                Name = Data.panelName,
+                Extendable = Data.isExtended,
+                UpsList = Data.upsList.ToString(),
+                InstallAt = Data.installDate,
+                IpAddress = Data.ip
+            };
+
+            return ret;
         }
     }
 }

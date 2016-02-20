@@ -49,7 +49,7 @@ namespace IMS.Client.Core {
             ID = uid++;
 
             Data = new Info {
-                isUsing = other.Status == null ? false : other.Status.Value == 1, // TODO : Check
+                isUsing = other.Enabled,
                 upsID = other.Idx ?? -1,
                 groupID = other.GroupIdx,
                 upsName = other.Name,
@@ -62,6 +62,23 @@ namespace IMS.Client.Core {
             };
 
             Data.partnerList = IntList.Parse(other.MateList);
+        }
+
+        public IMSUps ServerData()
+        {
+            var ret = new IMSUps {
+                Enabled = Data.isUsing,
+                Idx = ID,
+                GroupIdx = Data.groupID,
+                Name = Data.upsName,
+                MateList = Data.partnerList.ToString(),
+                Description = Data.batteryDescription,
+                Capacity = Data.batteryCapacity,
+                IpAddress = Data.ip,
+                InstallAt = Data.installDate
+            };
+
+            return ret;
         }
     }
 }
