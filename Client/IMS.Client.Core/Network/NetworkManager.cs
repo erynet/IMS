@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace IMS.Client.Core {
     public class NetworkManager {
@@ -22,6 +24,9 @@ namespace IMS.Client.Core {
         private IMSClient client;
         private Thread updateThread;
 
+        private List<Task<Action>> sendList = new List<Task<Action>>();
+        private List<Action> callbackList = new List<Action>();
+
         private string mac;
 
         public void Init()
@@ -42,6 +47,17 @@ namespace IMS.Client.Core {
             var exitSuccess = client.Leave();
         }
 
+        public void UpdateCallback()
+        {
+            lock (callbackList) {
+                foreach (var callback in callbackList) {
+                    callback();
+                }
+
+                callbackList.Clear();
+            }
+        }
+
         private void Update()
         {
             try {
@@ -54,11 +70,44 @@ namespace IMS.Client.Core {
                     var now = DateTime.Now;
                     var dt = now - time;
                     time = now;
+
+                    foreach (var send in sendList) {
+                        if (send.IsCompleted == true) {
+                            lock (callbackList) {
+                                callbackList.Add(send.Result);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex) {
 
             }
+        }
+
+        // Send
+
+        public void SendPacket(Func<Action> func)
+        {
+            var task = new Task<Action>(func);
+            sendList.Add(task);
+
+            task.Start();
+        }
+
+        public void SetGroup(Group group)
+        {
+            SendPacket(() => {
+                var ret = client.SetGroup(group.ServerData());
+
+                return () => {
+                    if (ret == true) {
+                    }
+                    else {
+                        // Something's wrong
+                    }
+                };
+            });
         }
     }
 }
