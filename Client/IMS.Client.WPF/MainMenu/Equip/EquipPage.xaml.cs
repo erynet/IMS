@@ -18,8 +18,8 @@ namespace IMS.Client.WPF {
     /// Interaction logic for ListPage.xaml
     /// </summary>
     public partial class EquipPage : Page {
-        private UPSManagePage upsManage = new UPSManagePage();
         private GroupManagePage groupManage = new GroupManagePage();
+        private UPSManagePage upsManage = new UPSManagePage();
         private PanelManagePage panelManage = new PanelManagePage();
         private AddEquipmentPage addEquipment = new AddEquipmentPage();
 

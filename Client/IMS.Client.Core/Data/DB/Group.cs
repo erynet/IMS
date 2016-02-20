@@ -19,24 +19,13 @@ namespace IMS.Client.Core.Data.DB
                     var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
 
                     if (ascending)
-                        return (from g in ctx.Group
-                                orderby g.No ascending
-                                select new Group.Info()
-                                {
-                                    isUsing = g.Enabled,
-                                    groupIdx = g.Idx,
-                                    groupNo = g.No,
-                                    isGroupVisible = g.Display,
-                                    groupName = g.Name,
-                                    coordinate = new Point(g.CoordX, g.CoordY),
-                                    //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
-                                    //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                    upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                    upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
-                                }).ToList();
-                    return (from g in ctx.Group
-                            orderby g.No descending
-                            select new Group.Info()
+                    {
+                        var grs = (from g in ctx.Group orderby g.No ascending select g).ToList();
+                        //var grs = (from g in ctx.Group select g).First();
+                        List<Group.Info> result = new List<Group.Info>();
+                        foreach (var g in grs)
+                        {
+                            result.Add(new Group.Info()
                             {
                                 isUsing = g.Enabled,
                                 groupIdx = g.Idx,
@@ -48,7 +37,62 @@ namespace IMS.Client.Core.Data.DB
                                 //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
                                 upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
                                 upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
-                            }).ToList();
+                            });
+                        }
+                        return result;
+                    }
+                    //return (from g in ctx.Group
+                    //        orderby g.No ascending
+                    //        select new Group.Info()
+                    //        {
+                    //            isUsing = g.Enabled,
+                    //            groupIdx = g.Idx,
+                    //            groupNo = g.No,
+                    //            isGroupVisible = g.Display,
+                    //            groupName = g.Name,
+                    //            coordinate = new Point(g.CoordX, g.CoordY),
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //        }).ToList();
+                    else
+                    {
+                        var grs = (from g in ctx.Group orderby g.No ascending select g).ToList();
+                        List<Group.Info> result = new List<Group.Info>();
+                        foreach (var g in grs)
+                        {
+                            result.Add(new Group.Info()
+                            {
+                                isUsing = g.Enabled,
+                                groupIdx = g.Idx,
+                                groupNo = g.No,
+                                isGroupVisible = g.Display,
+                                groupName = g.Name,
+                                coordinate = new Point(g.CoordX, g.CoordY),
+                                //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                                //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                                upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                                upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                            });
+                        }
+                        return result;
+                    }
+                    //return (from g in ctx.Group
+                    //        orderby g.No descending
+                    //        select new Group.Info()
+                    //        {
+                    //            isUsing = g.Enabled,
+                    //            groupIdx = g.Idx,
+                    //            groupNo = g.No,
+                    //            isGroupVisible = g.Display,
+                    //            groupName = g.Name,
+                    //            coordinate = new Point(g.CoordX, g.CoordY),
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //        }).ToList();
                 }
             }
             catch (Exception e)
@@ -66,21 +110,41 @@ namespace IMS.Client.Core.Data.DB
                 {
                     var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
 
-                    return (from g in ctx.Group
-                            where g.Idx == groupIdx
-                            select new Group.Info()
-                            {
-                                isUsing = g.Enabled,
-                                groupIdx = g.Idx,
-                                groupNo = g.No,
-                                isGroupVisible = g.Display,
-                                groupName = g.Name,
-                                coordinate = new Point(g.CoordX, g.CoordY),
-                                //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
-                                //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
-                            }).DefaultIfEmpty(null).First();
+                    var gr = (from g in ctx.Group
+                              where g.Idx == groupIdx
+                              select g).DefaultIfEmpty(null).First();
+                    if (gr == null)
+                        return null;
+
+                    return new Group.Info()
+                    {
+                        isUsing = gr.Enabled,
+                        groupIdx = gr.Idx,
+                        groupNo = gr.No,
+                        isGroupVisible = gr.Display,
+                        groupName = gr.Name,
+                        coordinate = new Point(gr.CoordX, gr.CoordY),
+                        //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                        //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                        upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.No).ToArray())
+                    };
+
+                    //return (from g in ctx.Group
+                    //        where g.Idx == groupIdx
+                    //        select new Group.Info()
+                    //        {
+                    //            isUsing = g.Enabled,
+                    //            groupIdx = g.Idx,
+                    //            groupNo = g.No,
+                    //            isGroupVisible = g.Display,
+                    //            groupName = g.Name,
+                    //            coordinate = new Point(g.CoordX, g.CoordY),
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //        }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
@@ -98,21 +162,41 @@ namespace IMS.Client.Core.Data.DB
                 {
                     var upsTotal = (from u in ctx.Ups orderby u.Idx ascending select u).ToList();
 
-                    return (from g in ctx.Group
-                            where g.No == groupNo
-                            select new Group.Info()
-                            {
-                                isUsing = g.Enabled,
-                                groupIdx = g.Idx,
-                                groupNo = g.No,
-                                isGroupVisible = g.Display,
-                                groupName = g.Name,
-                                coordinate = new Point(g.CoordX, g.CoordY),
-                                //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
-                                //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
-                                upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
-                                upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
-                            }).DefaultIfEmpty(null).First();
+                    var gr = (from g in ctx.Group
+                              where g.Idx == groupNo
+                              select g).DefaultIfEmpty(null).First();
+                    if (gr == null)
+                        return null;
+
+                    return new Group.Info()
+                    {
+                        isUsing = gr.Enabled,
+                        groupIdx = gr.Idx,
+                        groupNo = gr.No,
+                        isGroupVisible = gr.Display,
+                        groupName = gr.Name,
+                        coordinate = new Point(gr.CoordX, gr.CoordY),
+                        //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                        //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                        upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.Idx).ToArray()),
+                        upsNoList = new IntList((from u in upsTotal where u.GroupIdx == gr.Idx orderby u.No ascending select u.No).ToArray())
+                    };
+
+                    //return (from g in ctx.Group
+                    //        where g.No == groupNo
+                    //        select new Group.Info()
+                    //        {
+                    //            isUsing = g.Enabled,
+                    //            groupIdx = g.Idx,
+                    //            groupNo = g.No,
+                    //            isGroupVisible = g.Display,
+                    //            groupName = g.Name,
+                    //            coordinate = new Point(g.CoordX, g.CoordY),
+                    //            //upsIdxList = new IntList((from u in upsTotal where Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToList().Contains(u.No) select u.Idx).ToArray()),
+                    //            //upsNoList = new IntList(Regex.Split(g.UpsList, @"\D+").Select(n => Convert.ToInt32(n)).ToArray())
+                    //            upsIdxList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.Idx).ToArray()),
+                    //            upsNoList = new IntList((from u in upsTotal where u.GroupIdx == g.Idx orderby u.No ascending select u.No).ToArray())
+                    //        }).DefaultIfEmpty(null).First();
                 }
             }
             catch (Exception e)
@@ -215,6 +299,6 @@ namespace IMS.Client.Core.Data.DB
 
         #endregion
 
-        
+
     }
 }
