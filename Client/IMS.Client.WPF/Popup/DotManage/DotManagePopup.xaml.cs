@@ -32,7 +32,7 @@ namespace IMS.Client.WPF {
             }
 
 
-            if(panel.Data.isExtended == true) {
+            if(panel.isExtended == true) {
                 ExtendedDotList.Visibility = Visibility.Visible;
             }
             else {

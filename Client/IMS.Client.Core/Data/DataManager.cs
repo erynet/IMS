@@ -90,117 +90,129 @@ namespace IMS.Client.Core.Data {
 
         public List<Ups.Info> GetUpsData()
         {
-            var ret = new List<Ups.Info>();
+            return LocalDBDriver.GetUpss();
+            //var ret = new List<Ups.Info>();
 
-            foreach (var pair in upsList) {
-                var copyData = new Ups.Info();
-                copyData.Copy(pair.Value.Data);
-                ret.Add(copyData);
-            }
+            //foreach (var pair in upsList) {
+            //    var copyData = new Ups.Info();
+            //    copyData.Copy(pair.Value.Data);
+            //    ret.Add(copyData);
+            //}
 
-            return ret;
+            //return ret;
         }
 
         public List<Cdu.Info> GetCduData()
         {
-            var ret = new List<Cdu.Info>();
+            return LocalDBDriver.GetCdus();
+            //var ret = new List<Cdu.Info>();
 
-            foreach (var pair in cduList) {
-                var copyData = new Cdu.Info();
-                copyData.Copy(pair.Value.Data);
-                ret.Add(copyData);
-            }
+            //foreach (var pair in cduList) {
+            //    var copyData = new Cdu.Info();
+            //    copyData.Copy(pair.Value.Data);
+            //    ret.Add(copyData);
+            //}
 
-            return ret;
+            //return ret;
         }
 
         public List<Group.Info> GetGroupData()
         {
-            var ret = new List<Group.Info>();
+            return LocalDBDriver.GetGroups();
+            //var ret = new List<Group.Info>();
 
-            foreach (var pair in groupList) {
-                var copyData = new Group.Info();
-                copyData.Copy(pair.Value.Data);
+            //foreach (var pair in groupList) {
+            //    var copyData = new Group.Info();
+            //    copyData.Copy(pair.Value.Data);
 
-                ret.Add(copyData);
-            }
+            //    ret.Add(copyData);
+            //}
 
-            return ret;
+            //return ret;
         }
 
         public void AddUps(Ups.Info newInfo)
         {
-            var ups = GetUps(newInfo.upsIdx);
-            if (ups == null) {
-                ups = new Ups();
-                ups.Data = newInfo;
-                newInfo.upsIdx = ups.ID;
+            LocalDBDriver.AddUps(newInfo);
+            //var ups = GetUps(newInfo.upsIdx);
+            //if (ups == null) {
+            //    ups = new Ups();
+            //    ups.Data = newInfo;
+            //    newInfo.upsIdx = ups.ID;
 
-                upsList.Add(ups.ID, ups);
-            }
+            //    upsList.Add(ups.ID, ups);
+            //}
         }
 
         public void AddCdu(Cdu.Info newInfo)
         {
-            var cdu = GetCdu(newInfo.cduIdx);
-            if (cdu == null) {
-                cdu = new Cdu();
-                cdu.Data = newInfo;
-                newInfo.cduIdx = cdu.ID;
+            LocalDBDriver.AddCdu(newInfo);
+            //var cdu = GetCdu(newInfo.cduIdx);
+            //if (cdu == null) {
+            //    cdu = new Cdu();
+            //    cdu.Data = newInfo;
+            //    newInfo.cduIdx = cdu.ID;
 
-                cduList.Add(cdu.ID, cdu);
-            }
+            //    cduList.Add(cdu.ID, cdu);
+            //}
         }
 
         public void AddGroup(Group.Info newInfo)
         {
-            var group = new Group();
-            group.Data = newInfo;
-            newInfo.groupIdx = group.ID;
+            LocalDBDriver.AddGroup(newInfo);
+            //var group = new Group();
+            //group.Data = newInfo;
+            //newInfo.groupIdx = group.ID;
 
-            groupList.Add(group.ID, group);
+            //groupList.Add(group.ID, group);
         }
 
         public void EditUps(Ups.Info info)
         {
-            var ups = GetUps(info.upsIdx);
-            ups?.Data.Copy(info);
+            LocalDBDriver.SetUps(info);
+            //var ups = GetUps(info.upsIdx);
+            //ups?.Data.Copy(info);
         }
 
         public void EditCdu(Cdu.Info info)
         {
-            var cdu = GetCdu(info.cduIdx);
-            cdu?.Data.Copy(info);
+            LocalDBDriver.SetCdu(info);
+            //var cdu = GetCdu(info.cduIdx);
+            //cdu?.Data.Copy(info);
         }
 
-        public void EditGroup(Group.Info newInfo)
+        public void EditGroup(Group.Info info)
         {
-            var group = GetGroup(newInfo.groupIdx);
-            group?.Data.Copy(newInfo);
+            LocalDBDriver.SetGroup(info);
+            //var group = GetGroup(newInfo.groupIdx);
+            //group?.Data.Copy(newInfo);
         }
 
-        public Ups GetUps(int id)
+        public Ups.Info GetUps(int idx)
         {
-            Ups ret = null;
-            upsList.TryGetValue(id, out ret);
+            return LocalDBDriver.GetUpsByIdx(idx);
+            //Ups ret = null;
+            //upsList.TryGetValue(id, out ret);
 
-            return ret;
+            //return ret;
         }
 
-        public Cdu GetCdu(int id)
+        public Cdu.Info GetCdu(int idx)
         {
-            Cdu ret = null;
-            cduList.TryGetValue(id, out ret);
+            return LocalDBDriver.GetCduByIdx(idx);
+            //Cdu ret = null;
+            //cduList.TryGetValue(id, out ret);
 
-            return ret;
+            //return ret;
         }
 
-        public Group GetGroup(int id)
+        public Group.Info GetGroup(int idx)
         {
-            Group ret = null;
-            groupList.TryGetValue(id, out ret);
+            return LocalDBDriver.GetGroupByIdx(idx);
+            //Group ret = null;
+            //groupList.TryGetValue(id, out ret);
 
-            return ret;
+            //return ret;
         }
 
         public void DeleteUps(int id)
@@ -211,23 +223,23 @@ namespace IMS.Client.Core.Data {
             }
 
             // Partner
-            var partnerList = ups.Data.partnerIdxList;
+            var partnerList = ups.partnerIdxList;
             foreach (var partnerID in partnerList) {
                 if (partnerID == id) {
                     continue;
                 }
 
                 var partnerUps = GetUps(partnerID);
-                partnerUps?.Data.partnerIdxList.Remove(id);
+                partnerUps?.partnerIdxList.Remove(id);
             }
 
             // Cdu
-            var cdu = GetCdu(ups.Data.cduIdx);
-            cdu?.Data.upsIdxList.Remove(id);
+            var cdu = GetCdu(ups.cduIdx);
+            cdu?.upsIdxList.Remove(id);
 
             // Group
-            var group = GetGroup(ups.Data.groupIdx);
-            group?.Data.upsIdxList.Remove(id);
+            var group = GetGroup(ups.groupIdx);
+            group?.upsIdxList.Remove(id);
 
             upsList.Remove(id);
         }
@@ -264,13 +276,13 @@ namespace IMS.Client.Core.Data {
                 return;
             }
 
-            foreach (var upsId in group.Data.upsIdxList) {
+            foreach (var upsId in group.upsIdxList) {
                 var ups = GetUps(upsId);
                 if (ups == null) {
                     continue;
                 }
 
-                ups.Data.groupIdx = -1;
+                ups.groupIdx = -1;
             }
 
             groupList.Remove(id);
