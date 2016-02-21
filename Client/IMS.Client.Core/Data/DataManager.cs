@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using IMS.Client.Core.Data.DB;
+using IMS.Database.LocalDB.Model;
 
 namespace IMS.Client.Core.Data {
     public class DataManager {
@@ -245,6 +246,11 @@ namespace IMS.Client.Core.Data {
             //groupList.TryGetValue(id, out ret);
 
             //return ret;
+        }
+
+        public WarningLog.Info GetWarningLog(DateTime fromTime)
+        {
+            return LocalDBDriver.GetWaringLog(fromTime);
         }
 
         public void DeleteUps(int id)

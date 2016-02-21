@@ -61,11 +61,13 @@
     <Compile Include="Data\DB\Group.cs" />
     <Compile Include="Data\DB\Ups.cs" />
     <Compile Include="Data\DB\UpsEvent.cs" />
+    <Compile Include="Data\DB\WarningLog.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\Cdu.cs" />
     <Compile Include="Data\IntList.cs" />
     <Compile Include="Data\Point.cs" />
     <Compile Include="Data\UpsEvent.cs" />
+    <Compile Include="Data\WarningLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Ups.cs" />
   </ItemGroup>

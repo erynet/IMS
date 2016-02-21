@@ -38,14 +38,14 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
-        public static List<CduEvent.Info> GetCduEventRange(int cduNo, DateTime from_time, DateTime to_time)
+        public static List<CduEvent.Info> GetCduEventRange(int cduNo, DateTime fromTime, DateTime toTime)
         {
             try
             {
                 using (var ctx = new LocalDB())
                 {
                     var ces =
-                        (from s in ctx.CduEvent where s.CduNo == cduNo && (s.TimeStamp >= from_time && s.TimeStamp <= to_time) orderby s.Idx descending select s).ToList();
+                        (from s in ctx.CduEvent where s.CduNo == cduNo && (s.TimeStamp >= fromTime && s.TimeStamp <= toTime) orderby s.Idx descending select s).ToList();
                     List<CduEvent.Info> result = new List<CduEvent.Info>();
                     foreach (var ce in ces)
                     {

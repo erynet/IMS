@@ -38,14 +38,14 @@ namespace IMS.Client.Core.Data.DB
             }
         }
 
-        public static List<UpsEvent.Info> GetUpsEventRange(int upsNo, DateTime from_time, DateTime to_time)
+        public static List<UpsEvent.Info> GetUpsEventRange(int upsNo, DateTime fromTime, DateTime toTime)
         {
             try
             {
                 using (var ctx = new LocalDB())
                 {
                     var ces =
-                        (from s in ctx.UpsEvent where s.UpsNo == upsNo && (s.TimeStamp >= from_time && s.TimeStamp <= to_time) orderby s.Idx descending select s).ToList();
+                        (from s in ctx.UpsEvent where s.UpsNo == upsNo && (s.TimeStamp >= fromTime && s.TimeStamp <= toTime) orderby s.Idx descending select s).ToList();
                     List<UpsEvent.Info> result = new List<UpsEvent.Info>();
                     foreach (var ce in ces)
                     {
