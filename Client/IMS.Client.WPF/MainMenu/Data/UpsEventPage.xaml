@@ -1,0 +1,23 @@
+﻿<Page x:Class="IMS.Client.WPF.UpsEventPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS.Client.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1680"
+      Title="UpsEventPage">
+
+    <Grid>
+        <DataGrid x:Name="UpsEventList">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="분전반 번호" Binding="{Binding cduNo}"/>
+                <DataGridTextColumn Header="제목" Binding="{Binding title}"/>
+                <DataGridTextColumn Header="내용" Binding="{Binding body}"/>
+                <DataGridTextColumn Header="우선 순위" Binding="{Binding priority}"/>
+                <DataGridTextColumn Header="시간" Binding="{Binding timeStamp}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

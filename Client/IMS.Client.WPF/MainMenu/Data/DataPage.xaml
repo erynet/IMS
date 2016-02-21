@@ -9,6 +9,6 @@
       Title="DataPage">
 
     <Grid>
-        <Frame x:Name="MainFrame"/>
+        <Frame x:Name="MainFrame" Content="" Margin="120,0,0,0"/>
     </Grid>
 </Page>
