@@ -7,9 +7,9 @@ namespace IMS.Database.LocalDB.Model
     public class EventLog
     {
         public int Idx { get; set; }
-        public string Description { get; set; }
         public int Code { get; set; }
         public string Data { get; set; }
+        public string Description { get; set; }
         public DateTime TimeStamp { get; set; }
 
         public EventLog(string description, int code)
@@ -30,15 +30,15 @@ namespace IMS.Database.LocalDB.Model
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(e => e.Description)
+            Property(e => e.Code)
+                .IsRequired()
+                .HasColumnOrder(1);
+            Property(e => e.Data)
                 .IsOptional()
                 .HasMaxLength(4096)
                 .IsUnicode(true)
-                .HasColumnOrder(1);
-            Property(e => e.Code)
-                .IsRequired()
                 .HasColumnOrder(2);
-            Property(e => e.Data)
+            Property(e => e.Description)
                 .IsOptional()
                 .HasMaxLength(4096)
                 .IsUnicode(true)

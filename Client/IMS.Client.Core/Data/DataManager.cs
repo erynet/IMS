@@ -248,9 +248,24 @@ namespace IMS.Client.Core.Data {
             //return ret;
         }
 
-        public WarningLog.Info GetWarningLog(DateTime fromTime)
+        public List<WarningLog.Info> GetWarningLog(DateTime fromTime)
         {
-            return LocalDBDriver.GetWaringLog(fromTime);
+            return LocalDBDriver.GetWarningLog(fromTime);
+        }
+
+        public List<WarningLog.Info> GetWarningLogRange(DateTime fromTime, DateTime toTime)
+        {
+            return LocalDBDriver.GetWarningLogRange(fromTime, toTime);
+        }
+
+        public List<EventLog.Info> GetEventLog(DateTime fromTime)
+        {
+            return LocalDBDriver.GetEventLog(fromTime);
+        }
+
+        public List<EventLog.Info> GetEventLogRange(DateTime fromTime, DateTime toTime)
+        {
+            return LocalDBDriver.GetEventLogRange(fromTime, toTime);
         }
 
         public void DeleteUps(int id)
