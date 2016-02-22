@@ -99,14 +99,24 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
+            bool upsExists = false;
             bool showMessage = false;
+
             foreach (var item in GroupList.SelectedItems) {
                 var info = item as Group.Info;
 
+                if(info.upsIdxList.Count != 0) {
+                    upsExists = true;
+                }
+
                 if (addedList.Contains(info) == false) {
                     showMessage = true;
-                    break;
                 }
+            }
+
+            if(upsExists == true) {
+                MessageBox.Show("그룹에 소속된 장비가 한 개라도 존재할 경우 삭제할 수 없습니다.", "", MessageBoxButton.OK);
+                return;
             }
 
             if (showMessage == true) {
