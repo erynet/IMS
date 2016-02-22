@@ -8,14 +8,6 @@ namespace IMS.Client.Core.Data {
         private static DataManager client = new DataManager();
         public static DataManager inst => client;
 
-        private Dictionary<int, Ups> upsList = new Dictionary<int, Ups>();
-        private Dictionary<int, Cdu> cduList = new Dictionary<int, Cdu>();
-        private Dictionary<int, Group> groupList = new Dictionary<int, Group>();
-
-        public Dictionary<int, Ups> UpsList => upsList;
-        public Dictionary<int, Cdu> CduList => cduList;
-        public Dictionary<int, Group> GroupList => groupList;
-
         public void Init()
         {
             // Ups
@@ -270,75 +262,17 @@ namespace IMS.Client.Core.Data {
 
         public void DeleteUps(int id)
         {
-            var ups = GetUps(id);
-            if (ups == null) {
-                return;
-            }
-
-            // Partner
-            var partnerList = ups.partnerIdxList;
-            foreach (var partnerID in partnerList) {
-                if (partnerID == id) {
-                    continue;
-                }
-
-                var partnerUps = GetUps(partnerID);
-                partnerUps?.partnerIdxList.Remove(id);
-            }
-
-            // Cdu
-            var cdu = GetCdu(ups.cduIdx);
-            cdu?.upsIdxList.Remove(id);
-
-            // Group
-            var group = GetGroup(ups.groupIdx);
-            group?.upsIdxList.Remove(id);
-
-            upsList.Remove(id);
+            LocalDBDriver.DelUps(id);
         }
 
         public void DeleteCdu(int id)
         {
-            var cdu = GetCdu(id);
-            if (cdu == null) {
-                return;
-            }
-
-            // Remove child ups
-            var removeUpsList = new List<int>();
-
-            foreach (var pair in upsList) {
-                var ups = pair.Value;
-                if (ups.Data.cduIdx == id) {
-                    removeUpsList.Add(ups.ID);
-                }
-            }
-
-            foreach (var upsID in removeUpsList) {
-                upsList.Remove(upsID);
-            }
-
-            // Remove
-            cduList.Remove(id);
+            LocalDBDriver.DelCdu(id);
         }
 
         public void DeleteGroup(int id)
         {
-            var group = GetGroup(id);
-            if (group == null) {
-                return;
-            }
-
-            foreach (var upsId in group.upsIdxList) {
-                var ups = GetUps(upsId);
-                if (ups == null) {
-                    continue;
-                }
-
-                ups.groupIdx = -1;
-            }
-
-            groupList.Remove(id);
+            LocalDBDriver.DelGroup(id);
         }
     }
 }
