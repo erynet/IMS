@@ -50,9 +50,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Click="button_add_Click"/>
-        <Button x:Name="button_delete" Content="삭제" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="104" Click="button_delete_Click"/>
-        <Button x:Name="button_apply" Content="적용" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="104" Click="button_apply_Click"/>
-        <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="340,10,0,0" VerticalAlignment="Top" Width="104" Click="button_cancel_Click"/>
+        <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="button_add_Click"/>
+        <Button x:Name="button_delete" Content="삭제" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="80" Click="button_delete_Click"/>
+        <Button x:Name="button_apply" Content="적용" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="80" Click="button_apply_Click"/>
+        <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="80" Click="button_cancel_Click"/>
     </Grid>
 </Page>
