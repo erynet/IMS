@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 using IMS.Client.Core;
 using IMS.Client.Core.Data;
@@ -91,39 +92,39 @@ namespace IMS.Client.WPF {
         }
 
         // Main menu
-        private void button_equip_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(equip);
-        }
-
-        private void button_alarm_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(alarm);
-        }
-
-        private void button_data_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(data);
-        }
-
-        private void button_map_Click(object sender, RoutedEventArgs e)
+        private void button_map_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Navigate(map);
         }
 
-        private void button_setting_Click(object sender, RoutedEventArgs e)
+        private void button_list_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(equip);
+        }
+
+        private void button_alarm_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(alarm);
+        }
+
+        private void button_data_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(data);
+        }
+
+        private void button_setting_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Navigate(setting);
         }
 
-        private void button_help_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_special_event_Click(object sender, RoutedEventArgs e)
+        private void button_special_event_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Navigate(special);
+        }
+
+        private void button_help_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
