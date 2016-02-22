@@ -43,6 +43,10 @@ namespace IMS.Client.WPF {
 
             var groupList = DataManager.inst.GetGroupData();
             foreach (var data in groupList) {
+                if (data.isGroupVisible == false) {
+                    continue;
+                }
+
                 var display = new GroupImageDisplay();
                 groupImageList.Add(display);
 
