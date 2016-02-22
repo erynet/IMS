@@ -65,7 +65,7 @@ namespace IMS.Client.WPF {
 
             if (e.Column.Header.ToString() == "좌표") {
                 var txt = e.EditingElement as TextBox;
-                if(txt.Text != "") {
+                if (txt.Text != "") {
                     info.coordinate = Point.Parse(txt.Text);
                 }
             }
@@ -99,25 +99,49 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
-            var info = GroupList.SelectedItem as Group.Info;
-            if (addedList.Contains(info) == true) {
-                addedList.Remove(info);
-                copyList.Remove(info);
+            bool showMessage = false;
+            foreach (var item in GroupList.SelectedItems) {
+                var info = item as Group.Info;
 
-                ResetView();
+                if (addedList.Contains(info) == false) {
+                    showMessage = true;
+                    break;
+                }
             }
-            else {
+
+            if (showMessage == true) {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
+
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            DataManager.inst.DeleteGroup(info.groupIdx);
-                            parent.GroupRefreshExceptGroup();
+                            foreach (var item in GroupList.SelectedItems) {
+                                var info = item as Group.Info;
 
-                            copyList.Remove(info);
+                                if (addedList.Contains(info) == true) {
+                                    addedList.Remove(info);
+                                }
+                                else {
+                                    DataManager.inst.DeleteGroup(info.groupIdx);
+                                }
+
+                                copyList.Remove(info);
+                            }
+
+                            parent.GroupRefreshExceptGroup();
                             ResetView();
                         }
                         break;
                 }
+            }
+            else {
+                foreach (var item in GroupList.SelectedItems) {
+                    var info = item as Group.Info;
+
+                    addedList.Remove(info);
+                    copyList.Remove(info);
+                }
+
+                ResetView();
             }
         }
 

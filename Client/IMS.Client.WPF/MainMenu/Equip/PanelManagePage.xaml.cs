@@ -127,25 +127,49 @@ namespace IMS.Client.WPF {
 
         private void button_delete_Click(object sender, RoutedEventArgs e)
         {
-            var info = PanelList.SelectedItem as Cdu.Info;
-            if (addedList.Contains(info) == true) {
-                addedList.Remove(info);
-                copyList.Remove(info);
+            bool showMessage = false;
+            foreach (var item in PanelList.SelectedItems) {
+                var info = item as Cdu.Info;
 
-                ResetView();
+                if (addedList.Contains(info) == false) {
+                    showMessage = true;
+                    break;
+                }
             }
-            else {
+
+            if (showMessage == true) {
                 var result = MessageBox.Show("삭제하시겠습니까?  삭제는 바로 적용됩니다.", "", MessageBoxButton.YesNoCancel);
+
                 switch (result) {
                     case MessageBoxResult.Yes: {
-                            DataManager.inst.DeleteCdu(info.cduIdx);
-                            parent.PanelRefreshExceptPanel();
+                            foreach (var item in PanelList.SelectedItems) {
+                                var info = item as Cdu.Info;
 
-                            copyList.Remove(info);
+                                if (addedList.Contains(info) == true) {
+                                    addedList.Remove(info);
+                                }
+                                else {
+                                    DataManager.inst.DeleteCdu(info.cduIdx);
+                                }
+
+                                copyList.Remove(info);
+                            }
+
+                            parent.PanelRefreshExceptPanel();
                             ResetView();
                         }
                         break;
                 }
+            }
+            else {
+                foreach (var item in PanelList.SelectedItems) {
+                    var info = item as Cdu.Info;
+
+                    addedList.Remove(info);
+                    copyList.Remove(info);
+                }
+
+                ResetView();
             }
         }
 
