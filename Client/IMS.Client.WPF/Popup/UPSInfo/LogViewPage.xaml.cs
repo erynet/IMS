@@ -30,9 +30,9 @@ namespace IMS.Client.WPF {
             this.parent = parent;
         }
 
-        public void SetID(int upsID)
+        public void SetNo(int upsNo)
         {
-            equipment_number.Text = upsID.ToString();
+            equipment_number.Text = upsNo.ToString();
         }
 
         private void button_close_Click(object sender, RoutedEventArgs e)

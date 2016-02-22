@@ -95,7 +95,7 @@ namespace IMS.Client.WPF {
                     var row = vis as DataGridRow;
                     var info = row.DataContext as Ups.Info;
 
-                    parent.UpsInfoPopup(info.upsIdx);
+                    parent.UpsInfoPopup(info.upsNo);
 
                     break;
                 }

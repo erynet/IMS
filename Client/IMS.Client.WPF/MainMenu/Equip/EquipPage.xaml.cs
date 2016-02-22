@@ -63,10 +63,10 @@ namespace IMS.Client.WPF {
             popup.Show();
         }
 
-        public void UpsInfoPopup(int upsID)
+        public void UpsInfoPopup(int upsNo)
         {
             var popup = parent.CreatePopup<UPSInfoPopup>();
-            popup.Refresh(upsID);
+            popup.Refresh(upsNo);
             popup.Show();
         }
 

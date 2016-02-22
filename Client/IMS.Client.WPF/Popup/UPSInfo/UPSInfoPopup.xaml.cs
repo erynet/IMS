@@ -34,11 +34,11 @@ namespace IMS.Client.WPF {
             NavigateToUPS();
         }
 
-        public void Refresh(int upsID)
+        public void Refresh(int upsNo)
         {
-            digitalView.SetID(upsID);
-            analogView.SetID(upsID);
-            logView.SetID(upsID);
+            digitalView.SetNo(upsNo);
+            analogView.SetNo(upsNo);
+            logView.SetNo(upsNo);
         }
 
         public void NavigateToUPS()
