@@ -19,7 +19,7 @@
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="그룹 사용" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="그룹 번호" Binding="{Binding groupNo}"/>
-                <DataGridCheckBoxColumn Header="그룹 화면 표시" Binding="{Binding isGroupVisible}"/>
+                <DataGridCheckBoxColumn Header="화면 표시" Binding="{Binding isGroupVisible}"/>
                 <DataGridTextColumn Header="그룹 명칭" Binding="{Binding groupName}"/>
                 <DataGridTextColumn Header="좌표" Binding="{Binding coordinate}"/>
                 <DataGridTextColumn Header="소속 장비" Binding="{Binding upsNoList}" IsReadOnly="True"/>
