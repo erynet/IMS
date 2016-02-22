@@ -51,7 +51,7 @@ namespace IMS.Client.WPF {
 
         private void Update(object sender, EventArgs e)
         {
-            Title = "ETI IMS - version 0.1 - " + String.Format(@"{0:yyyy년 MM월 dd일 - HH시 mm분 ss초}", DateTime.Now);
+            Title = "ETI IMS - Version 0.1 - " + String.Format(@"{0:yyyy년 MM월 dd일 - HH시 mm분 ss초}", DateTime.Now);
         }
 
         private void OnClose(object sender, EventArgs e)
