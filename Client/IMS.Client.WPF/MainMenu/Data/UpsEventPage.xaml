@@ -10,6 +10,12 @@
 
     <Grid>
         <DataGrid x:Name="UpsEventList">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="분전반 번호" Binding="{Binding cduNo}"/>
                 <DataGridTextColumn Header="제목" Binding="{Binding title}"/>

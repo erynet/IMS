@@ -10,6 +10,12 @@
 
     <Grid>
         <DataGrid x:Name="PanelList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" Sorting="PanelList_Sorting" CellEditEnding="PanelList_CellEditEnding">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="사용 여부" Binding="{Binding isUsing}"/>
                 <DataGridTextColumn Header="장비 번호" Binding="{Binding cduNo}"/>
