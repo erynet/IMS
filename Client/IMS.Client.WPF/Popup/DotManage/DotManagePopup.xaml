@@ -8,6 +8,9 @@
         Title="DotManagePopup" Height="800" Width="800">
     <Grid>
         <Grid x:Name="MainDotList" Margin="-20,-20,20,20">
+            <Button x:Name="button_save" Content="저장" HorizontalAlignment="Left" Margin="34,28,0,0" VerticalAlignment="Top" Width="76" Click="button_save_Click"/>
+            <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="128,28,0,0" VerticalAlignment="Top" Width="76"/>
+
             <Label x:Name="label" Content="1번 접점" HorizontalAlignment="Left" Margin="55,58,0,0" VerticalAlignment="Top" Width="71"/>
             <TextBox x:Name="name1" HorizontalAlignment="Left" Height="23" Margin="126,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
             <CheckBox x:Name="enable1" Content="" HorizontalAlignment="Left" Margin="35,63,0,0" VerticalAlignment="Top"/>
@@ -154,8 +157,6 @@
             <Label x:Name="label_Copy46" Content="48번 접점" HorizontalAlignment="Left" Margin="446,735,0,0" VerticalAlignment="Top" Width="71"/>
             <TextBox x:Name="name48" HorizontalAlignment="Left" Height="24" Margin="517,737,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
             <CheckBox x:Name="enable48" Content="" HorizontalAlignment="Left" Margin="426,739,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="button_save" Content="저장" HorizontalAlignment="Left" Margin="34,28,0,0" VerticalAlignment="Top" Width="76" Click="button_save_Click"/>
-            <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="128,28,0,0" VerticalAlignment="Top" Width="76"/>
         </Grid>
     </Grid>
 </Window>
