@@ -8,8 +8,8 @@
       d:DesignHeight="1020" d:DesignWidth="1680"
       Title="PanelManagePage">
 
-    <Grid>
-        <DataGrid x:Name="PanelList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" Sorting="PanelList_Sorting" CellEditEnding="PanelList_CellEditEnding">
+    <Grid Background="#FFF0F0F0">
+        <DataGrid x:Name="PanelList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" Sorting="PanelList_Sorting" CellEditEnding="PanelList_CellEditEnding" HorizontalAlignment="Left" BorderBrush="{x:Null}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />

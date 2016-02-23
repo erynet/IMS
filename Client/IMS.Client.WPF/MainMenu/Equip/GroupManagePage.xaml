@@ -8,8 +8,8 @@
       d:DesignHeight="1020" d:DesignWidth="1680"
       Title="GroupManagePage">
 
-    <Grid>
-        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,35,0,0" Sorting="GroupList_Sorting">
+    <Grid Background="#FFF0F0EE">
+        <DataGrid x:Name="GroupList" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="GroupList_CellEditEnding" Margin="0,35,0,0" Sorting="GroupList_Sorting" BorderBrush="{x:Null}" HorizontalAlignment="Left">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
