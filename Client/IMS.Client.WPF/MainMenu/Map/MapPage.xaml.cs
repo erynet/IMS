@@ -14,7 +14,7 @@ namespace IMS.Client.WPF {
     public partial class MapPage : Page {
         private class GroupImageDisplay {
             public System.Windows.Controls.Image groupIcon = new System.Windows.Controls.Image();
-            public Label groupID = new Label();
+            public Label groupNo = new Label();
             public Label upsCount = new Label();
         }
 
@@ -35,7 +35,7 @@ namespace IMS.Client.WPF {
 
             foreach (var display in groupImageList) {
                 grid.Children.Remove(display.groupIcon);
-                grid.Children.Remove(display.groupID);
+                grid.Children.Remove(display.groupNo);
                 grid.Children.Remove(display.upsCount);
             }
 
@@ -60,17 +60,17 @@ namespace IMS.Client.WPF {
                 image.Height = 64;
 
                 // Group ID
-                var groupIDLabel = display.groupID;
-                groupIDLabel.Content = data.groupIdx;
-                groupIDLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y, 0, 0);
+                var groupNoLabel = display.groupNo;
+                groupNoLabel.Content = data.groupNo;
+                groupNoLabel.Margin = new Thickness(data.coordinate.X + 45, data.coordinate.Y, 0, 0);
 
                 // UPS count
                 var upsCountLabel = display.upsCount;
                 upsCountLabel.Content = data.upsIdxList.Count;
-                upsCountLabel.Margin = new Thickness(data.coordinate.X + 48, data.coordinate.Y + 40, 0, 0);
+                upsCountLabel.Margin = new Thickness(data.coordinate.X + 45, data.coordinate.Y + 40, 0, 0);
 
                 grid.Children.Add(image);
-                grid.Children.Add(groupIDLabel);
+                grid.Children.Add(groupNoLabel);
                 grid.Children.Add(upsCountLabel);
             }
         }
