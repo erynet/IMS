@@ -68,6 +68,21 @@ namespace IMS.Client.WPF {
             PanelList.Items.Refresh();
         }
 
+        private int GetLargestNo()
+        {
+            int ret = -1;
+            foreach (var info in copyList) {
+                if (ret == -1) {
+                    ret = info.cduNo;
+                }
+                else {
+                    ret = Math.Max(ret, info.cduNo);
+                }
+            }
+
+            return ret;
+        }
+
         private void ManageDot_Click(object sender, RoutedEventArgs e)
         {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual) {
@@ -119,6 +134,8 @@ namespace IMS.Client.WPF {
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
             var newInfo = new Cdu.Info();
+            newInfo.cduNo = GetLargestNo() + 1;
+
             addedList.Add(newInfo);
             copyList.Add(newInfo);
 

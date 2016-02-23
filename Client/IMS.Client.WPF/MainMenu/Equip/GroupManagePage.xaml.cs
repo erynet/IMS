@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -59,6 +60,21 @@ namespace IMS.Client.WPF {
             GroupList.Items.Refresh();
         }
 
+        private int GetLargestNo()
+        {
+            int ret = -1;
+            foreach (var info in copyList) {
+                if(ret == -1) {
+                    ret = info.groupNo;
+                }
+                else {
+                    ret = Math.Max(ret, info.groupNo);
+                }
+            }
+
+            return ret;
+        }
+
         private void GroupList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             var info = GroupList.SelectedItem as Group.Info;
@@ -91,6 +107,8 @@ namespace IMS.Client.WPF {
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
             var newInfo = new Group.Info();
+            newInfo.groupNo = GetLargestNo() + 1;
+
             addedList.Add(newInfo);
             copyList.Add(newInfo);
 
@@ -105,7 +123,7 @@ namespace IMS.Client.WPF {
             foreach (var item in GroupList.SelectedItems) {
                 var info = item as Group.Info;
 
-                if(info.upsIdxList.Count != 0) {
+                if (info.upsIdxList.Count != 0) {
                     upsExists = true;
                 }
 
@@ -114,7 +132,7 @@ namespace IMS.Client.WPF {
                 }
             }
 
-            if(upsExists == true) {
+            if (upsExists == true) {
                 MessageBox.Show("그룹에 소속된 장비가 한 개라도 존재할 경우 삭제할 수 없습니다.", "", MessageBoxButton.OK);
                 return;
             }
