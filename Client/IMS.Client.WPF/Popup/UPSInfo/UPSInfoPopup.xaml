@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IMS.Client.WPF"
         mc:Ignorable="d"
-        Title="UPSInfoPopup" Height="800" Width="800">
+        Title="UPS 세부 정보" Height="800" Width="800">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 

@@ -9,7 +9,6 @@
       Title="AnalogViewPage">
 
     <Grid>
-        <Label x:Name="label" Content="UPS 세부 정보" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Height="33" Width="756" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="#FD000000" BorderThickness="1"/>
 
         <Button x:Name="button_digital" Content="디지털" HorizontalAlignment="Left" Margin="699,17,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="button_digital_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="316" Margin="12,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="382"/>
