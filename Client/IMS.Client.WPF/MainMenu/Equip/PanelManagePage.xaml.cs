@@ -120,6 +120,29 @@ namespace IMS.Client.WPF {
 
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
+            // Check
+            bool noBelowOne = false;
+
+            foreach (var info in addedList) {
+                if (info.cduNo <= 0) {
+                    noBelowOne = true;
+                    break;
+                }
+            }
+
+            foreach (var info in changedList) {
+                if (info.cduNo <= 0) {
+                    noBelowOne = true;
+                    break;
+                }
+            }
+
+            if (noBelowOne == true) {
+                MessageBox.Show("장비 번호는 1 이상만 가능합니다.");
+                return;
+            }
+
+            //Save
             foreach (var info in addedList) {
                 DataManager.inst.AddCdu(info);
             }
