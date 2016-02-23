@@ -9,7 +9,7 @@
       Title="UPSManagePage">
 
     <Grid>
-        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,35,0,0" CellEditEnding="UPSList_CellEditEnding" Sorting="UPSList_Sorting">
+        <DataGrid x:Name="UPSList" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,32,0,3" CellEditEnding="UPSList_CellEditEnding" Sorting="UPSList_Sorting">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -53,9 +53,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="button_add_Click"/>
-        <Button x:Name="button_delete" Content="삭제" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="80" Click="button_delete_Click"/>
-        <Button x:Name="button_apply" Content="적용" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="80" Click="button_apply_Click"/>
-        <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="80" Click="button_cancel_Click"/>
+        <Button x:Name="button_add" Content="추가" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="80" Click="button_add_Click"/>
+        <Button x:Name="button_delete" Content="삭제" HorizontalAlignment="Left" Margin="100,7,0,0" VerticalAlignment="Top" Width="80" Click="button_delete_Click"/>
+        <Button x:Name="button_apply" Content="적용" HorizontalAlignment="Left" Margin="190,7,0,0" VerticalAlignment="Top" Width="80" Click="button_apply_Click"/>
+        <Button x:Name="button_cancel" Content="취소" HorizontalAlignment="Left" Margin="280,7,0,0" VerticalAlignment="Top" Width="80" Click="button_cancel_Click"/>
     </Grid>
 </Page>
