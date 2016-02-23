@@ -39,16 +39,25 @@ namespace IMS.Client.WPF {
         private void button_ups_setting_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(upsManage);
+            button_group_setting.Background = Brushes.Transparent;
+            button_ups_setting.Background = Brushes.LightBlue;
+            button_panel_setting.Background = Brushes.Transparent;
         }
 
         private void button_group_setting_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(groupManage);
+            button_group_setting.Background = Brushes.LightBlue;
+            button_ups_setting.Background = Brushes.Transparent;
+            button_panel_setting.Background = Brushes.Transparent;
         }
 
         private void button_panel_setting_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(panelManage);
+            button_group_setting.Background = Brushes.Transparent;
+            button_ups_setting.Background = Brushes.Transparent;
+            button_panel_setting.Background = Brushes.LightBlue;
         }
 
         private void button_add_equipment_Click(object sender, RoutedEventArgs e)
