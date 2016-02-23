@@ -51,7 +51,7 @@
         <Label x:Name="label1_Copy30" Content="IP :" HorizontalAlignment="Left" Margin="527,235,0,0" VerticalAlignment="Top" Width="26"/>
         <Label x:Name="label1_Copy31" Content="설치일 :" HorizontalAlignment="Left" Margin="527,259,0,0" VerticalAlignment="Top" Width="51"/>
         <Label x:Name="label1_Copy32" Content="비고 :" HorizontalAlignment="Left" Margin="527,285,0,0" VerticalAlignment="Top" Width="39"/>
-        <Image x:Name="___IMS_Client_WPF_component_ups_mimic_1_png" Margin="118,108,367,492" Source="/IMS.Client.WPF;component/ups_mimic_1.png" Stretch="Fill" Height="160"/>
+        <Image x:Name="___IMS_Client_WPF_component_ups_mimic_1_png" Margin="41,81,306,449" Source="/IMS.Client.WPF;component/ups_mimic_1.png" Stretch="Fill"/>
         <Label x:Name="label2" Content="장비 번호&#xA; :" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="72" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="equipment_number" HorizontalAlignment="Left" Height="26" Margin="89,10,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="button_close" Content="닫기" HorizontalAlignment="Left" Margin="680,672,0,0" VerticalAlignment="Top" Width="85" Height="20" Click="button_close_Click"/>
