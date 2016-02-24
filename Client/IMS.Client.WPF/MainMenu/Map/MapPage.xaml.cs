@@ -78,7 +78,7 @@ namespace IMS.Client.WPF {
         private BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (var memory = new MemoryStream()) {
-                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
                 memory.Position = 0;
                 BitmapImage bitmapimage = new BitmapImage();
                 bitmapimage.BeginInit();
