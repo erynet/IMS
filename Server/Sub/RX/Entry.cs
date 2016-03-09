@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Threading;
 
 using IMS.Server.Common;
+using IMS.Server.Common.Message;
+using IMS.Server.Common.PacketStruct;
 
 namespace IMS.Server.Sub.RX
 {
@@ -15,6 +18,11 @@ namespace IMS.Server.Sub.RX
         private readonly Stopwatch _stw;
         private bool _loopContinue;
 
+        private BlockingCollection<UpsTotalStruct> _upsTotalStructsQueue;
+
+        private UdpServer _svr;
+
+
         public Entry()
         {
             Log = null;
@@ -24,15 +32,24 @@ namespace IMS.Server.Sub.RX
         public bool ConnectBus(BusHub busHub)
         {
             _busHub = busHub;
-            //_packageFlowQueue = new BlockingCollection<IPackage>();
-            //busHub.Subscribe<IPackage>((m) => { Router(m); });
-            busHub.Subscribe<IPackage>(Router);
+            _upsTotalStructsQueue = new BlockingCollection<UpsTotalStruct>();
+            _busHub.Subscribe<UpsRxMsg>(Router);
             return true;
         }
 
         private void Router(IPackage package)
         {
-            // MessageType 등을 보고 어떤 동작을 취할지 결정하는 함수.
+            //switch (package.MessageType)
+            //{
+            //    case 1:
+            //        UpsRxMsg u = (UpsRxMsg) package;
+            //        _upsTotalStructsQueue.Add((UpsTotalStruct)u.Luggage);
+            //        break;
+            //    case 11:
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         public bool Initialize(int initialCheckIntervalMs)
@@ -63,10 +80,9 @@ namespace IMS.Server.Sub.RX
 
         private void Run()
         {
-            while (_loopContinue)
-            {
-
-            }
+            _svr = new UdpServer("0.0.0.0", 1544);
+            _svr.BusHub = _busHub;
+            _svr.Run();
         }
 
         public void L(string message, LogEvt.MessageType type)
@@ -80,6 +96,7 @@ namespace IMS.Server.Sub.RX
         protected virtual void Dispose(bool disposing)
         {
             _loopContinue = false;
+            _svr.Dispose();
             if (!disposedValue)
             {
                 if (disposing)

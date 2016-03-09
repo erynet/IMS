@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusHub.cs" />
-    <Compile Include="IPackage.cs" />
+    <Compile Include="Message\IPackage.cs" />
     <Compile Include="ISubComponent.cs" />
     <Compile Include="LogEvt.cs" />
+    <Compile Include="Message\ReceivedRawUdpMsg.cs" />
+    <Compile Include="Message\UpsRxMsg.cs" />
+    <Compile Include="Message\UpsTxMsg.cs" />
+    <Compile Include="PacketStruct\UpsTotalStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace IMS.Server.Common
+namespace IMS.Server.Common.Message
 {
     public interface IPackage : IBusMessage
     {
-        string MessageType { get; set; }
+        int MessageType { get; set; }
         string From { get; set; }
         string Message { get; set; }
         DateTime TimeStamp { get; set; }

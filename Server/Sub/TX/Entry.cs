@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 
 using IMS.Server.Common;
+using IMS.Server.Common.Message;
 
 namespace IMS.Server.Sub.TX
 {
